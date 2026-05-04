@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Inter, Arial, sans-serif;
+  background: #0f172a;
+  color: #e5e7eb;
+  line-height: 1.6;
+}
+
+nav {
+  max-width: 1100px;
+  margin: auto;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav h2 {
+  color: white;
+}
+
+nav a {
+  color: #cbd5e1;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+nav a:hover {
+  color: #38bdf8;
+}
+
+.hero {
+  max-width: 1100px;
+  margin: auto;
+  padding: 120px 24px;
+}
+
+.tag {
+  color: #38bdf8;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.hero h1 {
+  font-size: 64px;
+  line-height: 1.1;
+  color: white;
+  margin-bottom: 24px;
+}
+
+.hero p {
+  max-width: 650px;
+  font-size: 20px;
+  color: #cbd5e1;
+  margin-bottom: 32px;
+}
+
+.button {
+  display: inline-block;
+  background: #38bdf8;
+  color: #020617;
+  padding: 14px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 70px 24px;
+}
+
+section h2 {
+  font-size: 36px;
+  color: white;
+  margin-bottom: 28px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  padding: 28px;
+  border-radius: 20px;
+  transition: 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: #38bdf8;
+}
+
+.card h3 {
+  color: white;
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: #cbd5e1;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.skills span {
+  background: #1e293b;
+  border: 1px solid #334155;
+  padding: 10px 16px;
+  border-radius: 999px;
+  color: #e5e7eb;
+}
+
+#contact p {
+  margin-bottom: 10px;
+  color: #cbd5e1;
+}
+
+@media (max-width: 700px) {
+  nav {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  nav a {
+    margin: 0 8px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .hero {
+    padding: 80px 24px;
+  }
+}
