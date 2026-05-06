@@ -147,3 +147,13 @@ section h2 {
     padding: 80px 24px;
   }
 }
+
+.skill-section {
+  margin-bottom: 36px;
+}
+
+.skill-section h3 {
+  color: white;
+  margin-bottom: 16px;
+  font-size: 22px;
+}
