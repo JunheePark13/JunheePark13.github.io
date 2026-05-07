@@ -157,3 +157,14 @@ section h2 {
   margin-bottom: 16px;
   font-size: 22px;
 }
+.project-link {
+  text-decoration: none;
+  color: inherit;
+}
+.project-image {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+  border: 1px solid #334155;
+}
