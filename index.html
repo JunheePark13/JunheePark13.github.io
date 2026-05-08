@@ -4,11 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Junhee Park | Engineering Portfolio</title>
-  <link rel="stylesheet" href="../style.css">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+  <!-- Navigation -->
   <nav>
     <h2>Junhee Park</h2>
+
     <div>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
@@ -16,103 +22,180 @@
     </div>
   </nav>
 
+  <!-- Hero Section -->
   <section class="hero">
-    <p class="tag">Engineering Science • Aerospace</p>
-    <h1>Hi, I’m Junhee Park.</h1>
+
+    <p class="tag">
+      Engineering Science • Aerospace
+    </p>
+
+    <h1>
+      Hi, I’m Junhee Park.
+    </h1>
+
     <p>
-      I’m an Aerospace Engineer (Engineering Science) student at UofT interested in aerodynamics,
+      I’m an Engineering Science student specializing in Aerospace Engineering
+      at the University of Toronto interested in aerodynamics,
       computational methods, propulsion, and aircraft design.
     </p>
-    <a class="button" href="#projects">View My Work</a>
+
+    <a class="button" href="#projects">
+      View My Work
+    </a>
+
   </section>
 
+  <!-- Projects -->
   <section id="projects">
+
     <h2>Projects</h2>
 
-    <a href="projects/windtunnel.html" class="project-link">
-      <div class="card">
-        <h3>Desktop Wind Tunnel</h3>
-        <p>
-          Designed and built a small wind tunnel for flow visualization and
-          experimental aerodynamics.
-        </p>
-      </div>
-    </a>
-    
-    <a href="UTATSAE.html" class="project-link">
-      <div class="card">
-        <h3>UTAT Aerodynamics</h3>
-        <p>
-          Worked on aerodynamic analysis using tools such as XFLR5, OpenVSP, and VSPAero 
-          to examine topics such as prop wash, and design wings for a VTOL. 
-          (Podium finish at SAE Aero Design Advanced Class).
-        </p>
-      </div>
+    <div class="grid">
+
+      <!-- Wind Tunnel -->
+      <a href="projects/windtunnel.html" class="project-link">
+
+        <div class="card">
+
+          <h3>Desktop Wind Tunnel</h3>
+
+          <p>
+            Designed and built a desktop wind tunnel for flow visualization
+            and experimental aerodynamics.
+          </p>
+
+        </div>
+
       </a>
 
-    <a href="Brusselator.html" class="project-link">
-      <div class="card">
-        <h3>Numerical Methods vs PINNs</h3>
-        <p>
-          Quantitative and qualitative comparisons of RK4, Euler-type methods, 
-          and PINNs on nonlinear ODE systems.
-        </p>
+      <!-- UTAT -->
+      <a href="projects/UTATSAE.html" class="project-link">
+
+        <div class="card">
+
+          <h3>UTAT Aerodynamics</h3>
+
+          <p>
+            Worked on aerodynamic analysis using XFLR5, OpenVSP,
+            and VSPAero to study prop wash interactions and wing
+            design for a VTOL aircraft.
+            Podium finish at SAE Aero Design Advanced Class.
+          </p>
+
+        </div>
+
+      </a>
+
+      <!-- Numerical Methods -->
+      <a href="projects/Brusselator.html" class="project-link">
+
+        <div class="card">
+
+          <h3>Numerical Methods vs PINNs</h3>
+
+          <p>
+            Quantitative and qualitative comparisons of RK4,
+            Euler-type methods, and physics-informed neural networks
+            on nonlinear ODE systems.
+          </p>
+
+        </div>
+
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+
+    <h2>Skills</h2>
+
+    <!-- Sims & CAD -->
+    <div class="skill-section">
+
+      <h3>Sims & CAD</h3>
+
+      <div class="skills">
+
+        <span>Fusion 360</span>
+        <span>SolidWorks</span>
+        <span>Onshape</span>
+        <span>AutoCAD</span>
+        <span>XFLR5</span>
+        <span>OpenVSP</span>
+
       </div>
+
     </div>
-    </a>
+
+    <!-- Languages -->
+    <div class="skill-section">
+
+      <h3>Languages</h3>
+
+      <div class="skills">
+
+        <span>Python</span>
+        <span>C</span>
+        <span>Java</span>
+        <span>MATLAB</span>
+
+      </div>
+
+    </div>
+
+    <!-- Manufacturing -->
+    <div class="skill-section">
+
+      <h3>Manufacturing</h3>
+
+      <div class="skills">
+
+        <span>3D Printing</span>
+        <span>Laser Cutting</span>
+        <span>Machining</span>
+
+      </div>
+
+    </div>
+
+    <!-- Areas -->
+    <div class="skill-section">
+
+      <h3>Areas</h3>
+
+      <div class="skills">
+
+        <span>Fluid Dynamics</span>
+        <span>Aerodynamics</span>
+        <span>Thermodynamics</span>
+        <span>Propulsion</span>
+        <span>Combustion Processes</span>
+        <span>Prototyping & Design</span>
+
+      </div>
+
+    </div>
+
   </section>
 
-<section id="skills">
-  <h2>Skills</h2>
-
-  <div class="skill-section">
-    <h3>Sims & CAD</h3>
-    <div class="skills">
-      <span>Fusion 360</span>
-      <span>SolidWorks</span>
-      <span>Onshape</span>
-      <span>AutoCAD</span>
-      <span>XFLR5</span>
-      <span>OpenVSP</span>
-    </div>
-  </div>
-
-  <div class="skill-section">
-    <h3>Languages</h3>
-    <div class="skills">
-      <span>Python</span>
-      <span>C</span>
-      <span>Java</span>
-      <span>MATLAB</span>
-    </div>
-  </div>
-
-  <div class="skill-section">
-    <h3>Manufacturing</h3>
-    <div class="skills">
-      <span>3D Printing</span>
-      <span>Laser Cutting</span>
-      <span>Machining</span>
-    </div>
-  </div>
-
-  <div class="skill-section">
-    <h3>Areas</h3>
-    <div class="skills">
-      <span>Fluid Dynamics</span>
-      <span>Aerodynamics</span>
-      <span>Thermodynamics</span>
-      <span>Propulsion</span>
-      <span>Combustion Processes</span>
-      <span>Prototyping & Design</span>
-    </div>
-  </div>
-</section>
-
+  <!-- Contact -->
   <section id="contact">
+
     <h2>Contact</h2>
-    <p>Email: junheee.park@mail.utoronto.ca</p>
-    <p>LinkedIn: linkedin.com/in/junhee-park013</p>
+
+    <p>
+      Email: junheee.park@mail.utoronto.ca
+    </p>
+
+    <p>
+      LinkedIn:
+      linkedin.com/in/junhee-park013
+    </p>
+
   </section>
+
 </body>
 </html>
