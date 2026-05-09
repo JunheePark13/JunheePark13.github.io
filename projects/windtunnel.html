@@ -36,9 +36,7 @@
       <h2>Project Overview</h2>
 
       <p>
-        This project involved designing and fabricating a compact open-circuit wind tunnel
-        for qualitative aerodynamic testing and flow visualization. The goal was to create
-        a desktop-scale system that could produce reasonably uniform flow while remaining
+        The goal was to create a desktop-scale system that could produce reasonably uniform flow while remaining
         manufacturable using accessible tools such as Fusion 360, 3D printing, and modular
         assembly methods.
       </p>
@@ -51,10 +49,10 @@
       </p>
 
       <p>
-        A major design constraint was size. The tunnel had to fit on a desk while still providing
+        A major design constraint was size. The tunnel had to fit on a desk, and be printable with an Ender 3 v3+, while still providing
         a usable test section for small models and smoke visualization. As a result, the project
-        required tradeoffs between flow quality, fan power, printability, assembly complexity,
-        and overall footprint.
+        required tradeoffs between flow quality (such as reduced contraction zone length),
+        fan power, printability, assembly complexity, and overall footprint.
       </p>
 
     </div>
@@ -77,17 +75,16 @@
       <p>
         The settling chamber was designed with an approximately 180 mm × 180 mm cross-section.
         A honeycomb flow straightener was incorporated to reduce lateral velocity components,
-        swirl, and non-axial flow before the air entered the contraction region. Honeycomb
-        structures are commonly used in wind tunnel settling chambers because they help align
-        the flow and suppress transverse velocity variations [3].
+        swirl, and non-axial flow before the air entered the contraction region, commonly used in
+        settling chambers because they help align the flow and suppress transverse velocity variations [3].
       </p>
 
       <p>
         The contraction section connected the larger settling chamber to a smaller
         100 mm × 100 mm test section. A contraction ratio close to 4:1 was selected because
         contraction ratios in this range are commonly recommended for improving flow uniformity
-        in compact wind tunnel designs [1]. The contraction was also shaped to avoid abrupt
-        geometry changes that could introduce separation or additional turbulence.
+        in compact wind tunnel designs [1], though modified to be shorter due to printer constraints.
+        The contraction was also shaped to avoid abrupt geometry changes that could introduce separation or additional turbulence.
       </p>
 
       <p>
@@ -99,9 +96,8 @@
 
       <p>
         A diffuser was placed downstream of the test section to improve pressure recovery
-        before the flow reached the fan. Diffuser and contraction design are both emphasized
-        in subsonic wind tunnel design literature because they influence pressure losses,
-        flow separation, and test-section flow quality [5].
+        before the flow reached the fan. Diffuser and contraction design are both emphasized for
+        pressure losses, flow separation, and test-section flow quality [5].
       </p>
 
       <p>
@@ -165,10 +161,10 @@
       </p>
 
       <p>
-        The first version of the honeycomb mesh was designed with aerodynamic function in mind,
-        but it proved difficult to manufacture reliably. During fabrication, the geometry was too
-        fragile and experienced structural failure. This forced a redesign that balanced aerodynamic
-        flow-straightening performance with practical printability.
+        The first version of the honeycomb mesh was designed with aerodynamic function in mind, focusing on
+        modelling the walls as thin as possible to minimize resistance, but proved difficult to manufacture reliably. 
+        During fabrication, the geometry was too fragile and experienced structural failure. This forced a redesign 
+        that balanced aerodynamic flow-straightening performance with practical printability.
       </p>
 
       <div class="image-grid">
@@ -274,16 +270,14 @@
         Smoke visualization was used to qualitatively evaluate the flow inside the test section.
         Cylindrical bluff bodies were placed in the flow to observe wake formation, flow separation,
         and vortex shedding behavior. This provided a visual way to assess whether the tunnel
-        could generate coherent flow structures suitable for demonstration and small-scale testing.
-      </p>
-
-      <p>
+        could generate coherent flow structures suitable for demonstration and small-scale testing. 
+        I also recorded the smoke wake of the cylinder while shining a light on top of the test section, and 
+        analyzed the fluctuations of light intensity using OpenCV and Python, using this frequency 
+        to calculate and validate Strouhal number.
         The smoke tests showed that the tunnel could support visible wake structures downstream
-        of cylindrical objects. Although the setup was not instrumented for quantitative velocity
-        or turbulence measurements, it successfully demonstrated the tunnel’s usefulness as a
-        compact experimental platform for introductory aerodynamic visualization.
+        of cylindrical objects.
       </p>
-
+      
       <div class="image-grid">
 
         <div>
@@ -309,7 +303,7 @@
       <h2>Engineering Takeaways</h2>
 
       <p>
-        This project developed practical experience in aerodynamic design, CAD modeling,
+        This project was a fun and low-cost (I have no money) practical experience in aerodynamic design, CAD modeling,
         additive manufacturing, and experimental testing. The most valuable part of the project
         was the iteration between design intent and manufacturing reality: components that were
         aerodynamically reasonable still had to be redesigned to survive fabrication and assembly.
@@ -318,8 +312,10 @@
       <p>
         The final prototype demonstrated the feasibility of a compact, low-cost desktop wind
         tunnel for educational flow visualization. Future improvements could include adding
-        mesh screens, improving sealing, measuring velocity with an anemometer, and comparing
-        observed wake behavior with analytical or computational predictions.
+        mesh screens, improving sealing, measuring velocity with an anemometer, etc. 
+        I am currently planning on making a final version, and will be running CFD 
+        on the geometry before production, adding a simulation layer of verification to the feasibility
+        of recreating testable smooth flow in a controlled environment.
       </p>
 
     </div>
