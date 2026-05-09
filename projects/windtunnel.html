@@ -1,21 +1,128 @@
- <br>
+<br>
 
-    <h2>Tools Used</h2>
+<h2>Design & Engineering Process</h2>
 
-    <div class="skills">
-      <span>Fusion 360</span>
-      <span>3D Printing</span>
-      <span>Fluid Dynamics</span>
-    </div>
+<p>
+This project focused on the design and fabrication of a compact desktop wind tunnel
+intended for flow visualization and low-speed aerodynamic experimentation.
+The tunnel was designed around achieving smooth, uniform flow within tight
+size and power constraints while remaining fully manufacturable using desktop
+fabrication methods.
+</p>
 
-    <br><br>
+<br>
 
-    <h2>Images</h2>
+<h2>Technical Overview</h2>
 
-    <img src="images/windtunnel1.jpg" class="project-image">
-    <img src="images/windtunnel2.jpg" class="project-image">
+<div class="skills">
+  <span>Fusion 360</span>
+  <span>Fluid Dynamics</span>
+  <span>Aerodynamics</span>
+  <span>3D Printing</span>
+  <span>Flow Visualization</span>
+  <span>Prototype Design</span>
+</div>
 
-  </section>
+<br><br>
+
+<p>
+The design incorporated a settling chamber, contraction section, test section,
+diffuser, and suction fan configuration. A hexagonal honeycomb flow straightener
+was implemented to reduce swirl and lateral velocity components before the
+contraction region. Multiple design iterations were tested to improve printability,
+flow quality, and structural rigidity. :contentReference[oaicite:0]{index=0}
+</p>
+
+<p>
+The contraction section was designed with an area ratio close to 4:1 to accelerate
+flow smoothly while minimizing separation and turbulence generation.
+The final tunnel used a 100 mm × 100 mm test section sized to balance useful
+air velocities with compact dimensions suitable for desktop operation. :contentReference[oaicite:1]{index=1}
+</p>
+
+<br>
+
+<h2>CAD Development</h2>
+
+<p>
+Initial concepts and assembly layouts were developed in Fusion 360.
+Several iterations of the flow-straightening honeycomb geometry were explored,
+including failed print attempts and redesigned mesh structures that improved
+manufacturability and structural integrity.
+</p>
+
+<img src="../images/Assembly A.png" class="project-image">
+<img src="../images/Assembly B.png" class="project-image">
+
+<br>
+
+<h2>Honeycomb Mesh Iterations</h2>
+
+<p>
+The honeycomb section was one of the most critical aerodynamic components
+in the system. Early mesh geometries experienced print failures and insufficient
+structural robustness, requiring redesigns to improve printability while
+maintaining effective flow straightening performance.
+</p>
+
+<img src="../images/Hex Mesh V1 (A).png" class="project-image">
+<img src="../images/Hex Mesh V1 (B).png" class="project-image">
+
+<p>
+The first-generation mesh ultimately failed during fabrication due to insufficient
+structural support and manufacturing limitations.
+</p>
+
+<img src="../images/Rough.jpg" class="project-image">
+
+<p>
+A redesigned second-generation honeycomb mesh improved manufacturability
+and successfully integrated into the final assembly.
+</p>
+
+<img src="../images/Hex Mesh V2 (A).png" class="project-image">
+<img src="../images/Hex Mesh V2 (B).png" class="project-image">
+
+<br>
+
+<h2>Prototype Fabrication</h2>
+
+<p>
+The final prototype was manufactured using additive manufacturing techniques
+and assembled as a modular system for testing and iteration.
+Special attention was given to minimizing leakage and internal recirculation,
+both of which significantly impact flow uniformity in compact wind tunnels.
+</p>
+
+<img src="../images/Front View.jpg" class="project-image">
+<img src="../images/Back Fan View.jpg" class="project-image">
+<img src="../images/Hex View.jpg" class="project-image">
+
+<br>
+
+<h2>Flow Visualization Testing</h2>
+
+<p>
+Flow visualization experiments were conducted using smoke streams and
+cylindrical bluff bodies placed within the test section. These experiments
+were used to qualitatively observe wake formation, flow separation,
+and vortex structures generated downstream of the objects.
+</p>
+
+<img src="../images/Cylindrical Test.png" class="project-image">
+<img src="../images/Smoke Visual.jpg" class="project-image">
+
+<br>
+
+<h2>Design Documentation</h2>
+
+<p>
+A detailed design document was produced outlining aerodynamic design choices,
+contraction ratios, honeycomb geometry selection, diffuser considerations,
+and supporting references from NASA and academic wind tunnel literature. :contentReference[oaicite:2]{index=2}
+</p>
+
+</section>
 
 </body>
 </html>
