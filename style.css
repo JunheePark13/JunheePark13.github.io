@@ -168,3 +168,62 @@ section h2 {
   margin-bottom: 24px;
   border: 1px solid #334155;
 }
+
+.project-image {
+  width: 100%;
+  max-width: 850px;
+  height: 500px;
+  object-fit: cover;
+
+  display: block;
+
+  margin: 28px auto;
+
+  border-radius: 18px;
+  border: 1px solid #334155;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+.image-grid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+  gap: 24px;
+
+  margin-top: 24px;
+  margin-bottom: 40px;
+}
+
+.image-grid .project-image {
+  height: 320px;
+  margin: 0;
+}
+
+.image-caption {
+  text-align: center;
+
+  color: #94a3b8;
+
+  font-size: 14px;
+
+  margin-top: -12px;
+  margin-bottom: 28px;
+}
+
+.project-section {
+  margin-bottom: 80px;
+}
+
+.project-section p {
+  margin-bottom: 22px;
+}
+
+.references {
+  line-height: 1.9;
+}
+
+.references p {
+  margin-bottom: 14px;
+}
