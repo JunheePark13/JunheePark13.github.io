@@ -11,10 +11,13 @@ body {
   line-height: 1.6;
 }
 
+/* Navigation */
+
 nav {
   max-width: 1100px;
   margin: auto;
   padding: 24px;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -28,11 +31,15 @@ nav a {
   color: #cbd5e1;
   text-decoration: none;
   margin-left: 20px;
+
+  transition: 0.2s ease;
 }
 
 nav a:hover {
   color: #38bdf8;
 }
+
+/* Hero */
 
 .hero {
   max-width: 1100px;
@@ -49,60 +56,108 @@ nav a:hover {
 .hero h1 {
   font-size: 64px;
   line-height: 1.1;
+
   color: white;
+
   margin-bottom: 24px;
 }
 
 .hero p {
   max-width: 650px;
+
   font-size: 20px;
+
   color: #cbd5e1;
+
   margin-bottom: 32px;
 }
 
 .button {
   display: inline-block;
+
   background: #38bdf8;
   color: #020617;
+
   padding: 14px 24px;
+
   border-radius: 999px;
+
   text-decoration: none;
+
   font-weight: bold;
+
+  transition: 0.2s ease;
 }
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+/* General Sections */
 
 section {
   max-width: 1100px;
   margin: auto;
+
   padding: 70px 24px;
+}
+
+section h1 {
+  font-size: 52px;
+  color: white;
+
+  margin-bottom: 20px;
 }
 
 section h2 {
   font-size: 36px;
   color: white;
+
   margin-bottom: 28px;
 }
 
+section p {
+  color: #cbd5e1;
+}
+
+/* Project Cards */
+
 .grid {
   display: grid;
+
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
   gap: 24px;
+}
+
+.project-link {
+  text-decoration: none;
+  color: inherit;
 }
 
 .card {
   background: #1e293b;
+
   border: 1px solid #334155;
+
   padding: 28px;
+
   border-radius: 20px;
-  transition: 0.2s ease;
+
+  transition: 0.25s ease;
 }
 
 .card:hover {
   transform: translateY(-6px);
+
   border-color: #38bdf8;
+
+  box-shadow: 0 12px 28px rgba(0,0,0,0.25);
 }
 
 .card h3 {
   color: white;
+
   margin-bottom: 12px;
 }
 
@@ -110,26 +165,129 @@ section h2 {
   color: #cbd5e1;
 }
 
+/* Skills */
+
 .skills {
   display: flex;
+
   flex-wrap: wrap;
+
   gap: 12px;
 }
 
 .skills span {
   background: #1e293b;
+
   border: 1px solid #334155;
+
   padding: 10px 16px;
+
   border-radius: 999px;
+
   color: #e5e7eb;
 }
+
+.skill-section {
+  margin-bottom: 36px;
+}
+
+.skill-section h3 {
+  color: white;
+
+  margin-bottom: 16px;
+
+  font-size: 22px;
+}
+
+/* Contact */
 
 #contact p {
   margin-bottom: 10px;
   color: #cbd5e1;
 }
 
+/* Project Pages */
+
+.project-section {
+  margin-bottom: 80px;
+}
+
+.project-section p {
+  margin-bottom: 22px;
+}
+
+/* Images */
+
+.project-image {
+  width: 100%;
+  max-width: 850px;
+
+  height: auto;
+
+  display: block;
+
+  margin: 28px auto;
+
+  border-radius: 18px;
+
+  border: 1px solid #334155;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+/* Image Grid */
+
+.image-grid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+  gap: 24px;
+
+  margin-top: 24px;
+  margin-bottom: 40px;
+}
+
+.image-grid .project-image {
+  margin: 0;
+}
+
+/* Captions */
+
+.image-caption {
+  text-align: center;
+
+  color: #94a3b8;
+
+  font-size: 14px;
+
+  margin-top: 12px;
+  margin-bottom: 28px;
+}
+
+/* References */
+
+.references {
+  line-height: 1.9;
+}
+
+.references p {
+  margin-bottom: 14px;
+}
+
+.references a {
+  color: #38bdf8;
+  text-decoration: none;
+}
+
+.references a:hover {
+  text-decoration: underline;
+}
+
+/* Mobile */
+
 @media (max-width: 700px) {
+
   nav {
     flex-direction: column;
     gap: 16px;
@@ -146,84 +304,17 @@ section h2 {
   .hero {
     padding: 80px 24px;
   }
-}
 
-.skill-section {
-  margin-bottom: 36px;
-}
+  section h1 {
+    font-size: 40px;
+  }
 
-.skill-section h3 {
-  color: white;
-  margin-bottom: 16px;
-  font-size: 22px;
-}
-.project-link {
-  text-decoration: none;
-  color: inherit;
-}
-.project-image {
-  width: 100%;
-  max-width: 800px;
-  border-radius: 20px;
-  margin-bottom: 24px;
-  border: 1px solid #334155;
-}
+  section h2 {
+    font-size: 30px;
+  }
 
-.project-image {
-  width: 100%;
-  max-width: 850px;
-  height: 500px;
-  object-fit: cover;
+  .image-grid {
+    grid-template-columns: 1fr;
+  }
 
-  display: block;
-
-  margin: 28px auto;
-
-  border-radius: 18px;
-  border: 1px solid #334155;
-
-  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-}
-
-.image-grid {
-  display: grid;
-
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-
-  gap: 24px;
-
-  margin-top: 24px;
-  margin-bottom: 40px;
-}
-
-.image-grid .project-image {
-  height: 320px;
-  margin: 0;
-}
-
-.image-caption {
-  text-align: center;
-
-  color: #94a3b8;
-
-  font-size: 14px;
-
-  margin-top: -12px;
-  margin-bottom: 28px;
-}
-
-.project-section {
-  margin-bottom: 80px;
-}
-
-.project-section p {
-  margin-bottom: 22px;
-}
-
-.references {
-  line-height: 1.9;
-}
-
-.references p {
-  margin-bottom: 14px;
 }
