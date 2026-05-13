@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Numerical Methods vs PINNs | Junhee Park</title>
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <h2>Junhee Park</h2>
+
+    <div>
+      <a href="../index.html">Home</a>
+    </div>
+  </nav>
+
+  <!-- Main Section -->
+  <section>
+
+    <h1>Numerical Methods vs PINNs</h1>
+
+    <p>
+      Comparative study of classical numerical ODE solvers and
+      physics-informed neural networks on the nonlinear Brusselator system.
+    </p>
+
+    <br>
+
+    <!-- Overview -->
+    <div class="project-section">
+
+      <h2>Project Overview</h2>
+
+      <p>
+        This project compared Euler’s Method, Improved Euler’s Method,
+        fourth-order Runge-Kutta (RK4), and a Physics-Informed Neural
+        Network (PINN) for solving nonlinear ordinary differential equations.
+        The Brusselator model was selected as the benchmark system due to its
+        oscillatory and nonlinear behavior.
+      </p>
+
+      <p>
+        The study evaluated the methods in terms of accuracy, computational
+        cost, stability, and qualitative solution behavior across different
+        dynamical regimes.
+      </p>
+
+    </div>
+
+    <!-- Skills -->
+    <div class="project-section">
+
+      <h2>Technical Skills</h2>
+
+      <div class="skills">
+
+        <span>Python</span>
+        <span>NumPy</span>
+        <span>Matplotlib</span>
+        <span>Machine Learning</span>
+        <span>PINNs</span>
+        <span>Numerical Methods</span>
+        <span>ODE Solvers</span>
+        <span>Scientific Computing</span>
+        <span>Error Analysis</span>
+
+      </div>
+
+    </div>
+
+    <!-- Mathematical Model -->
+    <div class="project-section">
+
+      <h2>Mathematical Model</h2>
+
+      <p>
+        The Brusselator is a nonlinear autocatalytic reaction model governed
+        by two coupled ordinary differential equations:
+      </p>
+
+      :contentReference[oaicite:0]{index=0}
+
+      <br>
+
+      :contentReference[oaicite:1]{index=1}
+
+      <br>
+
+      <p>
+        Depending on the selected parameter values, the system can exhibit
+        stable steady states, oscillations, and limit-cycle behavior, making
+        it useful for evaluating both classical numerical solvers and
+        neural-network-based approximations.
+      </p>
+
+    </div>
+
+    <!-- Methods -->
+    <div class="project-section">
+
+      <h2>Methods Compared</h2>
+
+      <div class="skills">
+
+        <span>Euler’s Method</span>
+        <span>Improved Euler</span>
+        <span>RK4</span>
+        <span>Physics-Informed Neural Networks</span>
+
+      </div>
+
+      <br>
+
+      <p>
+        Euler’s Method served as the simplest first-order explicit baseline.
+        Improved Euler introduced a predictor-corrector approach with improved
+        local accuracy, while RK4 provided a higher-order numerical reference
+        solution with significantly stronger convergence behavior.
+      </p>
+
+      <p>
+        The PINN was trained using a combined loss function incorporating
+        differential equation residuals, initial conditions, and supervised
+        solution data generated from RK4 reference trajectories.
+      </p>
+
+    </div>
+
+    <!-- Results -->
+    <div class="project-section">
+
+      <h2>Key Findings</h2>
+
+      <p>
+        RK4 consistently achieved the best accuracy-performance tradeoff,
+        producing stable and highly accurate solutions even at larger time
+        steps. Improved Euler provided moderate improvements over Euler’s
+        Method while maintaining relatively low computational cost.
+      </p>
+
+      <p>
+        The PINN successfully captured some global solution behavior, but its
+        performance was highly regime-dependent. In highly oscillatory or stiff
+        parameter regions, the network experienced phase inaccuracies and
+        reduced generalization quality.
+      </p>
+
+      <p>
+        One of the primary conclusions of the study was that physics-informed
+        neural networks are not automatically superior to classical numerical
+        methods. For low-dimensional nonlinear ODE systems such as the
+        Brusselator, traditional time-stepping methods remained more reliable
+        and computationally efficient.
+      </p>
+
+    </div>
+
+    <!-- Contributions -->
+    <div class="project-section">
+
+      <h2>My Contributions</h2>
+
+      <p>
+        This was completed as a collaborative team project. My contributions
+        included technical analysis, interpretation of solver behavior,
+        discussion of neural-network performance, and development of the
+        written report and comparative evaluation framework.
+      </p>
+
+      <p>
+        The project also involved analyzing global parameter sweeps,
+        interpreting phase portraits and time-series behavior, and evaluating
+        numerical stability across multiple dynamical regimes.
+      </p>
+
+    </div>
+
+    <!-- Links -->
+    <div class="project-section">
+
+      <h2>Project Links</h2>
+
+      <p>
+        <strong>Research Paper:</strong>
+        <br>
+
+        <a href="../documents/ODE-PINN-vs-NumMeth.pdf" target="_blank">
+          Comparing Numerical and Neural Network Methods for Nonlinear Autocatalytic Reactions
+        </a>
+      </p>
+
+      <br>
+
+      <p>
+        <strong>Interactive GUI:</strong>
+        <br>
+
+        <a href="https://brusselator.streamlit.app/" target="_blank">
+          brusselator.streamlit.app
+        </a>
+      </p>
+
+      <br>
+
+      <p>
+        <strong>Code Repository:</strong>
+        <br>
+
+        <a href="#" target="_blank">
+          Team GitHub Repository
+        </a>
+      </p>
+
+    </div>
+
+  </section>
+
+</body>
+
+</html>
