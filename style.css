@@ -342,3 +342,12 @@ section p {
     grid-template-columns: 1fr;
   }
 }
+.project-category {
+  margin-bottom: 64px;
+}
+
+.project-category > h3 {
+  color: #38bdf8;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
