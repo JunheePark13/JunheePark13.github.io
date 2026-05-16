@@ -25,8 +25,8 @@
     <h1>UTAT Aerodynamics</h1>
 
     <p>
-      Aerodynamic analysis, design support, manufacturing, and flight-test experience
-      for the University of Toronto Aerospace Team SAE aircraft.
+      Aerodynamic analysis, aircraft design support, manufacturing,
+      and flight testing for the University of Toronto Aerospace Team SAE aircraft.
     </p>
 
     <br>
@@ -36,17 +36,17 @@
       <h2>Project Overview</h2>
 
       <p>
-        I worked on the aerodynamics subteam for UTAT SAE, contributing to the design,
-        analysis, manufacturing, and testing of a VTOL aircraft for the SAE Aero Design
-        Advanced Class competition. The aircraft achieved a podium finish at the
-        international competition.
+        I worked on the aerodynamics subteam for UTAT SAE, contributing to the
+        design, analysis, manufacturing, and testing of a VTOL aircraft for the
+        SAE Aero Design Advanced Class competition. The aircraft achieved a podium
+        finish at the international competition.
       </p>
 
       <p>
-        My work focused on using aerodynamic analysis tools to support design decisions,
-        especially OpenVSP/VSPAero and XFLR5. I investigated wing and propeller interactions,
-        prop wash effects, preliminary wing configurations, airfoil selection, and the
-        practicality of using OpenVSP as an internal design and analysis tool.
+        My work focused primarily on aerodynamic analysis and design support using
+        OpenVSP, VSPAero, XFLR5, and SolidWorks. I investigated prop wash effects,
+        wing-propeller interactions, preliminary aerodynamic configurations,
+        and the use of OpenVSP as a practical aerodynamic design workflow.
       </p>
 
     </div>
@@ -56,6 +56,7 @@
       <h2>Technical Skills</h2>
 
       <div class="skills">
+
         <span>OpenVSP</span>
         <span>VSPAero</span>
         <span>XFLR5</span>
@@ -66,6 +67,7 @@
         <span>3D Printing</span>
         <span>Laser Cutting</span>
         <span>Aircraft Manufacturing</span>
+
       </div>
 
     </div>
@@ -75,32 +77,34 @@
       <h2>OpenVSP & VSPAero Development</h2>
 
       <p>
-        A major part of my contribution involved researching OpenVSP as an aerodynamic
-        modeling and analysis tool. I used OpenVSP to model aircraft geometry, including
-        wings and propellers, and explored how VSPAero could be used to estimate aerodynamic
-        behavior and prop wash effects.
+        A major portion of my work involved researching OpenVSP and VSPAero as
+        aerodynamic analysis tools. I modeled aircraft geometry, wings, and
+        propeller systems to investigate aerodynamic behavior and estimate
+        prop wash effects on lifting surfaces.
       </p>
 
       <p>
-        This required troubleshooting geometry setup, wake modeling, propeller disk
-        assumptions, paneling choices, convergence settings, and interpretation of spanwise
-        aerodynamic outputs. I also cross-checked results with XFLR5 to understand whether
-        outputs were physically reasonable.
+        This involved experimenting with geometry setup, propeller modeling,
+        wake assumptions, spanwise aerodynamic outputs, and convergence settings.
+        I also cross-checked results with XFLR5 to determine whether outputs
+        were physically reasonable.
       </p>
 
       <div class="image-grid">
 
         <div>
-          <img src="../images/openvsp-a.png" class="project-image">
+          <img src="../images/OpenVSPa.png" class="project-image">
+
           <div class="image-caption">
-            Aircraft geometry setup in OpenVSP.
+            Aircraft geometry modeled in OpenVSP.
           </div>
         </div>
 
         <div>
-          <img src="../images/openvsp-b.png" class="project-image">
+          <img src="../images/OpenVSPb.png" class="project-image">
+
           <div class="image-caption">
-            OpenVSP model used for wing and propeller interaction studies.
+            OpenVSP geometry setup used for aerodynamic analysis.
           </div>
         </div>
 
@@ -109,16 +113,18 @@
       <div class="image-grid">
 
         <div>
-          <img src="../images/openvsp-c.png" class="project-image">
+          <img src="../images/OpenVSPc.png" class="project-image">
+
           <div class="image-caption">
-            VSPAero analysis output used to evaluate aerodynamic behavior.
+            Aerodynamic visualization and analysis output in VSPAero.
           </div>
         </div>
 
         <div>
-          <img src="../images/openvsp-d.png" class="project-image">
+          <img src="../images/OpenVSPd.png" class="project-image">
+
           <div class="image-caption">
-            Aerodynamic visualization and analysis workflow in VSPAero.
+            VSPAero analysis workflow for evaluating wing and propeller interactions.
           </div>
         </div>
 
@@ -131,22 +137,22 @@
       <h2>Troubleshooting & Validation</h2>
 
       <p>
-        OpenVSP/VSPAero results required careful interpretation. Some early outputs were
-        clearly nonphysical or inconsistent, which led to troubleshooting of geometry setup,
-        paneling, propeller modeling assumptions, and solver settings.
+        Simulation outputs were not always physically reasonable, especially
+        during early stages of setup and testing. Troubleshooting involved
+        identifying geometry issues, paneling problems, wake assumptions,
+        and solver configuration errors.
       </p>
 
       <p>
-        Rather than treating simulation output as automatically correct, I used unexpected
-        results as a debugging signal. This helped develop a more critical workflow for
-        aerodynamic analysis: compare against intuition, check geometry setup, cross-reference
-        with simpler tools, and identify when a result is likely numerical or setup-related.
+        Rather than assuming aerodynamic software outputs were automatically
+        correct, I treated unusual results as indicators that further validation
+        and cross-checking were necessary.
       </p>
 
-      <img src="../images/wack-results.png" class="project-image">
+      <img src="../images/WackResults.png" class="project-image">
 
       <div class="image-caption">
-        Example of unexpected aerodynamic output encountered while troubleshooting VSPAero setup.
+        Example of unusual aerodynamic output encountered while troubleshooting VSPAero.
       </div>
 
     </div>
@@ -156,30 +162,31 @@
       <h2>Preliminary Wing Design</h2>
 
       <p>
-        I helped with preliminary aerodynamic design decisions, including wing configuration,
-        airfoil considerations, box-wing design discussions, and early tradeoffs between lift,
-        stability, manufacturability, and integration with VTOL propulsion.
+        I contributed to preliminary aerodynamic design discussions involving
+        wing configuration, box-wing concepts, airfoil considerations,
+        manufacturability, and aerodynamic tradeoffs for VTOL integration.
       </p>
 
       <p>
-        I am also currently reviewing the team’s Python-based multidisciplinary design
-        optimization workflow for preliminary design, with the goal of better understanding
-        how geometry, aerodynamic performance, and mission-level constraints are connected.
+        I am also currently reviewing the team’s Python-based multidisciplinary
+        design optimization workflow used during preliminary aircraft design.
       </p>
 
       <div class="image-grid">
 
         <div>
-          <img src="../images/wing-a.png" class="project-image">
+          <img src="../images/Winga.png" class="project-image">
+
           <div class="image-caption">
-            SolidWorks assembly view of aircraft wing components.
+            SolidWorks assembly of wing structures and aircraft components.
           </div>
         </div>
 
         <div>
-          <img src="../images/wing-b.png" class="project-image">
+          <img src="../images/Wingb.png" class="project-image">
+
           <div class="image-caption">
-            Preliminary design and analysis work used to guide wing development.
+            Preliminary aerodynamic design and analysis workflow.
           </div>
         </div>
 
@@ -192,30 +199,31 @@
       <h2>Manufacturing & Assembly</h2>
 
       <p>
-        Beyond analysis, I contributed to hands-on manufacturing and assembly. This included
-        3D printing components, preparing laser-cut diagrams, using jigs and fabrication tools,
-        gluing structural components, helping assemble the wings, and applying Monokote covering.
+        In addition to aerodynamic analysis, I contributed to manufacturing and
+        aircraft assembly. This included preparing laser-cut files, 3D printing,
+        structural assembly, gluing, and applying Monokote covering.
       </p>
 
       <p>
-        This was valuable because it connected aerodynamic design decisions to real manufacturing
-        constraints. Design choices had to be not only aerodynamically reasonable, but also
-        buildable, alignable, repairable, and compatible with team manufacturing timelines.
+        This work helped connect aerodynamic design decisions with practical
+        manufacturing constraints and aircraft integration challenges.
       </p>
 
       <div class="image-grid">
 
         <div>
-          <img src="../images/jig.png" class="project-image">
+          <img src="../images/Jig.png" class="project-image">
+
           <div class="image-caption">
-            Manufacturing jig/tooling used during aircraft construction.
+            Manufacturing tooling and jig setup used during aircraft fabrication.
           </div>
         </div>
 
         <div>
-          <img src="../images/wing-assembly.png" class="project-image">
+          <img src="../images/WingAssembly.png" class="project-image">
+
           <div class="image-caption">
-            Wing assembly process, including structural build-up and covering preparation.
+            Wing assembly process during aircraft construction.
           </div>
         </div>
 
@@ -228,25 +236,28 @@
       <h2>Aircraft & Competition</h2>
 
       <p>
-        The final aircraft integrated aerodynamic design, structural manufacturing,
-        propulsion, controls, and flight testing into a competition-ready system. Working
-        on this project gave me experience with the full engineering cycle: analysis,
-        design, fabrication, testing, troubleshooting, and iteration.
+        The final aircraft integrated aerodynamic design, manufacturing,
+        propulsion, structures, and controls into a competition-ready platform.
+        Working on the aircraft provided experience across the complete
+        engineering workflow: design, analysis, fabrication, testing,
+        troubleshooting, and iteration.
       </p>
 
       <div class="image-grid">
 
         <div>
-          <img src="../images/myhall.png" class="project-image">
+          <img src="../images/MyHall.png" class="project-image">
+
           <div class="image-caption">
-            Completed aircraft during team preparation.
+            Completed aircraft during team preparation and integration.
           </div>
         </div>
 
         <div>
-          <img src="../images/texas-comp.png" class="project-image">
+          <img src="../images/TexasComp.png" class="project-image">
+
           <div class="image-caption">
-            Aircraft in flight at SAE Aero Design competition.
+            Aircraft in flight at the SAE Aero Design competition in Texas.
           </div>
         </div>
 
@@ -259,19 +270,18 @@
       <h2>Flight Testing</h2>
 
       <p>
-        Flight testing provided a direct connection between design assumptions and aircraft
-        behavior. The first flight test included runway takeoff and landing, giving the team
-        a chance to observe aircraft performance, stability, and integration issues in a real
-        operating environment.
+        Flight testing connected aerodynamic predictions with real aircraft
+        behavior. The first successful runway takeoff and landing provided
+        valuable insight into aircraft stability, performance, and integration.
       </p>
 
       <video class="project-video" controls>
-        <source src="../images/flight-test.mp4" type="video/mp4">
+        <source src="../images/FlightTest.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
 
       <div class="image-caption">
-        First flight test showing runway takeoff and landing.
+        First flight test including runway takeoff and landing.
       </div>
 
     </div>
@@ -281,17 +291,17 @@
       <h2>My Contributions</h2>
 
       <p>
-        My main contributions included R&amp;D on OpenVSP/VSPAero as an aerodynamic tool,
-        modeling wings and propellers, studying prop wash interactions, validating and
-        cross-checking results using XFLR5, assisting with preliminary design decisions,
-        and contributing to the manufacturing and assembly of the aircraft.
+        My primary contributions included R&amp;D on OpenVSP/VSPAero as an
+        aerodynamic tool, modeling wings and propellers to investigate prop wash
+        interactions, validating results using XFLR5, supporting preliminary
+        aerodynamic design decisions, and contributing to manufacturing and
+        assembly.
       </p>
 
       <p>
-        I also worked with SolidWorks for component-level CAD tasks and supported physical
-        fabrication through 3D printing, laser-cut preparation, gluing, assembly, and
-        Monokote covering. I am currently reviewing the team’s Python-based MDO workflow
-        for preliminary aircraft design.
+        I also worked with SolidWorks for component-level CAD tasks and
+        contributed to physical fabrication through 3D printing,
+        laser-cut preparation, assembly, gluing, and Monokote application.
       </p>
 
     </div>
@@ -301,16 +311,15 @@
       <h2>Key Takeaways</h2>
 
       <p>
-        This project taught me that aerodynamic analysis is only useful when paired with
-        careful validation and manufacturing awareness. Tools like OpenVSP and VSPAero can
-        be powerful, but their results depend heavily on modeling assumptions, geometry setup,
-        and interpretation.
+        This project strengthened my understanding of aerodynamic analysis,
+        aircraft design workflows, manufacturing integration, and the importance
+        of validating simulation outputs rather than treating them as automatically correct.
       </p>
 
       <p>
-        The project also strengthened my understanding of aircraft design as an integrated
-        process involving aerodynamics, structures, propulsion, CAD, manufacturing, and
-        testing rather than isolated calculations.
+        It also demonstrated how aircraft design requires coordination across
+        aerodynamics, structures, propulsion, CAD, manufacturing, and testing
+        rather than isolated calculations.
       </p>
 
     </div>
