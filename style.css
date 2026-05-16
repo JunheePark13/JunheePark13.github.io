@@ -351,3 +351,17 @@ section p {
   font-size: 24px;
   margin-bottom: 20px;
 }
+
+.project-video {
+  width: 100%;
+  max-width: 850px;
+  height: auto;
+
+  display: block;
+  margin: 28px auto;
+
+  border-radius: 18px;
+  border: 1px solid #334155;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
