@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Robotics for Space Exploration | Junhee Park</title>
+
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+  <nav>
+    <h2>Junhee Park</h2>
+
+    <div>
+      <a href="../index.html">Home</a>
+    </div>
+  </nav>
+
+  <section>
+
+    <h1>Robotics for Space Exploration</h1>
+
+    <p>
+      Mechanical design, CAD development, and manufacturing work for a
+      University of Toronto autonomous rover project team.
+    </p>
+
+    <br>
+
+    <div class="project-section">
+
+      <h2>Project Overview</h2>
+
+      <p>
+        Robotics for Space Exploration (RSX) was one of my first major
+        engineering project experiences at university and where I first learned
+        CAD and practical mechanical design workflows.
+      </p>
+
+      <p>
+        I worked on the rover arm subsystem, contributing to end-effector
+        development, elbow-joint redesign, manufacturing preparation,
+        structural integration, and assembly support.
+      </p>
+
+      <p>
+        The project provided early experience with iterative engineering design,
+        rapid prototyping, fabrication constraints, and the transition from CAD
+        models to real mechanical systems.
+      </p>
+
+    </div>
+
+    <div class="project-section">
+
+      <h2>Technical Skills</h2>
+
+      <div class="skills">
+
+        <span>Fusion 360</span>
+        <span>Mechanical Design</span>
+        <span>CAD</span>
+        <span>3D Printing</span>
+        <span>Machining</span>
+        <span>Assembly Design</span>
+        <span>Rapid Prototyping</span>
+        <span>Mechanical Systems</span>
+
+      </div>
+
+    </div>
+
+    <div class="project-section">
+
+      <h2>Arm & End Effector Design</h2>
+
+      <p>
+        I contributed to the design of a new robotic arm end effector and
+        associated testing modules using Fusion 360. This work involved
+        balancing structural rigidity, manufacturability, assembly simplicity,
+        and weight considerations.
+      </p>
+
+      <p>
+        The project introduced me to practical mechanical design workflows,
+        including iterative CAD development, tolerance considerations,
+        component interfacing, and preparing parts for manufacturing.
+      </p>
+
+      <img src="../images/RSXArm.png" class="project-image">
+
+      <div class="image-caption">
+        CAD assembly of the robotic arm subsystem developed in Fusion 360.
+      </div>
+
+    </div>
+
+    <div class="project-section">
+
+      <h2>Hex Hub Locking Mechanism</h2>
+
+      <p>
+        One of my earliest CAD projects involved designing a hex hub locking
+        mechanism intended to reduce structural backlash in the arm assembly.
+        The integration of hex-based locking interfaces improved rotational
+        stability while maintaining manufacturability and modularity.
+      </p>
+
+      <p>
+        Although simple compared to later projects, this was an important
+        introduction to mechanical constraint design, tolerance awareness,
+        and translating design intent into manufacturable geometry.
+      </p>
+
+      <img src="../images/RSXHexHub.png" class="project-image">
+
+      <div class="image-caption">
+        Early CAD design of a hex hub locking mechanism for reducing backlash.
+      </div>
+
+    </div>
+
+    <div class="project-section">
+
+      <h2>Mechanical Redesign & Weight Reduction</h2>
+
+      <p>
+        I also contributed to redesigning the elbow joint assembly by replacing
+        a belt-driven mechanism with a lighter and more structurally efficient
+        configuration. The redesign reduced subsystem weight by approximately
+        30% without sacrificing torque capability.
+      </p>
+
+      <p>
+        This work demonstrated the importance of iterative redesign and tradeoff
+        analysis in mechanical systems, especially when balancing structural
+        performance, manufacturability, reliability, and mass constraints.
+      </p>
+
+    </div>
+
+    <div class="project-section">
+
+      <h2>Manufacturing & Assembly</h2>
+
+      <p>
+        In addition to CAD work, I participated in manufacturing and assembly
+        activities involving machining, 3D printing, subsystem integration,
+        and physical testing. Working directly with fabricated components helped
+        connect CAD design decisions with real-world assembly constraints and
+        mechanical behavior.
+      </p>
+
+      <p>
+        This experience was valuable because it showed that good engineering
+        design is not only about creating functional CAD geometry, but also
+        ensuring that systems are practical to manufacture, assemble, maintain,
+        and iterate on.
+      </p>
+
+      <img src="../images/RSXArmR.png" class="project-image">
+
+      <div class="image-caption">
+        Robotic arm subsystem during manufacturing and assembly.
+      </div>
+
+    </div>
+
+    <div class="project-section">
+
+      <h2>Key Takeaways</h2>
+
+      <p>
+        RSX was my introduction to collaborative engineering projects at
+        university and played a major role in developing my interest in
+        aerospace and mechanical systems design.
+      </p>
+
+      <p>
+        The project taught me the fundamentals of CAD workflows, iterative
+        engineering design, prototyping, and the importance of connecting
+        digital models with manufacturing reality.
+      </p>
+
+      <p>
+        It also developed my ability to work in technical teams, communicate
+        design ideas, and contribute to larger subsystem-level engineering
+        efforts.
+      </p>
+
+    </div>
+
+  </section>
+
+</body>
+
+</html>
