@@ -1,387 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <meta name="description" content="Desktop Wind Tunnel project by Junhee Park" />
   <title>Desktop Wind Tunnel | Junhee Park</title>
-
-  <link rel="stylesheet" href="../style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css" />
+  <script src="../script.js" defer></script>
 </head>
-
-<body>
-
-  <nav>
-    <h2>Junhee Park</h2>
-
-    <div>
-      <a href="../index.html">Home</a>
-    </div>
-  </nav>
-
-  <section>
-
-    <h1>Desktop Wind Tunnel</h1>
-
-    <p>
-      Design, fabrication, and experimental testing of a compact desktop wind tunnel
-      for low-speed aerodynamic flow visualization and prototype-scale aerodynamic testing.
-    </p>
-
-    <br>
-
-    <div class="project-section">
-
-      <h2>Project Overview</h2>
-
-      <p>
-        The goal was to create a desktop-scale system that could produce reasonably uniform flow while remaining
-        manufacturable using accessible tools such as Fusion 360, 3D printing, and modular
-        assembly methods.
-      </p>
-
-      <p>
-        The wind tunnel was divided into functional sections: a settling chamber, honeycomb
-        flow straightener, contraction region, test section, diffuser, suction fan, and rear guard.
-        This layout follows the standard wind tunnel design logic of conditioning the flow before
-        it enters the test section, then recovering pressure downstream through a diffuser [1], [5].
-      </p>
-
-      <p>
-        A major design constraint was size. The tunnel had to fit on a desk, and be printable with an Ender 3 v3+, while still providing
-        a usable test section for small models and smoke visualization. As a result, the project
-        required tradeoffs between flow quality (such as reduced contraction zone length),
-        fan power, printability, assembly complexity, and overall footprint.
-      </p>
-
-    </div>
-
-    <div class="project-section">
-
-      <h2>Design Methodology</h2>
-
-      <div class="skills">
-        <span>Fusion 360</span>
-        <span>Fluid Dynamics</span>
-        <span>Aerodynamics</span>
-        <span>3D Printing</span>
-        <span>Flow Visualization</span>
-        <span>Prototype Design</span>
+<body class="project-page">
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="brand" href="../index.html"><span class="brand-mark">JP</span><span>Junhee Park</span></a>
+      <div class="nav-links"><a href="../index.html#projects">All projects</a><a href="../index.html#contact">Contact</a></div>
+    </nav>
+  </header>
+  <main>
+    <section class="project-hero container reveal">
+      <a class="project-breadcrumb" href="../index.html#projects">← Back to projects</a>
+      <p class="eyebrow" style="margin-top:50px"><span></span>Independent · Experimental aerodynamics</p>
+      <h1>Desktop Wind Tunnel</h1>
+      <p class="project-summary">Design and fabrication of a compact wind tunnel for qualitative flow visualization and iterative experimental learning.</p>
+      <div class="project-facts">
+        <div><span>Timeline</span><strong>2025–Present</strong></div>
+        <div><span>Role</span><strong>Designer and builder</strong></div>
+        <div><span>Tools</span><strong>Fusion 360 · 3D printing · testing</strong></div>
+        <div><span>Status</span><strong>Page in development</strong></div>
       </div>
-
-      <br>
-
-      <p>
-        The settling chamber was designed with an approximately 180 mm × 180 mm cross-section.
-        A honeycomb flow straightener was incorporated to reduce lateral velocity components,
-        swirl, and non-axial flow before the air entered the contraction region, commonly used in
-        settling chambers because they help align the flow and suppress transverse velocity variations [3].
-      </p>
-
-      <p>
-        The contraction section connected the larger settling chamber to a smaller
-        100 mm × 100 mm test section. A contraction ratio close to 4:1 was selected because
-        contraction ratios in this range are commonly recommended for improving flow uniformity
-        in compact wind tunnel designs [1], though modified to be shorter due to printer constraints.
-        The contraction was also shaped to avoid abrupt geometry changes that could introduce separation or additional turbulence.
-      </p>
-
-      <p>
-        The test section was sized to provide enough room for simple aerodynamic models,
-        smoke visualization, and cylindrical bluff-body tests while still allowing a single
-        120 mm fan to produce useful flow velocities. The design prioritized visual clarity
-        and repeatable qualitative testing over high-speed or precision aerodynamic measurement.
-      </p>
-
-      <p>
-        A diffuser was placed downstream of the test section to improve pressure recovery
-        before the flow reached the fan. Diffuser and contraction design are both emphasized for
-        pressure losses, flow separation, and test-section flow quality [5].
-      </p>
-
-      <p>
-        The fan was placed at the rear of the tunnel in a suction configuration. This choice was
-        intended to reduce the amount of fan-induced disturbance upstream of the test section.
-        While this design decision was also supported by hobbyist wind tunnel examples and
-        builder experience [6], it was treated as a practical design choice rather than a precision
-        aerodynamic validation. When choosing the fan, I prioritized static pressure 
-        and stable airflow rather than just high CFM, since honeycombs, screens, and contractions create resistance.
-        High-static-pressure PC radiator fans or small centrifugal blowers work best, especially in a suction configuration 
-        downstream of the test section for smoother, lower-turbulence flow.
-      </p>
-
+    </section>
+    <div class="project-body container">
+      <aside class="project-sidebar">
+        <p class="eyebrow"><span></span>Contents</p>
+        <a href="#overview">01 · Overview</a>
+        <a href="#challenge">02 · Engineering challenge</a>
+        <a href="#approach">03 · Approach</a>
+        <a href="#results">04 · Results</a>
+        <a href="#reflection">05 · Reflection</a>
+      </aside>
+      <article class="project-copy">
+        <section class="content-block reveal" id="overview">
+          <h2>Overview</h2>
+          <p>This page is intentionally structured as a concise engineering case study. Replace this text with the project context, your specific responsibilities, and the outcome.</p>
+          <div class="placeholder-note">Content placeholder — update the technical claims, dates, collaborators, and quantitative results before publishing.</div>
+          <div class="project-gallery">
+            <figure><img src="../images/Assembly A.png" alt="Modular wind-tunnel CAD assembly." loading="lazy"><figcaption>Modular wind-tunnel CAD assembly.</figcaption></figure>
+            <figure><img src="../images/Smoke Visual.jpg" alt="Early smoke-flow visualization test." loading="lazy"><figcaption>Early smoke-flow visualization test.</figcaption></figure>
+          </div>
+        </section>
+        <section class="content-block reveal" id="challenge"><h2>Engineering challenge</h2><p>Describe the physical or design problem, the constraints that made it non-trivial, and the criteria used to judge success.</p></section>
+        <section class="content-block reveal" id="approach"><h2>Approach</h2><p>Explain the modelling, design, experimental, or computational workflow. Focus on engineering decisions and why each method was selected.</p></section>
+        <section class="content-block reveal" id="results"><h2>Results & validation</h2><p>Present the most important results with figures, quantitative comparisons, and limitations. Distinguish measured outcomes from interpretation.</p></section>
+        <section class="content-block reveal" id="reflection"><h2>Reflection & next steps</h2><p>Summarize what was learned, what you would change, and the next technical step. Avoid generic conclusions; connect the reflection to the project evidence.</p></section>
+        <nav class="project-nav"><a href="../index.html#projects">← All projects</a><a href="../index.html#contact">Contact ↗</a></nav>
+      </article>
     </div>
-
-    <div class="project-section">
-
-      <h2>CAD Development & Assembly</h2>
-
-      <p>
-        The tunnel was modeled in Fusion 360 as a modular assembly. The CAD process focused
-        on packaging the settling chamber, contraction, test section, diffuser, and fan mount
-        into a compact geometry that could be manufactured and assembled using available
-        tools. The modular design also allowed individual components to be revised without
-        redesigning the entire tunnel.
-      </p>
-
-      <p>
-        The assembly was developed around smooth internal transitions. This was important
-        because abrupt area changes can create separation, recirculation regions, and non-uniform
-        flow entering the test section. The contraction and diffuser were therefore treated as
-        major aerodynamic components rather than simply connecting geometry.
-      </p>
-
-      <div class="image-grid">
-
-        <div>
-          <img src="../images/Assembly A.png" class="project-image">
-          <div class="image-caption">
-            CAD assembly showing the main wind tunnel layout and modular body sections.
-          </div>
-        </div>
-
-        <div>
-          <img src="../images/Assembly B.png" class="project-image">
-          <div class="image-caption">
-            Alternate CAD assembly view showing component integration and internal flow path.
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="project-section">
-
-      <h2>Honeycomb Mesh Development</h2>
-
-      <p>
-        The honeycomb flow straightener was one of the most important design features.
-        Its purpose was to improve flow directionality before the contraction by reducing
-        cross-flow components and swirl. Honeycomb structures are widely used for this
-        purpose in wind tunnel settling chambers and flow-conditioning systems [3], [4].
-      </p>
-
-      <p>
-        The first version of the honeycomb mesh was designed with aerodynamic function in mind, focusing on
-        modelling the walls as thin as possible to minimize resistance, but proved difficult to manufacture reliably. 
-        During fabrication, the geometry was too fragile and experienced structural failure. This forced a redesign 
-        that balanced aerodynamic flow-straightening performance with practical printability.
-      </p>
-
-      <div class="image-grid">
-
-        <div>
-          <img src="../images/Hex Mesh V1 (A).png" class="project-image">
-          <div class="image-caption">
-            Version 1 honeycomb mesh design developed for flow straightening.
-          </div>
-        </div>
-
-        <div>
-          <img src="../images/Hex Mesh V1 (B).png" class="project-image">
-          <div class="image-caption">
-            Alternate view of the Version 1 mesh showing the initial cell structure.
-          </div>
-        </div>
-
-      </div>
-
-      <img src="../images/Rough.jpg" class="project-image">
-
-      <div class="image-caption">
-        Failed Version 1 honeycomb mesh after fabrication issues.
-      </div>
-
-      <p>
-        The second version of the honeycomb mesh was redesigned with improved structural
-        support and print reliability. This iteration better reflected the real engineering tradeoff
-        between ideal geometry and manufacturable geometry. The final mesh was successfully
-        integrated into the wind tunnel prototype.
-      </p>
-
-      <div class="image-grid">
-
-        <div>
-          <img src="../images/Hex Mesh V2 (A).png" class="project-image">
-          <div class="image-caption">
-            Version 2 honeycomb mesh with improved printability and structural support.
-          </div>
-        </div>
-
-        <div>
-          <img src="../images/Hex Mesh V2 (B).png" class="project-image">
-          <div class="image-caption">
-            Successful redesigned honeycomb mesh used in the final prototype.
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="project-section">
-
-      <h2>Prototype Fabrication</h2>
-
-      <p>
-        The final prototype was fabricated primarily using 3D-printed components and assembled
-        into a compact open-circuit wind tunnel. The physical build required attention to fit,
-        sealing, alignment, and stiffness. In small wind tunnels, leakage and internal recirculation
-        can noticeably degrade flow quality, so the assembly process focused on minimizing gaps
-        and maintaining a clean internal flow path.
-      </p>
-
-      <p>
-        The fan was mounted downstream of the diffuser so that the tunnel operated in suction.
-        This layout helped keep the fan behind the test section rather than forcing fan-generated
-        turbulence directly into the flow-conditioning region.
-      </p>
-
-      <div class="image-grid">
-
-        <div>
-          <img src="../images/Front View.jpg" class="project-image">
-          <div class="image-caption">
-            Front view of the completed desktop wind tunnel prototype.
-          </div>
-        </div>
-
-        <div>
-          <img src="../images/Back Fan View.jpg" class="project-image">
-          <div class="image-caption">
-            Rear view showing the suction fan and downstream assembly.
-          </div>
-        </div>
-
-      </div>
-
-      <img src="../images/Hex View.jpg" class="project-image">
-
-      <div class="image-caption">
-        View of the honeycomb flow straightener installed inside the tunnel.
-      </div>
-
-    </div>
-
-    <div class="project-section">
-
-      <h2>Flow Visualization & Testing</h2>
-
-      <p>
-        Smoke visualization was used to qualitatively evaluate the flow inside the test section.
-        Cylindrical bluff bodies were placed in the flow to observe wake formation, flow separation,
-        and vortex shedding behavior. This provided a visual way to assess whether the tunnel
-        could generate coherent flow structures suitable for demonstration and small-scale testing. 
-        I also recorded the smoke wake of the cylinder while shining a light on top of the test section, and 
-        analyzed the fluctuations of light intensity using OpenCV and Python, using this frequency 
-        to calculate and validate Strouhal number.
-        The smoke tests showed that the tunnel could support visible wake structures downstream
-        of cylindrical objects.
-      </p>
-      
-      <div class="image-grid">
-
-        <div>
-          <img src="../images/Cylindrical Test.png" class="project-image">
-          <div class="image-caption">
-            Smoke visualization around cylindrical bluff bodies in the test section.
-          </div>
-        </div>
-
-        <div>
-          <img src="../images/Smoke Visual.jpg" class="project-image">
-          <div class="image-caption">
-            Smoke stream used to visualize flow behavior through the test section.
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="project-section">
-
-      <h2>Engineering Takeaways</h2>
-
-      <p>
-        This project was a fun and low-cost practical experience in aerodynamic design, CAD modeling,
-        additive manufacturing, and experimental testing. The most valuable part of the project
-        was the iteration between design intent and manufacturing reality: components that were reasonable still had to be redesigned to survive fabrication and assembly.
-      </p>
-
-      <p>
-        The final prototype demonstrated the feasibility of a compact, low-cost desktop wind
-        tunnel for educational flow visualization. Future improvements could include adding
-        mesh screens, improving sealing, measuring velocity with an anemometer, etc. 
-        I am currently planning on making a final version, and will be running CFD 
-        on the geometry before production, adding a simulation layer of verification to the feasibility
-        of recreating testable smooth flow in a controlled environment.
-      </p>
-
-    </div>
-
-    <div class="project-section">
-
-      <h2>References</h2>
-
-      <div class="references">
-
-        <p>
-          [1] A. Karlsson, <i>Design and Construction of a Portable Wind Tunnel</i>.
-          Available:
-          <a href="https://www.diva-portal.org/smash/get/diva2%3A1880442/FULLTEXT01.pdf" target="_blank">
-            https://www.diva-portal.org/smash/get/diva2%3A1880442/FULLTEXT01.pdf
-          </a>
-        </p>
-
-        <p>
-          [2] Massachusetts Institute of Technology, “MIT unveils new Wright Brothers Wind Tunnel.”
-          Available:
-          <a href="https://aeroastro.mit.edu/news-impact/mit-unveils-new-wright-brothers-wind-tunnel/" target="_blank">
-            https://aeroastro.mit.edu/news-impact/mit-unveils-new-wright-brothers-wind-tunnel/
-          </a>
-        </p>
-
-        <p>
-          [3] Wikipedia, “Honeycomb structure.”
-          Available:
-          <a href="https://en.wikipedia.org/wiki/Honeycomb_structure" target="_blank">
-            https://en.wikipedia.org/wiki/Honeycomb_structure
-          </a>
-        </p>
-
-        <p>
-          [4] NASA, <i>Experimental Study of Wind-Tunnel Flow Quality</i>.
-          Available:
-          <a href="https://ntrs.nasa.gov/api/citations/19870014229/downloads/19870014229.pdf" target="_blank">
-            https://ntrs.nasa.gov/api/citations/19870014229/downloads/19870014229.pdf
-          </a>
-        </p>
-
-        <p>
-          [5] NASA, <i>Subsonic Wind Tunnel Design</i>.
-          Available:
-          <a href="https://ntrs.nasa.gov/api/citations/19770005050/downloads/19770005050.pdf" target="_blank">
-            https://ntrs.nasa.gov/api/citations/19770005050/downloads/19770005050.pdf
-          </a>
-        </p>
-
-        <p>
-          [6] Reddit, “My friend made this desktop wind tunnel...”
-          Available:
-          <a href="https://www.reddit.com/r/3Dprinting/comments/1bvtdux/my_friend_made_this_desktop_wind_tunnel_and/?utm_source=chatgpt.com" target="_blank">
-            https://www.reddit.com/r/3Dprinting/comments/1bvtdux/my_friend_made_this_desktop_wind_tunnel_and/
-          </a>
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
+  </main>
+  <footer class="footer container"><span>© <span id="year"></span> Junhee Park</span><a href="#top">Back to top ↑</a></footer>
 </body>
-
 </html>

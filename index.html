@@ -1,277 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Junhee Park | Engineering Portfolio</title>
-
-  <!-- Main CSS -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Junhee Park — aerospace engineering portfolio spanning CFD research, aircraft design, prototyping, and scientific computing.">
+  <meta name="theme-color" content="#080a0d">
+  <title>Junhee Park | Aerospace Engineering</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
-
 <body>
-
-  <!-- Navigation -->
-  <nav>
-    <h2>Junhee Park</h2>
-
-    <div>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
-<!-- Hero Section -->
-<section class="hero">
-
-  <div class="hero-container">
-
-    <!-- Left Side -->
-    <div class="hero-text">
-
-      <p class="tag">
-        Engineering Science • Aerospace Major
-      </p>
-
-      <h1>
-        Hi, I’m Junhee Park.
-      </h1>
-
-      <p>
-        I’m an Engineering Science student specializing in Aerospace Engineering
-        at the University of Toronto. I'm interested in fluid dynamics and CFD,
-        propulsion, and aircraft design.
-      </p>
-
-      <a class="button" href="#projects">
-        View My Work
-      </a>
-
-    </div>
-
-    <!-- Right Side -->
-    <div class="hero-image-container">
-
-      <img src="images/pfp.jpg" class="hero-image">
-
-    </div>
-
-  </div>
-
-</section>
-<!-- Projects -->
-<section id="projects">
-
-  <h2>Projects</h2>
-
-  <div class="project-category">
-    <h3>Research</h3>
-
-    <div class="grid">
-
-      <a href="projects/contrails.html" class="project-link">
-        <div class="card">
-          <h3>UTIAS Contrails Research</h3>
-          <p>
-            Summer research with Prof. Chaudhuri on contrails,
-            coaxial jet mixing, jet engines, etc., (Pratt & Whitney sponsored). 
-            Characterized and analyzed the role of turbulent mixing and supersaturation fluctuations 
-            in contrail formation through modelling turbofan exhaust as a coaxial jet in OpenFOAM by developing an LES CFD sim.
-          </p>
-        </div>
-      </a>
-
-      <a href="projects/Brusselator.html" class="project-link">
-        <div class="card">
-          <h3>Numerical Methods vs PINNs</h3>
-          <p>
-            Quantitative and qualitative comparisons of RK4, Euler-type methods,
-            and physics-informed neural networks on nonlinear ODE systems using
-            the Brusselator model.
-          </p>
-        </div>
-      </a>
-
-    </div>
-  </div>
-
-  <div class="project-category">
-    <h3>Teams</h3>
-
-    <div class="grid">
-
-      <a href="projects/UTATSAE.html" class="project-link">
-        <div class="card">
-          <h3>UTAT Aerodynamics</h3>
-          <p>
-            Aerodynamic analysis, CAD, and R&D for wing design and prop wash interactions
-            on a VTOL aircraft that finished podium at the international
-            SAE Aero Design Advanced Class Competition.
-          </p>
-        </div>
-      </a>
-
-      <a href="projects/RSX.html" class="project-link">
-        <div class="card">
-          <h3>Robotics for Space Exploration</h3>
-          <p>
-            UofT autonomous rover team. Arm subteam work involving CAD design
-            of gears, arm linkages, and elbow assemblies.
-          </p>
-        </div>
-      </a>
-
-    </div>
-  </div>
-
-  <div class="project-category">
-    <h3>Projects</h3>
-
-    <div class="grid">
-
-      <a href="projects/windtunnel.html" class="project-link">
-        <div class="card">
-          <h3>Desktop Wind Tunnel</h3>
-          <p>
-            Designed and built a desktop wind tunnel for flow visualization
-            and experimental aerodynamics. Currently redesigning with detailed simulations.
-          </p>
-        </div>
-      </a>
-
-      <a href="projects/Soteria.html" class="project-link">
-        <div class="card">
-          <h3>Soteria</h3>
-          <p>
-            Cyclist collision prevention system in collaboration with ARC Toronto,
-            including computer-vision blind spot detection, bike-frame attachment,
-            and GPS-based intersection activation.
-          </p>
-        </div>
-      </a>
-
-    </div>
-  </div>
-
-  <div class="project-category">
-    <h3>Other</h3>
-
-    <div class="grid">
-
-      <a href="projects/violin.html" class="project-link">
-        <div class="card">
-          <h3>Violin Activities</h3>
-          <p>
-            Classical violin performances, including past experiences in being Concertmaster of London Youth
-            Symphony, soloist collaboration with LCO, final soloist for LCSS, First Chair of YAPCA, and more.
-          </p>
-        </div>
-      </a>
-
-    </div>
-  </div>
-
-</section>
-  <!-- Skills -->
-  <section id="skills">
-
-    <h2>Skills</h2>
-
-    <!-- Sims & CAD -->
-    <div class="skill-section">
-
-      <h3>Sims, CFD, & CAD</h3>
-
-      <div class="skills">
-
-        <span>Fusion 360</span>
-        <span>SolidWorks</span>
-        <span>Onshape</span>
-        <span>AutoCAD</span>
-        <span>OpenFOAM</span>
-        <span>ParaView</span>
-        <span>ANSYS</span>
-        <span>XFLR5</span>
-        <span>flow5</span>
-        <span>OpenVSP</span>
-
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="index.html"><span class="brand-mark">JP</span><span>Junhee Park</span></a>
+      <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+      <div class="nav-links">
+        <a href="research.html">Research</a><a href="teams.html">Teams</a><a href="engineering-projects.html">Projects</a><a href="extracurriculars.html">Extracurriculars</a><a href="#about">About</a><a href="#resume">Resume</a>
       </div>
+    </nav>
+  </header>
 
-    </div>
-
-    <!-- Languages -->
-    <div class="skill-section">
-
-      <h3>Languages</h3>
-
-      <div class="skills">
-
-        <span>Python</span>
-        <span>C</span>
-        <span>C++</span>
-        <span>Java</span>
-        <span>MATLAB</span>
-        <span>English</span>
-        <span>Korean</span>
-
+  <main>
+    <section class="hero container">
+      <div class="hero-copy reveal">
+        <p class="eyebrow"><span></span> Engineering Science · Aerospace</p>
+        <h1>Analysis, design, and experiments for <em>flight.</em></h1>
+        <p class="hero-lede">I’m Junhee Park, an Engineering Science student at the University of Toronto interested in computational fluid dynamics, aerodynamic design, propulsion, and experimental engineering.</p>
+        <div class="hero-actions"><a class="button button-primary" href="research.html">Explore my work <span>↘</span></a><a class="button button-secondary" href="#about">About me</a></div>
+        <div class="hero-meta"><div><strong>Research</strong><span>CFD · turbulence · scientific computing</span></div><div><strong>Design</strong><span>Aircraft · CAD · multidisciplinary analysis</span></div><div><strong>Build</strong><span>Prototyping · manufacturing · testing</span></div></div>
       </div>
-
-    </div>
-
-    <!-- Manufacturing -->
-    <div class="skill-section">
-
-      <h3>Manufacturing</h3>
-
-      <div class="skills">
-
-        <span>3D Printing</span>
-        <span>Laser Cutting</span>
-        <span>Machining</span>
-        <span>Wood Work</span>
-
+      <div class="hero-visual reveal" aria-label="Abstract aircraft and contrail composition">
+        <div class="orbital-grid"></div><div class="contrail contrail-one"></div><div class="contrail contrail-two"></div>
+        <svg class="aircraft-mark" viewBox="0 0 250 140" role="img" aria-label="Aircraft silhouette"><path d="M12 72 L98 61 L136 12 L150 13 L134 60 L221 48 L239 58 L137 76 L151 124 L137 127 L98 82 L19 91 Z"/></svg>
+        <div class="visual-label"><span>Current focus</span><strong>Turbulent jet mixing, contrails, and aircraft design</strong></div>
+        <div class="visual-coordinates" aria-hidden="true"><span>43.6532° N</span><span>79.3832° W</span></div>
+        <div class="flight-readout" aria-hidden="true"><div><span>DOMAIN</span><b>AEROTHERMAL</b></div><div><span>METHODS</span><b>CFD / MDO</b></div><div><span>STATUS</span><b>IN DEVELOPMENT</b></div></div>
       </div>
+    </section>
 
-    </div>
+    <section class="signal-strip" aria-label="Technical focus areas"><div class="signal-track"><span>Computational Fluid Dynamics</span><i>·</i><span>Aerodynamic Design</span><i>·</i><span>Scientific Computing</span><i>·</i><span>Rapid Prototyping</span><i>·</i><span>Experimental Validation</span><i>·</i><span>Aircraft Systems</span></div></section>
 
-    <!-- Areas -->
-    <div class="skill-section">
-
-      <h3>Areas</h3>
-
-      <div class="skills">
-        <span>Prototyping & Design</span>
-        <span>Research and Validation</span>
-        <span>Fluid Dynamics</span>
-        <span>Aerodynamics</span>
-        <span>Thermodynamics</span>
-        <span>Propulsion</span>
-        <span>Combustion Processes</span>
-        <span>Experimental Methods</span>
-
+    <section class="category-section container">
+      <div class="section-heading reveal"><div><p class="eyebrow"><span></span> Portfolio</p><h2>Selected work by category</h2></div><p>The site is organized around the different ways I work: research, collaborative engineering teams, independent and academic projects, and long-term extracurricular practice.</p></div>
+      <div class="category-grid">
+        <a class="category-card category-large reveal" href="research.html"><span class="category-number">01</span><div><p>Research</p><h3>Computational and physics-based investigation.</h3><span>UTIAS contrail research · PINNs and numerical methods</span></div><b>Explore ↗</b></a>
+        <a class="category-card reveal" href="teams.html"><span class="category-number">02</span><div><p>Teams</p><h3>Engineering within multidisciplinary groups.</h3><span>UTAT UAS · Robotics for Space Exploration</span></div><b>Explore ↗</b></a>
+        <a class="category-card reveal" href="engineering-projects.html"><span class="category-number">03</span><div><p>Projects</p><h3>Prototypes, software, and design coursework.</h3><span>Wind tunnel · Soteria · seam carving · Praxis III</span></div><b>Explore ↗</b></a>
+        <a class="category-card reveal" href="extracurriculars.html"><span class="category-number">04</span><div><p>Extracurriculars</p><h3>Discipline and collaboration beyond engineering.</h3><span>Violin · orchestral performance · leadership</span></div><b>Explore ↗</b></a>
       </div>
+    </section>
 
-    </div>
+    <section class="featured-strip">
+      <div class="container featured-grid">
+        <div class="featured-copy reveal"><p class="eyebrow"><span></span> Featured research</p><h2>Jet mixing and contrail formation</h2><p>Developing and validating an OpenFOAM workflow for studying turbulent exhaust mixing and thermodynamic conditions relevant to contrail formation.</p><a class="text-link" href="projects/contrails.html">View UTIAS research ↗</a></div>
+        <div class="featured-image reveal"><div class="flow-field"></div><span>OpenFOAM · RANS / LES · HPC</span></div>
+      </div>
+    </section>
 
-  </section>
+    <section class="about-section" id="about"><div class="container about-grid"><div class="section-heading reveal"><div><p class="eyebrow"><span></span> About</p><h2>Engineering with curiosity and rigour.</h2></div></div><div class="about-copy reveal"><p>I am an Engineering Science student specializing in Aerospace Engineering at the University of Toronto.</p><p>My work spans numerical simulation, aerodynamic analysis, mechanical design, manufacturing, and experimentation. I am especially interested in problems where modelling decisions must eventually be tested against physical behaviour.</p></div></div></section>
 
-  <!-- Contact -->
-  <section id="contact">
-
-    <h2>Contact</h2>
-
-    <p>
-      UofT Email: junheee.park@mail.utoronto.ca
-    </p>
-    <p>
-      Personal Email: junhee.park013@gmail.com
-    </p>
-    <p>
-      LinkedIn:
-      linkedin.com/in/junhee-park013
-    </p>
-
-  </section>
-
+    <section class="resume-section container" id="resume"><div class="resume-card reveal"><div><p class="eyebrow"><span></span> Resume</p><h2>Experience, education, and technical skills.</h2><p>Add your final PDF to the repository and replace the placeholder link below.</p></div><a class="button button-primary" href="#" aria-label="Resume placeholder">Resume PDF ↗</a></div></section>
+  </main>
+  <footer class="footer container"><span>© <span id="year"></span> Junhee Park</span><span>Toronto, Canada</span></footer>
 </body>
 </html>

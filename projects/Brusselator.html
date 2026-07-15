@@ -1,197 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Numerical Methods vs PINNs | Junhee Park</title>
-
-  <link rel="stylesheet" href="../style.css">
+  <meta name="description" content="Numerical Solvers & Physics-Informed Neural Networks project by Junhee Park" />
+  <title>Numerical Solvers & Physics-Informed Neural Networks | Junhee Park</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css" />
+  <script src="../script.js" defer></script>
 </head>
-<body>
-
-  <!-- Navigation -->
-  <nav>
-    <h2>Junhee Park</h2>
-
-    <div>
-      <a href="../index.html">Home</a>
-    </div>
-  </nav>
- 
-  <!-- Main Section -->
-  <section>
-
-    <h1>Numerical Methods vs PINNs</h1>
-
-    <p>
-      Comparative study of classical numerical ODE solvers and
-      physics-informed neural networks on the nonlinear Brusselator system.
-    </p>
- <!-- Links -->
-    <div class="project-section">
-    <br>
-      <h2>Project Links</h2>
-
-      <p>
-        <strong>Research Paper:</strong>
-        <br>
-
-        <a href="../documents/ODE PINN vs Num Meth.pdf" target="_blank">
-          Comparing Numerical and Neural Network Methods for Nonlinear Autocatalytic Reactions
-        </a>
-      </p>
-      <br>
-
-      <p>
-        <strong>Interactive GUI:</strong>
-        <br>
-
-        <a href="https://brusselator.streamlit.app/" target="_blank">
-          brusselator.streamlit.app
-        </a>
-      </p>
-
-      <br>
-
-      <p>
-        <strong>Code Repository:</strong>
-        <br>
-        <a href="https://github.com/jakkiiri/Brusselator_model" target="_blank">
-          Team GitHub Repository
-        </a>
-      </p>
-    </div>
-
-    <!-- Overview -->
-    <div class="project-section">
-
-      <h2>Project Overview</h2>
-
-      <p>
-        This project compared Euler’s Method, Improved Euler’s Method,
-        fourth-order Runge-Kutta (RK4), and a Physics-Informed Neural
-        Network (PINN) for solving nonlinear ordinary differential equations.
-        The Brusselator model was selected as the benchmark system due to its
-        oscillatory and nonlinear behavior.
-        The study evaluated the methods in terms of accuracy, computational
-        cost, stability, and qualitative solution behavior across different
-        dynamical regimes.
-      </p>
-
-    </div>
-
-    <!-- Skills -->
-    <div class="project-section">
-
-      <h2>Technical Skills</h2>
-
-      <div class="skills">
-
-        <span>Python</span>
-        <span>NumPy</span>
-        <span>Matplotlib</span>
-        <span>Machine Learning</span>
-        <span>PINNs</span>
-        <span>Numerical Methods</span>
-        <span>ODE Solvers</span>
-        <span>Scientific Computing</span>
-        <span>Error Analysis</span>
-
+<body class="project-page">
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="brand" href="../index.html"><span class="brand-mark">JP</span><span>Junhee Park</span></a>
+      <div class="nav-links"><a href="../index.html#projects">All projects</a><a href="../index.html#contact">Contact</a></div>
+    </nav>
+  </header>
+  <main>
+    <section class="project-hero container reveal">
+      <a class="project-breadcrumb" href="../index.html#projects">← Back to projects</a>
+      <p class="eyebrow" style="margin-top:50px"><span></span>Coursework · Numerical modelling</p>
+      <h1>Numerical Solvers & Physics-Informed Neural Networks</h1>
+      <p class="project-summary">A comparative investigation of classical numerical time-integration methods and physics-informed neural networks for a nonlinear dynamical system.</p>
+      <div class="project-facts">
+        <div><span>Timeline</span><strong>2025</strong></div>
+        <div><span>Role</span><strong>Project team member</strong></div>
+        <div><span>Tools</span><strong>Python · numerical integration · PINNs</strong></div>
+        <div><span>Status</span><strong>Page in development</strong></div>
       </div>
-
+    </section>
+    <div class="project-body container">
+      <aside class="project-sidebar">
+        <p class="eyebrow"><span></span>Contents</p>
+        <a href="#overview">01 · Overview</a>
+        <a href="#challenge">02 · Engineering challenge</a>
+        <a href="#approach">03 · Approach</a>
+        <a href="#results">04 · Results</a>
+        <a href="#reflection">05 · Reflection</a>
+      </aside>
+      <article class="project-copy">
+        <section class="content-block reveal" id="overview">
+          <h2>Overview</h2>
+          <p>This page is intentionally structured as a concise engineering case study. Replace this text with the project context, your specific responsibilities, and the outcome.</p>
+          <div class="placeholder-note">Content placeholder — update the technical claims, dates, collaborators, and quantitative results before publishing.</div>
+          <div class="project-gallery">
+            <figure><img src="../images/WackResults.png" alt="Representative numerical result or training behaviour." loading="lazy"><figcaption>Representative numerical result or training behaviour.</figcaption></figure>
+            <figure><img src="../images/Cylindrical Test.png" alt="Placeholder technical visualization." loading="lazy"><figcaption>Placeholder technical visualization.</figcaption></figure>
+          </div>
+        </section>
+        <section class="content-block reveal" id="challenge"><h2>Engineering challenge</h2><p>Describe the physical or design problem, the constraints that made it non-trivial, and the criteria used to judge success.</p></section>
+        <section class="content-block reveal" id="approach"><h2>Approach</h2><p>Explain the modelling, design, experimental, or computational workflow. Focus on engineering decisions and why each method was selected.</p></section>
+        <section class="content-block reveal" id="results"><h2>Results & validation</h2><p>Present the most important results with figures, quantitative comparisons, and limitations. Distinguish measured outcomes from interpretation.</p></section>
+        <section class="content-block reveal" id="reflection"><h2>Reflection & next steps</h2><p>Summarize what was learned, what you would change, and the next technical step. Avoid generic conclusions; connect the reflection to the project evidence.</p></section>
+        <nav class="project-nav"><a href="../index.html#projects">← All projects</a><a href="../index.html#contact">Contact ↗</a></nav>
+      </article>
     </div>
-
-    <!-- Mathematical Model -->
-    <div class="project-section">
-
-      <h2>Mathematical Model</h2>
-
-      <p>
-        The Brusselator is a nonlinear autocatalytic reaction model governed
-        by two coupled ordinary differential equations:
-      </p>
-<p>
-  dx/dt = A − (B + 1)x + x²y
-</p>
-
-
-<p>
-  dy/dt = Bx − x²y
-</p>
-
-      <p>
-        Depending on the selected parameter values, the system can exhibit
-        stable steady states, oscillations, and limit-cycle behavior, making
-        it useful for evaluating both classical numerical solvers and
-        neural-network-based approximations.
-      </p>
-
-    </div>
-
-    <!-- Methods -->
-    <div class="project-section">
-
-      <h2>Methods Compared</h2>
-
-      <div class="skills">
-
-        <span>Euler’s Method</span>
-        <span>Improved Euler</span>
-        <span>RK4</span>
-        <span>Physics-Informed Neural Networks</span>
-
-      </div>
-
-      <br>
-
-      <p>
-        Euler’s Method served as the simplest first-order explicit baseline.
-        Improved Euler introduced a predictor-corrector approach with improved
-        local accuracy, while RK4 provided a higher-order numerical reference
-        solution with significantly stronger convergence behavior.
-      </p>
-
-      <p>
-        The PINN was trained using a combined loss function incorporating
-        differential equation residuals, initial conditions, and supervised
-        solution data generated from RK4 reference trajectories.
-      </p>
-
-    </div>
-
-    <!-- Results -->
-    <div class="project-section">
-
-      <h2>Key Findings</h2>
-
-      <p>
-        RK4 consistently achieved the best accuracy-performance tradeoff,
-        producing stable and highly accurate solutions even at larger time
-        steps. Improved Euler provided moderate improvements over Euler’s
-        Method while maintaining relatively low computational cost.
-      </p>
-
-      <p>
-        The PINN successfully captured some global solution behavior, but its
-        performance was highly regime-dependent. In highly oscillatory or stiff
-        parameter regions, the network experienced phase inaccuracies and
-        reduced generalization quality.
-      </p>
-
-      <p>
-        One of the primary conclusions of the study was that physics-informed
-        neural networks are not automatically superior to classical numerical
-        methods. For low-dimensional nonlinear ODE systems such as the
-        Brusselator, traditional time-stepping methods remained more reliable
-        and computationally efficient.
-      </p>
-
-    </div>
-
-  </section>
-
+  </main>
+  <footer class="footer container"><span>© <span id="year"></span> Junhee Park</span><a href="#top">Back to top ↑</a></footer>
 </body>
-
 </html>
