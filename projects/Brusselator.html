@@ -86,9 +86,9 @@
             <li>Qualitative inspection of phase, amplitude, and spurious oscillation errors.</li>
           </ul>
           <div class="project-gallery">
-            <figure class="wide"><img src="../images/WackResults.png" alt="Representative comparison between numerical and neural predictions" loading="lazy"><figcaption>Representative solver comparison. This existing figure is retained until the final report plots are exported individually.</figcaption></figure>
-            <figure><div class="figure-placeholder"><div><strong>Figure to add: Time-step convergence</strong>Export Figure 1 from page 6 of the final report.</div></div><figcaption>Euler, improved Euler, RK4, and PINN at four time-step sizes.</figcaption></figure>
-            <figure><div class="figure-placeholder"><div><strong>Figure to add: PINN training history</strong>Export Figure 2 from page 7 of the final report.</div></div><figcaption>Total, physics, initial-condition, data, and validation losses.</figcaption></figure>
+            <figure class="wide"><img src="../images/WackResults.png" alt="Representative comparison between numerical and neural predictions" loading="lazy"><figcaption>Representative numerical and neural solver comparison.</figcaption></figure>
+            <figure><img src="../images/pinn-time-step-convergence.png" alt="Time-step convergence comparison for Euler, improved Euler, RK4, and PINN" loading="lazy"><figcaption>Euler, improved Euler, RK4, and PINN at four time-step sizes.</figcaption></figure>
+            <figure><img src="../images/pinn-training-history.png" alt="PINN training and validation loss history" loading="lazy"><figcaption>Total, physics, initial-condition, data, and validation losses.</figcaption></figure>
           </div>
         </section>
 
@@ -102,8 +102,8 @@
           <p>RK4 produced the best balance of accuracy, robustness, and computation time. At Δt = 0.01, its RMSE fell to 7.7 × 10⁻⁵, while Euler remained substantially less accurate. The PINN achieved competitive error in selected local cases, but its global performance was inconsistent.</p>
           <p>PINN inference was fast after training, but the model required approximately seven days of training. For this low-dimensional ODE, that upfront cost outweighed the per-query inference advantage unless the trained model were reused for a very large number of forecasts or inverse problems.</p>
           <div class="project-gallery">
-            <figure><div class="figure-placeholder"><div><strong>Figure to add: Speed–accuracy tradeoff</strong>Export Figure 3 from page 8 of the final report.</div></div><figcaption>Global runtime versus average MSE.</figcaption></figure>
-            <figure><div class="figure-placeholder"><div><strong>Figure to add: Runtime distribution</strong>Export Figure 4 from page 8 of the final report.</div></div><figcaption>Runtime distributions across 5,000 trials.</figcaption></figure>
+            <figure><img src="../images/pinn-speed-accuracy.png" alt="Global solver speed and accuracy tradeoff" loading="lazy"><figcaption>Global runtime versus average MSE.</figcaption></figure>
+            <figure><img src="../images/pinn-runtime-distribution.png" alt="Runtime distribution across randomized solver trials" loading="lazy"><figcaption>Runtime distributions across 5,000 trials.</figcaption></figure>
           </div>
         </section>
 
@@ -117,8 +117,8 @@
           </ul>
           <p>The key conclusion was not that PINNs are ineffective, but that a classical solver was the more practical tool for this specific forward ODE problem. PINNs become more compelling when one trained surrogate must span many parameter combinations, incorporate sparse data, or support inverse problems.</p>
           <div class="project-gallery">
-            <figure><div class="figure-placeholder"><div><strong>Figure to add: Spurious oscillations</strong>Export Figure 5 from page 9 of the final report.</div></div><figcaption>PINN error in a slowly varying regime.</figcaption></figure>
-            <figure><div class="figure-placeholder"><div><strong>Figure to add: High-frequency phase error</strong>Export Figure 6 from page 9 of the final report.</div></div><figcaption>PINN deterioration in an oscillatory regime.</figcaption></figure>
+            <figure><img src="../images/pinn-spurious-oscillations.png" alt="PINN spurious oscillations in a slowly varying regime" loading="lazy"><figcaption>PINN error in a slowly varying regime.</figcaption></figure>
+            <figure><img src="../images/pinn-high-frequency-error.png" alt="PINN phase and amplitude error in a high-frequency regime" loading="lazy"><figcaption>PINN deterioration in an oscillatory regime.</figcaption></figure>
           </div>
         </section>
 
