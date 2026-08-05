@@ -1,1 +1,56 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Research | Junhee Park</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"><script src="script.js" defer></script></head><body><header class="site-header"><nav class="nav container"><a class="brand" href="index.html"><span class="brand-mark">JP</span><span>Junhee Park</span></a><button class="nav-toggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button><div class="nav-links"><a class="active" href="research.html">Research</a><a href="teams.html">Teams</a><a href="engineering-projects.html">Projects</a><a href="extracurriculars.html">Extracurriculars</a><a href="index.html#about">About</a></div></nav></header><main><section class="page-hero container reveal"><p class="eyebrow"><span></span> 01 · Research</p><h1>Investigating physical systems through computation.</h1><p>Research projects involving fluid mechanics, numerical methods, scientific computing, and model validation.</p></section><section class="listing-section container"><a class="work-row work-featured reveal" href="projects/contrails.html"><div class="work-image abstract-flow"><span>01</span></div><div class="work-copy"><div class="work-meta">UTIAS · 2026 · Research assistant</div><h2>Jet Mixing & Contrail Formation</h2><p>OpenFOAM-based investigation of turbulent aircraft-exhaust mixing, temperature decay, water-vapour transport, and supersaturation. The work includes validation, three-dimensional modelling, and development toward LES.</p><div class="project-tags"><span>OpenFOAM</span><span>CFD</span><span>LES / RANS</span><span>HPC</span></div></div><b>View ↗</b></a><a class="work-row reveal" href="projects/Brusselator.html"><div class="work-image"><img src="images/WackResults.png" alt="Numerical model output"></div><div class="work-copy"><div class="work-meta">Engineering Science · 2025</div><h2>Physics-Informed Neural Networks & Numerical Solvers</h2><p>A comparison of conventional numerical integration and physics-informed neural networks for nonlinear ordinary differential equations, emphasizing accuracy, stability, and computational trade-offs.</p><div class="project-tags"><span>Python</span><span>PINNs</span><span>ODEs</span><span>Numerical methods</span></div></div><b>View ↗</b></a></section></main><footer class="footer container"><span>© <span id="year"></span> Junhee Park</span><a href="index.html">Home ↑</a></footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Research portfolio of Junhee Park: CFD, LES, URANS, turbulent jet mixing, contrails, numerical methods, PINNs, and model validation.">
+  <title>Research | Junhee Park</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="index.html"><span class="brand-mark">JP</span><span>Junhee Park</span></a>
+      <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+      <div class="nav-links"><a class="active" href="research.html">Research</a><a href="teams.html">Teams</a><a href="engineering-projects.html">Projects</a><a href="extracurriculars.html">Extracurriculars</a><a href="index.html#about">About</a></div>
+    </nav>
+  </header>
+  <main>
+    <section class="page-hero container reveal">
+      <p class="eyebrow"><span></span> 01 · Research</p>
+      <h1>Investigating physical systems through computation and simulations.</h1>
+      <p>Research projects involving fluid mechanics, numerical methods, physics-informed neural networks, model validation, CFD through LES and URANS, and scientific computing.</p>
+    </section>
+
+    <section class="listing-section container">
+      <a class="work-row work-featured reveal" href="projects/contrails.html">
+        <div class="work-image abstract-flow"><span>01</span></div>
+        <div class="work-copy">
+          <div class="work-meta">UTIAS · 2026 · Undergraduate Researcher</div>
+          <h2>LES for Turbofan Jet Mixing and Contrails</h2>
+          <p>Developing and validating OpenFOAM workflows for turbulent aircraft-exhaust mixing under contrail-relevant conditions. Work includes URANS and LES, coaxial core–bypass jets, temperature and water-vapour transport, supersaturation post-processing, mesh development, numerical-stability analysis, and parallel simulation on the Trillium HPC cluster.</p>
+          <div class="project-tags"><span>OpenFOAM</span><span>LES / URANS</span><span>Turbulence</span><span>Jet mixing</span><span>HPC</span><span>Validation</span></div>
+        </div>
+        <b>View ↗</b>
+      </a>
+
+      <a class="work-row reveal" href="projects/Brusselator.html">
+        <div class="work-image"><img src="images/WackResults.png" alt="Comparison of numerical and PINN predictions for Brusselator dynamics"></div>
+        <div class="work-copy">
+          <div class="work-meta">Engineering Science · MAT292 · 2025</div>
+          <h2>Numerical Solvers vs Physics-Informed Neural Networks</h2>
+          <p>Compared Euler, improved Euler, RK4, and a physics-informed neural network on the nonlinear Brusselator system. The study evaluated convergence, stability, runtime, training behaviour, and accuracy across 5,000 randomized parameter sets.</p>
+          <div class="project-tags"><span>Python</span><span>PINNs</span><span>ODEs</span><span>RK4</span><span>Scientific ML</span><span>Validation</span></div>
+        </div>
+        <b>View ↗</b>
+      </a>
+    </section>
+  </main>
+  <footer class="footer container"><span>© <span id="year"></span> Junhee Park</span><a href="index.html">Home ↑</a></footer>
+</body>
+</html>
