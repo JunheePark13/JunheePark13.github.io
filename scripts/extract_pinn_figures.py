@@ -5,6 +5,7 @@ from pathlib import Path
 import fitz
 
 PDF_PATH = Path("documents/ODE PINN vs Num Meth.pdf")
+HTML_PATH = Path("projects/Brusselator.html")
 OUT_DIR = Path("images")
 SCALE = 3.0
 
@@ -39,6 +40,29 @@ def union(rects: list[fitz.Rect]) -> fitz.Rect:
     return merged
 
 
+def replace_placeholders() -> None:
+    html = HTML_PATH.read_text(encoding="utf-8")
+    replacements = {
+        '<figure><div class="figure-placeholder"><div><strong>Figure to add: Time-step convergence</strong>Export Figure 1 from page 6 of the final report.</div></div><figcaption>Euler, improved Euler, RK4, and PINN at four time-step sizes.</figcaption></figure>':
+            '<figure><img src="../images/pinn-time-step-convergence.png" alt="Time-step convergence comparison for Euler, improved Euler, RK4, and PINN" loading="lazy"><figcaption>Euler, improved Euler, RK4, and PINN at four time-step sizes.</figcaption></figure>',
+        '<figure><div class="figure-placeholder"><div><strong>Figure to add: PINN training history</strong>Export Figure 2 from page 7 of the final report.</div></div><figcaption>Total, physics, initial-condition, data, and validation losses.</figcaption></figure>':
+            '<figure><img src="../images/pinn-training-history.png" alt="PINN training and validation loss history" loading="lazy"><figcaption>Total, physics, initial-condition, data, and validation losses.</figcaption></figure>',
+        '<figure><div class="figure-placeholder"><div><strong>Figure to add: Speed–accuracy tradeoff</strong>Export Figure 3 from page 8 of the final report.</div></div><figcaption>Global runtime versus average MSE.</figcaption></figure>':
+            '<figure><img src="../images/pinn-speed-accuracy.png" alt="Global solver speed and accuracy tradeoff" loading="lazy"><figcaption>Global runtime versus average MSE.</figcaption></figure>',
+        '<figure><div class="figure-placeholder"><div><strong>Figure to add: Runtime distribution</strong>Export Figure 4 from page 8 of the final report.</div></div><figcaption>Runtime distributions across 5,000 trials.</figcaption></figure>':
+            '<figure><img src="../images/pinn-runtime-distribution.png" alt="Runtime distribution across randomized solver trials" loading="lazy"><figcaption>Runtime distributions across 5,000 trials.</figcaption></figure>',
+        '<figure><div class="figure-placeholder"><div><strong>Figure to add: Spurious oscillations</strong>Export Figure 5 from page 9 of the final report.</div></div><figcaption>PINN error in a slowly varying regime.</figcaption></figure>':
+            '<figure><img src="../images/pinn-spurious-oscillations.png" alt="PINN spurious oscillations in a slowly varying regime" loading="lazy"><figcaption>PINN error in a slowly varying regime.</figcaption></figure>',
+        '<figure><div class="figure-placeholder"><div><strong>Figure to add: High-frequency phase error</strong>Export Figure 6 from page 9 of the final report.</div></div><figcaption>PINN deterioration in an oscillatory regime.</figcaption></figure>':
+            '<figure><img src="../images/pinn-high-frequency-error.png" alt="PINN phase and amplitude error in a high-frequency regime" loading="lazy"><figcaption>PINN deterioration in an oscillatory regime.</figcaption></figure>',
+        'Representative solver comparison. This existing figure is retained until the final report plots are exported individually.':
+            'Representative numerical and neural solver comparison.'
+    }
+    for old, new in replacements.items():
+        html = html.replace(old, new)
+    HTML_PATH.write_text(html, encoding="utf-8")
+
+
 def main() -> None:
     if not PDF_PATH.exists():
         raise FileNotFoundError(PDF_PATH)
@@ -46,7 +70,6 @@ def main() -> None:
     OUT_DIR.mkdir(exist_ok=True)
     doc = fitz.open(PDF_PATH)
 
-    # Physical PDF pages 6-9 contain Figures 1-6.
     page6 = doc[5]
     blocks6 = image_blocks(page6)
     if not blocks6:
@@ -73,7 +96,8 @@ def main() -> None:
     save_clip(page9, blocks9[0], "pinn-spurious-oscillations.png")
     save_clip(page9, blocks9[-1], "pinn-high-frequency-error.png")
 
-    print("Extracted six figures from the final report.")
+    replace_placeholders()
+    print("Extracted six figures and updated the project page.")
 
 
 if __name__ == "__main__":
