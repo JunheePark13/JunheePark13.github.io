@@ -3,59 +3,139 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Numerical Solvers & Physics-Informed Neural Networks project by Junhee Park" />
-  <title>Numerical Solvers & Physics-Informed Neural Networks | Junhee Park</title>
+  <meta name="description" content="Comparison of Euler, improved Euler, RK4, and physics-informed neural networks for the nonlinear Brusselator model." />
+  <title>Numerical Solvers vs PINNs | Junhee Park</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css" />
   <script src="../script.js" defer></script>
+  <style>
+    .project-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}.project-links a{color:var(--text);text-decoration:none;border:1px solid var(--line);padding:10px 14px;font-size:12px}.project-links a:hover{border-color:var(--blue-soft);color:var(--blue-soft)}
+    .equation-card,.result-card{border:1px solid var(--line);background:var(--surface);padding:22px;margin:24px 0}.equation-card code{display:block;color:var(--blue-soft);font-size:15px;line-height:1.9;white-space:normal}.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0}.result-card{margin:0}.result-card span{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.12em}.result-card strong{display:block;font:600 23px Manrope;margin:8px 0}.result-card p{font-size:12px!important;margin:0!important}.method-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:28px 0}.method-list article{border:1px solid var(--line);background:var(--surface);padding:20px}.method-list h3{font-size:18px;margin-bottom:8px}.method-list p{font-size:13px;margin:0}.skills-line{display:flex;gap:7px;flex-wrap:wrap;margin-top:25px}.skills-line span{border:1px solid var(--line);padding:6px 9px;color:#c6ced8;font-size:11px}.figure-placeholder{min-height:240px;display:grid;place-items:center;text-align:center;padding:35px;border:1px dashed #465160;background:linear-gradient(145deg,#111720,#0b0e13);color:var(--muted)}.figure-placeholder strong{display:block;color:var(--text);margin-bottom:7px}.project-gallery .wide{grid-column:1/-1}.project-copy ul{color:#bbc3cd;padding-left:20px;margin:0 0 20px}.project-copy li{margin-bottom:9px}@media(max-width:700px){.result-grid,.method-list{grid-template-columns:1fr}.project-gallery .wide{grid-column:auto}}
+  </style>
 </head>
-<body class="project-page">
+<body class="project-page" id="top">
   <div class="scroll-progress" aria-hidden="true"></div>
   <header class="site-header">
-    <nav class="nav container">
+    <nav class="nav container" aria-label="Main navigation">
       <a class="brand" href="../index.html"><span class="brand-mark">JP</span><span>Junhee Park</span></a>
-      <div class="nav-links"><a href="../index.html#projects">All projects</a><a href="../index.html#contact">Contact</a></div>
+      <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+      <div class="nav-links"><a href="../research.html">Research</a><a href="../teams.html">Teams</a><a href="../engineering-projects.html">Projects</a><a href="../index.html#about">About</a></div>
     </nav>
   </header>
+
   <main>
     <section class="project-hero container reveal">
-      <a class="project-breadcrumb" href="../index.html#projects">← Back to projects</a>
-      <p class="eyebrow" style="margin-top:50px"><span></span>Coursework · Numerical modelling</p>
-      <h1>Numerical Solvers & Physics-Informed Neural Networks</h1>
-      <p class="project-summary">A comparative investigation of classical numerical time-integration methods and physics-informed neural networks for a nonlinear dynamical system.</p>
+      <a class="project-breadcrumb" href="../research.html">← Back to research</a>
+      <p class="eyebrow" style="margin-top:50px"><span></span>Scientific computing · Numerical modelling · Physics-informed ML</p>
+      <h1>Numerical Solvers vs Physics-Informed Neural Networks</h1>
+      <p class="project-summary">A quantitative comparison of classical time-integration schemes and a physics-informed neural network for nonlinear autocatalytic dynamics.</p>
       <div class="project-facts">
-        <div><span>Timeline</span><strong>2025</strong></div>
-        <div><span>Role</span><strong>Project team member</strong></div>
-        <div><span>Tools</span><strong>Python · numerical integration · PINNs</strong></div>
-        <div><span>Status</span><strong>Page in development</strong></div>
+        <div><span>Timeline</span><strong>Fall 2025</strong></div>
+        <div><span>Course</span><strong>MAT292 · Differential Equations</strong></div>
+        <div><span>Team</span><strong>4 Engineering Science students</strong></div>
+        <div><span>Tools</span><strong>Python · PyTorch · NumPy · Streamlit</strong></div>
+      </div>
+      <div class="project-links">
+        <a href="https://github.com/jakkiiri/Brusselator_model" target="_blank" rel="noopener">GitHub repository ↗</a>
+        <a href="https://brusselator.streamlit.app/" target="_blank" rel="noopener">Interactive application ↗</a>
+        <a href="../documents/ODE%20PINN%20vs%20Num%20Meth.pdf" target="_blank" rel="noopener">Full report ↗</a>
       </div>
     </section>
+
     <div class="project-body container">
       <aside class="project-sidebar">
         <p class="eyebrow"><span></span>Contents</p>
-        <a href="#overview">01 · Overview</a>
-        <a href="#challenge">02 · Engineering challenge</a>
-        <a href="#approach">03 · Approach</a>
-        <a href="#results">04 · Results</a>
-        <a href="#reflection">05 · Reflection</a>
+        <a href="#overview">01 · Overview</a><a href="#model">02 · Benchmark model</a><a href="#methods">03 · Methods</a><a href="#evaluation">04 · Evaluation</a><a href="#results">05 · Results</a><a href="#limitations">06 · PINN limitations</a><a href="#skills">07 · Skills</a>
       </aside>
+
       <article class="project-copy">
         <section class="content-block reveal" id="overview">
           <h2>Overview</h2>
-          <p>This page is intentionally structured as a concise engineering case study. Replace this text with the project context, your specific responsibilities, and the outcome.</p>
-          <div class="placeholder-note">Content placeholder — update the technical claims, dates, collaborators, and quantitative results before publishing.</div>
+          <p>The project evaluated when a physics-informed neural network can compete with established numerical solvers on a nonlinear initial-value problem. The Brusselator—a two-state autocatalytic chemical oscillator—was selected because it can exhibit steady behaviour, sustained oscillations, sharp transients, and strong sensitivity to parameters.</p>
+          <p>I contributed to the numerical-method comparison, interpretation of accuracy and runtime results, technical reporting, and the final engineering analysis. The finished workflow combined solver implementation, neural-network training, randomized validation, and an interactive Streamlit interface.</p>
+          <div class="skills-line"><span>Scientific computing</span><span>Solver validation</span><span>Error analysis</span><span>Neural networks</span><span>Technical communication</span></div>
+        </section>
+
+        <section class="content-block reveal" id="model">
+          <h2>Benchmark model</h2>
+          <p>The Brusselator describes two coupled species, <em>x</em> and <em>y</em>, with nonlinear feedback through the autocatalytic term <em>x²y</em>. Its compact form makes it suitable for controlled solver comparisons while retaining challenging nonlinear behaviour.</p>
+          <div class="equation-card"><code>dx/dt = A − (B + 1)x + x²y<br>dy/dt = Bx − x²y</code></div>
+          <p>Parameters <em>A</em> and <em>B</em>, together with the initial conditions, determine whether the solution approaches equilibrium or develops limit-cycle oscillations.</p>
+        </section>
+
+        <section class="content-block reveal" id="methods">
+          <h2>Methods</h2>
+          <div class="method-list">
+            <article><h3>Euler</h3><p>First-order explicit integration used as the simplest and least expensive baseline.</p></article>
+            <article><h3>Improved Euler</h3><p>A second-order predictor–corrector scheme offering better accuracy with modest added cost.</p></article>
+            <article><h3>RK4</h3><p>Fourth-order Runge–Kutta with four slope evaluations per step and substantially stronger convergence.</p></article>
+            <article><h3>PINN</h3><p>A neural network trained using governing-equation residuals, initial-condition loss, and supervised RK4 data.</p></article>
+          </div>
+          <p>The PINN used approximately 400,000 trainable parameters, GELU activation functions, Xavier initialization, and a weighted loss combining physics, initial-condition, and data terms. The weights were 1, 100, and 50 respectively.</p>
+        </section>
+
+        <section class="content-block reveal" id="evaluation">
+          <h2>Evaluation framework</h2>
+          <p>Performance was assessed through both controlled local studies and a broader randomized test:</p>
+          <ul>
+            <li>Time-step convergence at Δt = 0.2, 0.05, 0.01, and 0.001.</li>
+            <li>A high-resolution RK4 solution at Δt = 0.001 as the reference trajectory.</li>
+            <li>5,000 randomized trials spanning A ∈ [0.5, 2.5], B ∈ [1.0, 6.0], and initial conditions in [0, 3].</li>
+            <li>Comparison of mean-squared error, variance, stability, and runtime.</li>
+            <li>Qualitative inspection of phase, amplitude, and spurious oscillation errors.</li>
+          </ul>
           <div class="project-gallery">
-            <figure><img src="../images/WackResults.png" alt="Representative numerical result or training behaviour." loading="lazy"><figcaption>Representative numerical result or training behaviour.</figcaption></figure>
-            <figure><img src="../images/Cylindrical Test.png" alt="Placeholder technical visualization." loading="lazy"><figcaption>Placeholder technical visualization.</figcaption></figure>
+            <figure class="wide"><img src="../images/WackResults.png" alt="Representative comparison between numerical and neural predictions" loading="lazy"><figcaption>Representative solver comparison. This existing figure is retained until the final report plots are exported individually.</figcaption></figure>
+            <figure><div class="figure-placeholder"><div><strong>Figure to add: Time-step convergence</strong>Export Figure 1 from page 6 of the final report.</div></div><figcaption>Euler, improved Euler, RK4, and PINN at four time-step sizes.</figcaption></figure>
+            <figure><div class="figure-placeholder"><div><strong>Figure to add: PINN training history</strong>Export Figure 2 from page 7 of the final report.</div></div><figcaption>Total, physics, initial-condition, data, and validation losses.</figcaption></figure>
           </div>
         </section>
-        <section class="content-block reveal" id="challenge"><h2>Engineering challenge</h2><p>Describe the physical or design problem, the constraints that made it non-trivial, and the criteria used to judge success.</p></section>
-        <section class="content-block reveal" id="approach"><h2>Approach</h2><p>Explain the modelling, design, experimental, or computational workflow. Focus on engineering decisions and why each method was selected.</p></section>
-        <section class="content-block reveal" id="results"><h2>Results & validation</h2><p>Present the most important results with figures, quantitative comparisons, and limitations. Distinguish measured outcomes from interpretation.</p></section>
-        <section class="content-block reveal" id="reflection"><h2>Reflection & next steps</h2><p>Summarize what was learned, what you would change, and the next technical step. Avoid generic conclusions; connect the reflection to the project evidence.</p></section>
-        <nav class="project-nav"><a href="../index.html#projects">← All projects</a><a href="../index.html#contact">Contact ↗</a></nav>
+
+        <section class="content-block reveal" id="results">
+          <h2>Results</h2>
+          <div class="result-grid">
+            <div class="result-card"><span>RK4 global average MSE</span><strong>6.34 × 10⁻⁸</strong><p>Lowest average error across 5,000 randomized trials.</p></div>
+            <div class="result-card"><span>Improved Euler average MSE</span><strong>3.05 × 10⁻⁶</strong><p>Strong intermediate accuracy at the tested step size.</p></div>
+            <div class="result-card"><span>PINN global average MSE</span><strong>9.24 × 10⁻³</strong><p>High variance and strong dependence on dynamical regime.</p></div>
+          </div>
+          <p>RK4 produced the best balance of accuracy, robustness, and computation time. At Δt = 0.01, its RMSE fell to 7.7 × 10⁻⁵, while Euler remained substantially less accurate. The PINN achieved competitive error in selected local cases, but its global performance was inconsistent.</p>
+          <p>PINN inference was fast after training, but the model required approximately seven days of training. For this low-dimensional ODE, that upfront cost outweighed the per-query inference advantage unless the trained model were reused for a very large number of forecasts or inverse problems.</p>
+          <div class="project-gallery">
+            <figure><div class="figure-placeholder"><div><strong>Figure to add: Speed–accuracy tradeoff</strong>Export Figure 3 from page 8 of the final report.</div></div><figcaption>Global runtime versus average MSE.</figcaption></figure>
+            <figure><div class="figure-placeholder"><div><strong>Figure to add: Runtime distribution</strong>Export Figure 4 from page 8 of the final report.</div></div><figcaption>Runtime distributions across 5,000 trials.</figcaption></figure>
+          </div>
+        </section>
+
+        <section class="content-block reveal" id="limitations">
+          <h2>PINN behaviour and limitations</h2>
+          <p>The neural model did not fail uniformly. Its accuracy depended strongly on the qualitative regime of the system:</p>
+          <ul>
+            <li>In slowly varying or stiff-looking regimes, it introduced oscillations absent from the reference solution.</li>
+            <li>In high-frequency regimes, phase and amplitude errors accumulated near later oscillations.</li>
+            <li>The best validation loss occurred at epoch 63,116, after which validation error rose while training loss continued to decrease—evidence of overfitting.</li>
+          </ul>
+          <p>The key conclusion was not that PINNs are ineffective, but that a classical solver was the more practical tool for this specific forward ODE problem. PINNs become more compelling when one trained surrogate must span many parameter combinations, incorporate sparse data, or support inverse problems.</p>
+          <div class="project-gallery">
+            <figure><div class="figure-placeholder"><div><strong>Figure to add: Spurious oscillations</strong>Export Figure 5 from page 9 of the final report.</div></div><figcaption>PINN error in a slowly varying regime.</figcaption></figure>
+            <figure><div class="figure-placeholder"><div><strong>Figure to add: High-frequency phase error</strong>Export Figure 6 from page 9 of the final report.</div></div><figcaption>PINN deterioration in an oscillatory regime.</figcaption></figure>
+          </div>
+        </section>
+
+        <section class="content-block reveal" id="skills">
+          <h2>Engineering skills demonstrated</h2>
+          <p>This project developed transferable skills relevant to simulation and engineering analysis:</p>
+          <ul>
+            <li>Implementing and verifying explicit ODE solvers.</li>
+            <li>Designing fair accuracy-versus-cost comparisons.</li>
+            <li>Using reference solutions and randomized testing for model validation.</li>
+            <li>Diagnosing instability, phase error, overfitting, and regime dependence.</li>
+            <li>Communicating numerical results through plots, a GUI, and a formal technical report.</li>
+          </ul>
+        </section>
+
+        <nav class="project-nav"><a href="../research.html">← Research</a><a href="../documents/ODE%20PINN%20vs%20Num%20Meth.pdf" target="_blank" rel="noopener">Read full report ↗</a></nav>
       </article>
     </div>
   </main>
