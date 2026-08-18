@@ -69,7 +69,8 @@ if (currentPath.toLowerCase() === 'rsx.html') {
     const figure = document.createElement('figure');
     figure.className = 'rsx-full-arm';
     figure.style.gridColumn = '1 / -1';
-    figure.innerHTML = '<img src="../images/RSXArmFull.webp" alt="Full CAD assembly of the Robotics for Space Exploration rover arm." loading="lazy" style="display:block;width:100%;height:auto;object-fit:contain"><figcaption>Full CAD assembly of the rover arm in Fusion 360.</figcaption>';
+    figure.style.textAlign = 'center';
+    figure.innerHTML = '<img src="../images/RSXArmFull.webp" alt="Full CAD assembly of the Robotics for Space Exploration rover arm." loading="lazy" width="595" height="622" style="display:block;width:min(100%,595px);height:auto;object-fit:contain;margin:0 auto"><figcaption>Full CAD assembly of the rover arm in Fusion 360.</figcaption>';
     gallery.prepend(figure);
   }
 }
