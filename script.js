@@ -61,16 +61,3 @@ if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     });
   });
 }
-
-// RSX: show the complete rover-arm CAD assembly before the detail images.
-if (currentPath.toLowerCase() === 'rsx.html') {
-  const gallery = document.querySelector('#overview .project-gallery');
-  if (gallery && !gallery.querySelector('.rsx-full-arm')) {
-    const figure = document.createElement('figure');
-    figure.className = 'rsx-full-arm';
-    figure.style.gridColumn = '1 / -1';
-    figure.style.textAlign = 'center';
-    figure.innerHTML = '<img src="../images/RSXArmFull.webp" alt="Full CAD assembly of the Robotics for Space Exploration rover arm." loading="lazy" width="595" height="622" style="display:block;width:min(100%,595px);height:auto;object-fit:contain;margin:0 auto"><figcaption>Full CAD assembly of the rover arm in Fusion 360.</figcaption>';
-    gallery.prepend(figure);
-  }
-}
