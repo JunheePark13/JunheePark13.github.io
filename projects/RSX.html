@@ -9,6 +9,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css" />
+  <style>
+    .rsx-gallery{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}
+    .rsx-gallery .rsx-cad{grid-column:1/-1}
+    .rsx-gallery .rsx-cad img{width:100%;height:auto;aspect-ratio:auto;object-fit:contain;background:#fff}
+    @media(max-width:650px){.rsx-gallery{grid-template-columns:1fr}.rsx-gallery .rsx-cad{grid-column:auto}}
+  </style>
   <script src="../script.js" defer></script>
 </head>
 <body class="project-page" id="top">
@@ -50,9 +56,9 @@
           <p>Robotics for Space Exploration was the first engineering design team I joined at the University of Toronto. I worked on the rover arm subteam, where my contribution was primarily mechanical: modelling parts and assemblies in CAD, translating designs into manufacturable prototypes, and iterating mechanisms based on fit, stiffness, mass, and stability.</p>
           <p>The experience introduced me to engineering beyond coursework. A part that looks clean in CAD still has to assemble correctly, transmit load, be toleranced appropriately, and be practical to manufacture. Much of my work involved moving repeatedly between the digital model and physical hardware rather than treating CAD as the final deliverable.</p>
 
-          <div class="project-gallery">
+          <div class="project-gallery rsx-gallery">
+            <figure class="rsx-cad"><img src="../images/RSXArm.png" alt="CAD assembly of the Robotics for Space Exploration rover arm." loading="lazy"><figcaption>CAD assembly of the rover arm.</figcaption></figure>
             <figure><img src="../images/RSXArmR.jpg" alt="Robotics for Space Exploration rover." loading="lazy"><figcaption>Robotics for Space Exploration rover.</figcaption></figure>
-            <figure><img src="../images/RSXArm.png" alt="CAD assembly of the Robotics for Space Exploration rover arm." loading="lazy"><figcaption>CAD assembly of the rover arm.</figcaption></figure>
             <figure><img src="../images/RSXHexHub.png" alt="Hex-hub mechanical component developed for the rover arm." loading="lazy"><figcaption>Hex-hub locking geometry used to improve mechanical engagement and reduce backlash.</figcaption></figure>
           </div>
         </section>
