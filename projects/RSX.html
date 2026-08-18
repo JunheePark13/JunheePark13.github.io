@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Robotics for Space Exploration project by Junhee Park" />
+  <meta name="description" content="Robotics for Space Exploration rover-arm CAD and manufacturing work by Junhee Park" />
   <title>Robotics for Space Exploration | Junhee Park</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,54 +11,81 @@
   <link rel="stylesheet" href="../style.css" />
   <script src="../script.js" defer></script>
 </head>
-<body class="project-page">
+<body class="project-page" id="top">
   <div class="scroll-progress" aria-hidden="true"></div>
   <header class="site-header">
     <nav class="nav container">
       <a class="brand" href="../index.html"><span class="brand-mark">JP</span><span>Junhee Park</span></a>
-      <div class="nav-links"><a href="../index.html#projects">All projects</a><a href="../index.html#about">Contact</a></div>
+      <div class="nav-links"><a href="../teams.html">Teams</a><a href="../index.html#about">Contact</a></div>
     </nav>
   </header>
+
   <main>
     <section class="project-hero container reveal">
-      <a class="project-breadcrumb" href="../index.html#projects">← Back to projects</a>
-      <p class="eyebrow" style="margin-top:50px"><span></span>Design team · Mechanical systems</p>
+      <a class="project-breadcrumb" href="../teams.html">← Back to teams</a>
+      <p class="eyebrow" style="margin-top:50px"><span></span>Design team · CAD · Manufacturing</p>
       <h1>Robotics for Space Exploration</h1>
-      <p class="project-summary">Mechanical design contributions to a student rover arm, emphasizing component integration, manufacturability, and iterative CAD development.</p>
+      <p class="project-summary">My first University of Toronto project team experience, focused on mechanical design and prototyping for a rover robotic arm. I worked primarily in CAD and manufacturing, developing arm hardware and iterating components for lower mass, reduced backlash, and practical fabrication.</p>
       <div class="project-facts">
-        <div><span>Timeline</span><strong>2024–2025</strong></div>
-        <div><span>Role</span><strong>Arm subteam member</strong></div>
-        <div><span>Tools</span><strong>SolidWorks · mechanisms · manufacturing</strong></div>
-        <div><span>Status</span><strong>Page in development</strong></div>
+        <div><span>Timeline</span><strong>Sep. 2024 – Aug. 2025</strong></div>
+        <div><span>Role</span><strong>Rover Arm Robotics Engineer</strong></div>
+        <div><span>Tools</span><strong>Fusion 360 · 3D printing · machining</strong></div>
+        <div><span>Focus</span><strong>CAD · mechanisms · prototyping</strong></div>
       </div>
     </section>
+
     <div class="project-body container">
       <aside class="project-sidebar">
         <p class="eyebrow"><span></span>Contents</p>
         <a href="#overview">01 · Overview</a>
-        <a href="#challenge">02 · Engineering challenge</a>
-        <a href="#approach">03 · Approach</a>
-        <a href="#results">04 · Results</a>
+        <a href="#end-effector">02 · End effector & test fixture</a>
+        <a href="#elbow">03 · Elbow redesign</a>
+        <a href="#manufacturing">04 · Manufacturing & iteration</a>
         <a href="#reflection">05 · Reflection</a>
       </aside>
+
       <article class="project-copy">
         <section class="content-block reveal" id="overview">
           <h2>Overview</h2>
-          <p>This page is intentionally structured as a concise engineering case study. Replace this text with the project context, your specific responsibilities, and the outcome.</p>
-          <div class="placeholder-note">Content placeholder — update the technical claims, dates, collaborators, and quantitative results before publishing.</div>
+          <p>Robotics for Space Exploration was the first engineering design team I joined at the University of Toronto. I worked on the rover arm subteam, where my contribution was primarily mechanical: modelling parts and assemblies in CAD, translating designs into manufacturable prototypes, and iterating mechanisms based on fit, stiffness, mass, and drivetrain behaviour.</p>
+          <p>The experience introduced me to engineering beyond coursework. A part that looks clean in CAD still has to assemble correctly, transmit load, avoid unnecessary play, and be practical to manufacture. Much of my work involved moving repeatedly between the digital model and physical hardware rather than treating CAD as the final deliverable.</p>
+
           <div class="project-gallery">
-            <figure><img src="../images/RSXArmR.jpg" alt="Robotic arm CAD assembly." loading="lazy"><figcaption>Robotic arm CAD assembly.</figcaption></figure>
-            <figure><img src="../images/RSXHexHub.png" alt="Detailed mechanical component design." loading="lazy"><figcaption>Detailed mechanical component design.</figcaption></figure>
+            <figure><img src="../images/RSXArmR.jpg" alt="Robotics for Space Exploration rover arm assembly." loading="lazy"><figcaption>Rover-arm assembly and mechanical integration.</figcaption></figure>
+            <figure><img src="../images/RSXHexHub.png" alt="Hex-hub mechanical component developed for the rover arm." loading="lazy"><figcaption>Hex-hub locking geometry used to improve drivetrain engagement and reduce backlash.</figcaption></figure>
           </div>
         </section>
-        <section class="content-block reveal" id="challenge"><h2>Engineering challenge</h2><p>Describe the physical or design problem, the constraints that made it non-trivial, and the criteria used to judge success.</p></section>
-        <section class="content-block reveal" id="approach"><h2>Approach</h2><p>Explain the modelling, design, experimental, or computational workflow. Focus on engineering decisions and why each method was selected.</p></section>
-        <section class="content-block reveal" id="results"><h2>Results & validation</h2><p>Present the most important results with figures, quantitative comparisons, and limitations. Distinguish measured outcomes from interpretation.</p></section>
-        <section class="content-block reveal" id="reflection"><h2>Reflection & next steps</h2><p>Summarize what was learned, what you would change, and the next technical step. Avoid generic conclusions; connect the reflection to the project evidence.</p></section>
-        <nav class="project-nav"><a href="../index.html#projects">← All projects</a><a href="../index.html#about">Contact ↗</a></nav>
+
+        <section class="content-block reveal" id="end-effector">
+          <h2>End effector & modular test fixture</h2>
+          <p>I designed a robotic-arm end effector and a modular test fixture in Fusion 360. The fixture provided a repeatable way to prototype and evaluate mechanical concepts without requiring the complete rover-arm assembly for every iteration.</p>
+          <p>The work required more than defining the outer geometry of a part. Interfaces, fastener access, clearances, assembly order, manufacturability, and the ability to revise individual components all influenced the CAD. I then supported fabrication of prototypes using 3D printing and machining, allowing the design to be checked against the physical constraints that are easy to miss in a purely digital model.</p>
+        </section>
+
+        <section class="content-block reveal" id="elbow">
+          <h2>Elbow transmission redesign</h2>
+          <p>A major mechanical task was redesigning the rover-arm elbow transmission. The existing belt-driven concept introduced mass and mechanical play, so I developed a revised assembly intended to simplify torque transfer while improving the joint's mechanical engagement.</p>
+          <p>The redesign reduced component mass by approximately <strong>30%</strong> without sacrificing torque capacity. I also incorporated hex-hub locking features to reduce backlash between drivetrain components, improving how directly actuator motion was transferred through the elbow joint.</p>
+          <p>This was an early introduction to engineering trade-offs: removing material is only useful if the mechanism still carries the required load, and tighter engagement is only useful if the parts can still be manufactured and assembled reliably.</p>
+        </section>
+
+        <section class="content-block reveal" id="manufacturing">
+          <h2>Manufacturing & iteration</h2>
+          <p>The project was strongly hands-on. I moved between Fusion 360, additive manufacturing, and machined components to evaluate whether proposed geometry worked once tolerances, fasteners, interfaces, and real assembly constraints were introduced.</p>
+          <p>That iterative process made CAD much more practical for me. Instead of modelling a component only for nominal geometry, I learned to think about how it would actually be held, printed or machined, fastened to neighbouring parts, serviced, and changed after testing. The feedback loop between CAD and fabrication became one of the most useful parts of the project.</p>
+        </section>
+
+        <section class="content-block reveal" id="reflection">
+          <h2>Reflection</h2>
+          <p>RSX was my first project-team experience and the place where I became comfortable treating CAD as an engineering tool rather than only a modelling exercise. It gave me early experience with mechanism design, tolerance-aware assembly, prototyping, and making design decisions under real manufacturing constraints.</p>
+          <p>The project also established a workflow I have continued to use in later aircraft and experimental work: model the system, identify the interfaces and constraints, build something testable, inspect what fails or does not fit, and use that evidence to drive the next iteration.</p>
+        </section>
+
+        <nav class="project-nav"><a href="../teams.html">← Teams</a><a href="../index.html#about">Contact ↗</a></nav>
       </article>
     </div>
   </main>
+
   <footer class="footer container"><span>© <span id="year"></span> Junhee Park</span><a href="#top">Back to top ↑</a></footer>
 </body>
 </html>
