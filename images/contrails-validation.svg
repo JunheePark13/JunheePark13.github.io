@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" role="img" aria-labelledby="title desc">
+<title id="title">Axisymmetric centreline temperature validation</title>
+<desc id="desc">Reference measurements compared with reactingFoam CFD. Mean absolute percentage error is 1.42 percent.</desc>
+<style>
+text{font-family:Inter,Arial,sans-serif;fill:#b9c3cf;font-size:16px} .title{fill:#f4f6f8;font-size:24px;font-weight:600}
+.grid{stroke:#28313d;stroke-width:1} .axis{stroke:#718096;stroke-width:1.5}
+.ref{fill:#f4f6f8} .cfd{fill:#5aa9ff} .refline{stroke:#f4f6f8;stroke-width:2.5;fill:none} .cfdline{stroke:#5aa9ff;stroke-width:3;fill:none}
+.note{fill:#9ccfff;font-weight:600}
+</style>
+<rect width="100%" height="100%" fill="#0e1116"/>
+<text x="90" y="30" class="title">Centreline temperature validation</text>
+<line x1="90" y1="469.5" x2="960" y2="469.5" class="grid"/><text x="76" y="474.5" text-anchor="end">200</text><line x1="90" y1="364.6" x2="960" y2="364.6" class="grid"/><text x="76" y="369.6" text-anchor="end">300</text><line x1="90" y1="259.8" x2="960" y2="259.8" class="grid"/><text x="76" y="264.8" text-anchor="end">400</text><line x1="90" y1="154.9" x2="960" y2="154.9" class="grid"/><text x="76" y="159.9" text-anchor="end">500</text><line x1="90" y1="50.0" x2="960" y2="50.0" class="grid"/><text x="76" y="55.0" text-anchor="end">600</text><line x1="90.0" y1="50" x2="90.0" y2="480" class="grid"/><text x="90.0" y="508" text-anchor="middle">0</text><line x1="271.2" y1="50" x2="271.2" y2="480" class="grid"/><text x="271.2" y="508" text-anchor="middle">50</text><line x1="452.5" y1="50" x2="452.5" y2="480" class="grid"/><text x="452.5" y="508" text-anchor="middle">100</text><line x1="633.8" y1="50" x2="633.8" y2="480" class="grid"/><text x="633.8" y="508" text-anchor="middle">150</text><line x1="815.0" y1="50" x2="815.0" y2="480" class="grid"/><text x="815.0" y="508" text-anchor="middle">200</text>
+<line x1="90" y1="480" x2="960" y2="480" class="axis"/><line x1="90" y1="50" x2="90" y2="480" class="axis"/>
+<polyline points="108.1,74.6 271.2,351.1 430.8,410.3 592.1,434.3 753.4,443.3 914.7,451.3" class="refline"/><polyline points="108.1,82.9 271.2,359.7 430.8,415.1 592.1,435.3 753.4,445.7 914.7,454.2" class="cfdline"/>
+<circle cx="108.1" cy="74.6" r="6" class="ref"/><circle cx="271.2" cy="351.1" r="6" class="ref"/><circle cx="430.8" cy="410.3" r="6" class="ref"/><circle cx="592.1" cy="434.3" r="6" class="ref"/><circle cx="753.4" cy="443.3" r="6" class="ref"/><circle cx="914.7" cy="451.3" r="6" class="ref"/><circle cx="108.1" cy="82.9" r="5" class="cfd"/><circle cx="271.2" cy="359.7" r="5" class="cfd"/><circle cx="430.8" cy="415.1" r="5" class="cfd"/><circle cx="592.1" cy="435.3" r="5" class="cfd"/><circle cx="753.4" cy="445.7" r="5" class="cfd"/><circle cx="914.7" cy="454.2" r="5" class="cfd"/>
+<text x="500.0" y="538" text-anchor="middle">Downstream distance x (mm)</text>
+<text x="24" y="280.0" text-anchor="middle" transform="rotate(-90 24 280.0)">Centreline temperature (K)</text>
+<circle cx="660" cy="28" r="6" class="ref"/><text x="675" y="34">Reference</text>
+<circle cx="790" cy="28" r="6" class="cfd"/><text x="805" y="34">reactingFoam</text>
+<text x="740" y="95" class="note">MAPE 1.42% · max 2.64%</text>
+</svg>
