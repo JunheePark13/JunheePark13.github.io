@@ -3,62 +3,141 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Jet Mixing & Contrail Formation project by Junhee Park" />
+  <meta name="description" content="Computational investigation of contrail-relevant turbulent jet mixing, thermal validation, bypass-flow effects, and large-eddy simulation in OpenFOAM by Junhee Park." />
   <title>Jet Mixing & Contrail Formation | Junhee Park</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css" />
   <script src="../script.js" defer></script>
+  <style>
+    .research-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:34px 0 0}.research-metrics div{background:var(--surface);padding:22px 20px}.research-metrics strong{display:block;font:600 clamp(24px,3vw,34px) Manrope,sans-serif;letter-spacing:-.04em}.research-metrics span{display:block;color:var(--muted);font-size:11px;line-height:1.5;margin-top:5px;text-transform:uppercase;letter-spacing:.08em}.research-figure{margin-top:32px;border:1px solid var(--line);background:var(--surface);overflow:hidden}.research-figure img{display:block;width:100%;height:auto;object-fit:contain;filter:none}.research-figure figcaption{font-size:11px;color:var(--muted);padding:12px 14px;line-height:1.5}.research-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:28px}.research-grid figure{border:1px solid var(--line);background:var(--surface);overflow:hidden}.research-grid img{width:100%;height:auto;aspect-ratio:16/10;object-fit:contain;display:block;filter:none}.research-grid figcaption{font-size:11px;color:var(--muted);padding:12px}.result-callout{border-left:2px solid var(--blue);background:rgba(90,169,255,.06);padding:18px 20px;margin:24px 0}.result-callout strong{color:var(--text)}.result-callout p{margin:0!important}.mini-table{width:100%;border-collapse:collapse;margin:24px 0 10px;font-size:12px;color:#c5ccd5}.mini-table th,.mini-table td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:right}.mini-table th:first-child,.mini-table td:first-child{text-align:left}.mini-table th{font-weight:600;color:var(--text)}.status-strip{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}.status-strip>div{border:1px solid var(--line);background:var(--surface);padding:20px}.status-strip span{display:block;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.11em;margin-bottom:7px}.status-strip strong{font-size:13px}.technical-note{font-size:13px!important;color:var(--muted)!important}.report-note{margin-top:28px;font-size:12px;color:var(--muted)}
+    @media(max-width:760px){.research-metrics{grid-template-columns:repeat(2,1fr)}.research-grid,.status-strip{grid-template-columns:1fr}.mini-table{font-size:10px}.mini-table th,.mini-table td{padding:8px 6px}}
+  </style>
 </head>
-<body class="project-page">
+<body class="project-page" id="top">
   <div class="scroll-progress" aria-hidden="true"></div>
   <header class="site-header">
     <nav class="nav container">
       <a class="brand" href="../index.html"><span class="brand-mark">JP</span><span>Junhee Park</span></a>
-      <div class="nav-links"><a href="../index.html#projects">All projects</a><a href="../index.html#about">Contact</a></div>
+      <div class="nav-links"><a href="../research.html">Research</a><a href="../index.html#about">Contact</a></div>
     </nav>
   </header>
+
   <main>
     <section class="project-hero container reveal">
-      <a class="project-breadcrumb" href="../index.html#projects">← Back to projects</a>
-      <p class="eyebrow" style="margin-top:50px"><span></span>Research · Computational fluid dynamics</p>
+      <a class="project-breadcrumb" href="../research.html">← Back to research</a>
+      <p class="eyebrow" style="margin-top:50px"><span></span>UTIAS research · CFD · Turbulence · HPC</p>
       <h1>Jet Mixing & Contrail Formation</h1>
-      <p class="project-summary">Development and validation of a computational framework for studying turbulent aircraft-exhaust mixing and thermodynamic conditions relevant to contrail formation.</p>
+      <p class="project-summary">Computational investigation of how hot, moist aircraft exhaust mixes with cold ambient air, with the long-term objective of resolving the temperature and water-vapour fluctuations that create localized supersaturation during contrail inception.</p>
       <div class="project-facts">
         <div><span>Timeline</span><strong>Summer 2026</strong></div>
-        <div><span>Role</span><strong>Undergraduate researcher</strong></div>
-        <div><span>Tools</span><strong>OpenFOAM · ParaView · Trillium HPC</strong></div>
-        <div><span>Status</span><strong>Page in development</strong></div>
+        <div><span>Role</span><strong>Undergraduate Researcher</strong></div>
+        <div><span>Tools</span><strong>OpenFOAM · ParaView · Trillium</strong></div>
+        <div><span>Focus</span><strong>URANS · LES · Jet mixing</strong></div>
+      </div>
+      <div class="research-metrics">
+        <div><strong>1.42%</strong><span>Mean thermal validation error</span></div>
+        <div><strong>9</strong><span>Bypass-flow cases</span></div>
+        <div><strong>14.27M</strong><span>Cells in production LES mesh</span></div>
+        <div><strong>192</strong><span>MPI ranks on Trillium</span></div>
       </div>
     </section>
+
     <div class="project-body container">
       <aside class="project-sidebar">
         <p class="eyebrow"><span></span>Contents</p>
         <a href="#overview">01 · Overview</a>
-        <a href="#challenge">02 · Engineering challenge</a>
-        <a href="#approach">03 · Approach</a>
-        <a href="#results">04 · Results</a>
-        <a href="#reflection">05 · Reflection</a>
+        <a href="#why-les">02 · Why LES</a>
+        <a href="#validation">03 · Thermal validation</a>
+        <a href="#bypass">04 · Bypass study</a>
+        <a href="#les">05 · 3D LES development</a>
+        <a href="#supersaturation">06 · Supersaturation</a>
+        <a href="#reflection">07 · Interpretation</a>
       </aside>
+
       <article class="project-copy">
         <section class="content-block reveal" id="overview">
           <h2>Overview</h2>
-          <p>This page is intentionally structured as a concise engineering case study. Replace this text with the project context, your specific responsibilities, and the outcome.</p>
-          <div class="placeholder-note">Content placeholder — update the technical claims, dates, collaborators, and quantitative results before publishing.</div>
-          <div class="project-gallery">
-            <figure><img src="../images/Cylindrical Test.png" alt="Three-dimensional computational domain and jet configuration." loading="lazy"><figcaption>Three-dimensional computational domain and jet configuration.</figcaption></figure>
-            <figure><img src="../images/Smoke Visual.jpg" alt="Representative jet or flow-visualization imagery." loading="lazy"><figcaption>Representative jet or flow-visualization imagery.</figcaption></figure>
+          <p>This project was conducted at the University of Toronto Institute for Aerospace Studies in the Propulsion and Energy Conversion Laboratory under Professor Swetaprovo Chaudhuri, with day-to-day mentorship from Dr. Rajat Sawanni. The work develops an OpenFOAM framework for contrail-relevant turbulent exhaust mixing, progressing from lower-cost validation models toward a three-dimensional large-eddy simulation.</p>
+          <p>The physical problem is deceptively difficult. Hot, moist exhaust entrains cold ambient air, so both temperature and water-vapour concentration fall as the plume mixes. Saturation vapour pressure, however, falls nonlinearly with temperature. Local regions can therefore become supersaturated even as the exhaust is being diluted. The project isolates this fluid-dynamic and thermodynamic stage before introducing soot, ice microphysics, latent heat, or particle dynamics.</p>
+
+          <div class="research-grid">
+            <figure><img src="../images/Cylindrical Test.png" alt="Three-dimensional cylindrical computational domain for the contrail-relevant jet simulation." loading="lazy"><figcaption>Development of the three-dimensional cylindrical jet domain used for the RANS and LES workflow.</figcaption></figure>
+            <figure><img src="../images/Smoke Visual.jpg" alt="Experimental jet-flow visualization related to contrail-tunnel mixing." loading="lazy"><figcaption>Physical jet-mixing context: the numerical work supports laboratory-scale investigation of exhaust-plume development.</figcaption></figure>
           </div>
         </section>
-        <section class="content-block reveal" id="challenge"><h2>Engineering challenge</h2><p>Describe the physical or design problem, the constraints that made it non-trivial, and the criteria used to judge success.</p></section>
-        <section class="content-block reveal" id="approach"><h2>Approach</h2><p>Explain the modelling, design, experimental, or computational workflow. Focus on engineering decisions and why each method was selected.</p></section>
-        <section class="content-block reveal" id="results"><h2>Results & validation</h2><p>Present the most important results with figures, quantitative comparisons, and limitations. Distinguish measured outcomes from interpretation.</p></section>
-        <section class="content-block reveal" id="reflection"><h2>Reflection & next steps</h2><p>Summarize what was learned, what you would change, and the next technical step. Avoid generic conclusions; connect the reflection to the project evidence.</p></section>
-        <nav class="project-nav"><a href="../index.html#projects">← All projects</a><a href="../index.html#about">Contact ↗</a></nav>
+
+        <section class="content-block reveal" id="why-les">
+          <h2>Why large-eddy simulation?</h2>
+          <p>RANS and URANS are useful for validating geometry, boundary conditions, thermodynamics, and mean plume development, but they represent turbulence through statistical averaging. That is a major limitation for contrail inception: a mean temperature field can look correct while missing the instantaneous temperature–vapour combinations that cross the nonlinear saturation boundary.</p>
+          <p>LES instead resolves the energetic three-dimensional turbulent structures and models only the smaller unresolved motions. The objective is to capture shear-layer roll-up, entrainment, vortex interaction, three-dimensional breakdown, and unsteady scalar transport so that supersaturation can eventually be studied as a fluctuating field rather than only as a mean quantity.</p>
+          <div class="result-callout"><p><strong>Core modelling question:</strong> can a numerically stable LES reproduce not only the mean plume, but also the instantaneous joint fluctuations of temperature and water vapour that govern localized supersaturation?</p></div>
+        </section>
+
+        <section class="content-block reveal" id="validation">
+          <h2>Thermal validation</h2>
+          <p>I first built progressively more representative compressible jet cases before committing to the cost of LES. A planar representation consistently overpredicted downstream centreline temperature, with mean errors around 40%. Changing inlet turbulence parameters did not resolve the discrepancy, pointing instead to the entrainment physics of the planar geometry.</p>
+          <p>Replacing the planar model with a five-degree axisymmetric wedge produced a major improvement. Using <strong>reactingFoam</strong> with chemistry disabled as a compressible, multicomponent air–water-vapour solver, the final wedge case reproduced the available centreline temperature measurements with a <strong>1.42% mean absolute percentage error</strong> and a maximum error of <strong>2.64%</strong>.</p>
+
+          <figure class="research-figure"><img src="../images/contrails-validation.svg" alt="Centreline temperature validation comparing reactingFoam results with reference measurements." loading="lazy"><figcaption>Axisymmetric thermal validation reconstructed from the report data. The validated mean-temperature field provided the baseline for the later three-dimensional work.</figcaption></figure>
+
+          <p class="technical-note">Water-vapour transport was also checked for bounded mass fractions, mixture consistency, and physically sensible plume decay and spreading. Those checks establish numerical consistency, not independent experimental validation of the H₂O field.</p>
+        </section>
+
+        <section class="content-block reveal" id="bypass">
+          <h2>Bypass-flow study</h2>
+          <p>The validated axisymmetric framework was extended with an annular bypass stream to study how turbofan-like bypass conditions alter plume cooling, vapour dilution, and ice supersaturation. I ran a nine-case matrix spanning bypass ratios of approximately <strong>2.50, 5.95, and 10.0</strong>, each at bypass temperatures of <strong>240, 270, and 300 K</strong>.</p>
+          <p>The strongest trend was bypass temperature: colder bypass flow cooled the plume faster, increased the ice-saturation ratio, and moved the first centreline location with S<sub>i</sub> &gt; 1 upstream. Increasing bypass ratio produced the same upstream shift at fixed temperature, but with a competing penalty of stronger water-vapour dilution.</p>
+
+          <figure class="research-figure"><img src="../images/contrails-bypass-onset.svg" alt="Supersaturation onset position as a function of bypass ratio and bypass temperature." loading="lazy"><figcaption>First centreline location at which the ice-saturation ratio exceeds unity for the nine bypass cases. At BPR ≈ 10, reducing bypass temperature from 300 K to 240 K moves onset upstream by nearly 48 mm.</figcaption></figure>
+
+          <table class="mini-table" aria-label="Ice saturation ratio at 0.183 metres downstream">
+            <thead><tr><th>Bypass temperature</th><th>BPR ≈ 2.50</th><th>BPR ≈ 5.95</th><th>BPR ≈ 10.0</th></tr></thead>
+            <tbody><tr><td>240 K</td><td>4.92</td><td>7.63</td><td>11.09</td></tr><tr><td>270 K</td><td>2.60</td><td>3.39</td><td>4.46</td></tr><tr><td>300 K</td><td>1.43</td><td>1.62</td><td>2.01</td></tr></tbody>
+          </table>
+          <p class="technical-note">At x = 0.183 m, increasing BPR from ≈2.5 to 10 reduced centreline temperature by roughly 13–15 K while reducing core-derived water-vapour mass fraction by roughly 60–65%. Over this developing-plume region, the cooling effect dominated the supersaturation response. Absolute supersaturation values are model-dependent because the bypass and ambient streams were treated as dry air.</p>
+        </section>
+
+        <section class="content-block reveal" id="les">
+          <h2>Three-dimensional LES development</h2>
+          <p>The three-dimensional model uses a structured cylindrical O-grid designed from the developed RANS field. Refinement was concentrated around the expanding core–ambient shear layer rather than distributed uniformly. After several iterations of mesh-quality diagnosis and redesign, the production mesh contained exactly <strong>14,272,512 cells</strong>, including 128 azimuthal divisions and 808 axial cells.</p>
+
+          <div class="research-grid">
+            <figure><img src="../images/Hex Mesh V2 (A).png" alt="Structured mesh refinement in the three-dimensional jet domain." loading="lazy"><figcaption>Structured O-grid development with targeted near-core and shear-layer refinement.</figcaption></figure>
+            <figure><img src="../images/Hex Mesh V2 (B).png" alt="Detailed structured mesh view near the jet shear layer." loading="lazy"><figcaption>Refinement strategy evolved through repeated mesh-quality and failure-location diagnostics.</figcaption></figure>
+          </div>
+
+          <p>The most difficult part of the project became solver stability. Pressure-based LES calculations developed a travelling velocity–pressure runaway when <em>velocity shear and thermal/density shear were present together</em>. I systematically tested mesh changes, inlet regularization, convection schemes, RANS initialization, filter widths, and WALE, Smagorinsky, and dynamicKEqn subgrid closures. These changes altered the growth rate, but none eliminated the failure.</p>
+
+          <div class="status-strip">
+            <div><span>Control cases</span><strong>Velocity shear only: stable 1 ms<br>Thermal/density shear only: stable 0.1 ms<br>SST RANS with both: stable 35 ms</strong></div>
+            <div><span>Density-based route</span><strong>rhoCentralFoam pure air: stable 3 ms<br>Passive H₂O: reconstructed through 4.35 ms after RANS → LES switch</strong></div>
+          </div>
+
+          <p>The control matrix weakened species transport, one defective cell, boundary-condition type, and any single SGS model as complete explanations. Switching to the density-based <strong>rhoCentralFoam</strong> formulation with a Kurganov central-upwind flux produced the first tested 3D LES route that remained bounded with both velocity and thermal/density gradients present.</p>
+          <p>Production and diagnostic cases ran on the Trillium high-performance computing cluster using <strong>192 MPI ranks across three nodes</strong>, with adaptive timestepping constrained to a maximum Courant number of 0.3.</p>
+        </section>
+
+        <section class="content-block reveal" id="supersaturation">
+          <h2>Supersaturation post-processing</h2>
+          <p>The LES is ultimately a means to reconstruct the thermodynamic state experienced by the turbulent plume. From each cell's temperature, water-vapour mass fraction, and absolute pressure, the analysis converts mass fraction to mole fraction, evaluates vapour partial pressure, and computes saturation ratios over ice and liquid water.</p>
+          <p>The next statistical layer is intentionally broader than a single contour: instantaneous and mean S<sub>i</sub> fields, centreline and radial profiles, fluctuation variance, probability-density functions, and joint temperature–water-vapour PDFs. These diagnostics are needed because the tails of the joint distribution—not only the mean—can determine whether localized regions become supersaturated.</p>
+          <div class="result-callout"><p><strong>Important limitation:</strong> this framework currently diagnoses thermodynamic supersaturation; it does not yet model soot activation, ice-particle populations, latent heat, or depletion of vapour through condensation and deposition.</p></div>
+        </section>
+
+        <section class="content-block reveal" id="reflection">
+          <h2>Interpretation & next steps</h2>
+          <p>The project reinforced a distinction that is central to turbulence modelling: <strong>matching a mean field is necessary, but it is not sufficient evidence that the fluctuation physics is correct.</strong> The 1.42% thermal-validation error established a credible mean-flow baseline, while the LES work exposed the much harder numerical problem of resolving compressible, variable-density shear without introducing a solver-driven runaway.</p>
+          <p>The density-based LES provides a workable path forward, but stability is not the same as accuracy or statistical convergence. The next step is to extend the bounded run far enough to identify a developed sampling interval, then quantify scalar fluctuations and supersaturation statistics and compare LES means back against the validated lower-order model.</p>
+          <p class="report-note">This page summarizes the August 14, 2026 summer research report and presents interim LES results as such; the reported instantaneous LES fields were not yet time-averaged or statistically converged.</p>
+        </section>
+
+        <nav class="project-nav"><a href="../research.html">← Research</a><a href="../index.html#about">Contact ↗</a></nav>
       </article>
     </div>
   </main>
+
   <footer class="footer container"><span>© <span id="year"></span> Junhee Park</span><a href="#top">Back to top ↑</a></footer>
 </body>
 </html>
