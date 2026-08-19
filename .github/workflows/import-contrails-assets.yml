@@ -1,0 +1,37 @@
+name: Import contrails PDF assets
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - ".asset-import/complete"
+
+permissions:
+  contents: write
+
+jobs:
+  import-assets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Reassemble exact PDF-extracted assets
+        shell: bash
+        run: |
+          cat .asset-import/c2_* | base64 -d > /tmp/contrails-assets.zip
+          unzip -o /tmp/contrails-assets.zip -d /tmp/contrails-assets
+          cp /tmp/contrails-assets/contrails-validation-figure.png images/contrails-validation-figure.png
+          cp /tmp/contrails-assets/contrails-bypass-onset-table.png images/contrails-bypass-onset-table.png
+          cp /tmp/contrails-assets/contrails-bypass-saturation-table.png images/contrails-bypass-saturation-table.png
+          cp /tmp/contrails-assets/contrails-rans-resolution.png images/contrails-rans-resolution.png
+          cp /tmp/contrails-assets/mesh-q90.jpg images/contrails-production-mesh.jpg
+          cp /tmp/contrails-assets/contrails-les-figure.png images/contrails-les-figure.png
+          rm -rf .asset-import
+          rm -f .github/workflows/import-contrails-assets.yml
+      - name: Commit extracted figures
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Add figures extracted from contrails research report"
+          git push
