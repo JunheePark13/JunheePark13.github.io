@@ -21,14 +21,7 @@ jobs:
           rm -rf /tmp/contrails-assets
           mkdir -p /tmp/contrails-assets
           unzip -o /tmp/contrails-assets.zip -d /tmp/contrails-assets
-          cp /tmp/contrails-assets/contrails-wedge-validation.png images/contrails-wedge-validation.png
-          cp /tmp/contrails-assets/contrails-bypass-onset-table.png images/contrails-bypass-onset-table.png
-          cp /tmp/contrails-assets/contrails-bypass-saturation-table.png images/contrails-bypass-saturation-table.png
-          cp /tmp/contrails-assets/contrails-3d-rans-validation.png images/contrails-3d-rans-validation.png
-          cp /tmp/contrails-assets/contrails-ogrid.jpg images/contrails-ogrid.jpg
-          cp /tmp/contrails-assets/contrails-rans-informed-resolution.jpg images/contrails-rans-informed-resolution.jpg
-          cp /tmp/contrails-assets/contrails-production-mesh.jpg images/contrails-production-mesh.jpg
-          cp /tmp/contrails-assets/contrails-les-fields.jpg images/contrails-les-fields.jpg
+          cp /tmp/contrails-assets/*.jpg images/
           rm -rf .asset-import
           rm -f .github/workflows/import-contrails-assets.yml
       - name: Commit extracted figures
