@@ -17,11 +17,11 @@ jobs:
       - name: Reassemble figures extracted from research report
         shell: bash
         run: |
-          cat .asset-import/c2_* | base64 -d > /tmp/contrails-assets.zip
-          rm -rf /tmp/contrails-assets
-          mkdir -p /tmp/contrails-assets
-          unzip -o /tmp/contrails-assets.zip -d /tmp/contrails-assets
-          cp /tmp/contrails-assets/*.jpg images/
+          cat .asset-import/wedge_* | base64 -d > images/contrails-wedge-validation.jpg
+          cat .asset-import/ogrid_* | base64 -d > images/contrails-ogrid.jpg
+          cat .asset-import/ransval_* | base64 -d > images/contrails-3d-rans-validation.jpg
+          cat .asset-import/mesh_* | base64 -d > images/contrails-production-mesh.jpg
+          cat .asset-import/les_* | base64 -d > images/contrails-les-fields.jpg
           rm -rf .asset-import
           rm -f .github/workflows/import-contrails-assets.yml
       - name: Commit extracted figures
