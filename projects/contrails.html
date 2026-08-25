@@ -12,14 +12,14 @@
   <script src="../script.js" defer></script>
   <style>
     .research-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:34px 0 0}.research-metrics div{background:var(--surface);padding:22px 20px}.research-metrics strong{display:block;font:600 clamp(24px,3vw,34px) Manrope,sans-serif;letter-spacing:-.04em}.research-metrics span{display:block;color:var(--muted);font-size:11px;line-height:1.5;margin-top:5px;text-transform:uppercase;letter-spacing:.08em}
-    .research-figure{margin-top:28px;border:1px solid var(--line);background:var(--surface);overflow:hidden}.research-figure img{display:block;width:100%;height:auto;object-fit:contain;filter:none}.research-figure figcaption{font-size:11px;color:var(--muted);padding:12px 14px;line-height:1.55}
+    .research-figure{margin-top:30px;border:1px solid var(--line);background:var(--surface);padding:14px}.research-figure img{display:block;width:100%;max-width:100%;height:auto;max-height:none;object-fit:contain;object-position:center;filter:none}.research-figure figcaption{font-size:11px;color:var(--muted);padding:12px 0 0;line-height:1.55}.figure-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px}.figure-grid .research-figure{margin-top:0}
     .result-callout{border-left:2px solid var(--blue);background:rgba(90,169,255,.06);padding:18px 20px;margin:24px 0}.result-callout p{margin:0!important}.result-callout strong{color:var(--text)}
-    .mini-table{width:100%;border-collapse:collapse;margin:24px 0 10px;font-size:12px;color:#c5ccd5}.mini-table th,.mini-table td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:right}.mini-table th:first-child,.mini-table td:first-child{text-align:left}.mini-table th{font-weight:600;color:var(--text)}
+    .mini-table{width:100%;border-collapse:collapse;margin:26px 0 10px;font-size:12px;color:#c5ccd5}.mini-table th,.mini-table td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:right}.mini-table th:first-child,.mini-table td:first-child{text-align:left}.mini-table th{font-weight:600;color:var(--text)}
     .section-kicker{font-size:11px!important;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)!important;margin-bottom:8px!important}.technical-note,.report-note{font-size:12px!important;color:var(--muted)!important}
     .collab-grid,.ownership-grid,.diagnostic-grid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin:24px 0}.collab-grid{grid-template-columns:repeat(3,1fr)}.ownership-grid{grid-template-columns:repeat(2,1fr)}.diagnostic-grid{grid-template-columns:repeat(3,1fr)}.collab-grid a,.ownership-grid>div,.diagnostic-grid>div{background:var(--surface);padding:18px;text-decoration:none}.collab-grid span,.diagnostic-grid span{display:block;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.09em;margin-bottom:8px}.collab-grid strong,.ownership-grid strong,.diagnostic-grid strong{display:block;color:var(--text);font-size:12px;line-height:1.6}.collab-grid em,.ownership-grid span{display:block;color:var(--muted);font-style:normal;font-size:11px;line-height:1.55;margin-top:6px}
     .skill-strip{display:flex;flex-wrap:wrap;gap:7px;margin:20px 0}.skill-strip span{border:1px solid var(--line);background:var(--surface);padding:7px 9px;font-size:10px;color:var(--muted);letter-spacing:.03em}
     .equation-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:24px 0}.equation-strip div{background:var(--surface);padding:18px}.equation-strip strong{display:block;font:600 17px Manrope,sans-serif;color:var(--text);margin-bottom:6px}.equation-strip span{display:block;font-size:11px;line-height:1.55;color:var(--muted)}
-    @media(max-width:760px){.research-metrics{grid-template-columns:repeat(2,1fr)}.collab-grid,.ownership-grid,.diagnostic-grid,.equation-strip{grid-template-columns:1fr}.mini-table{font-size:10px}.mini-table th,.mini-table td{padding:8px 6px}}
+    @media(max-width:760px){.research-metrics{grid-template-columns:repeat(2,1fr)}.collab-grid,.ownership-grid,.diagnostic-grid,.equation-strip,.figure-grid{grid-template-columns:1fr}.mini-table{font-size:10px}.mini-table th,.mini-table td{padding:8px 6px}}
   </style>
 </head>
 <body class="project-page" id="top">
@@ -89,7 +89,7 @@
           <p>The initial planar jet model was useful for developing boundary conditions and scalar transport, but it consistently overpredicted downstream centreline temperature. Changing inlet turbulence intensity and length scale through the corresponding <em>k</em> and <em>ω</em> conditions did not remove the <strong>36–43% error</strong>, pointing to the entrainment physics of the planar representation rather than a turbulence constant that could simply be tuned.</p>
           <p>I replaced it with a <strong>five-degree axisymmetric wedge</strong> and progressed the solver from rhoPimpleFoam to <strong>reactingFoam</strong> with chemistry disabled for compressible air–water-vapour transport. The final case reproduced the available centreline-temperature measurements with a <strong>1.42% mean absolute percentage error</strong> across six evaluated stations and a <strong>2.64% maximum error</strong>.</p>
           <figure class="research-figure">
-            <img src="../images/contrails-report-validation-2026.svg" alt="Temperature field and centreline experimental validation from the Summer 2026 UTIAS contrail research report." loading="lazy">
+            <img src="../images/contrails-report-validation.jpg" alt="Axisymmetric OpenFOAM temperature field and centreline validation against tunnel measurements, extracted from the Summer 2026 research report." loading="lazy">
             <figcaption>Report Figure 2 — developed temperature field and measured-vs-computed centreline-temperature decay for the validated axisymmetric reactingFoam case.</figcaption>
           </figure>
           <p class="technical-note">Water-vapour transport was separately checked for bounded mass fractions, mixture consistency, and physically sensible plume spreading. It was not presented as independently validated because corresponding experimental H₂O concentration measurements were unavailable.</p>
@@ -118,6 +118,16 @@
             <div><strong>f<sub>res</sub> = L<sub>t</sub>/Δ</strong><span>Regions with f<sub>res</sub> &lt; 5 were targeted for additional refinement.</span></div>
           </div>
           <p>Successive quality checks and redesign concentrated resolution around both sides of the expanding core–ambient shear layer. The final production topology used <strong>128 azimuthal divisions</strong> and <strong>808 axial cells</strong> for exactly <strong>14,272,512 cells</strong>. A developed RANS solution was then run directly on this same mesh before the LES switch, avoiding mesh-to-mesh interpolation at startup.</p>
+          <div class="figure-grid">
+            <figure class="research-figure">
+              <img src="../images/contrails-report-ogrid.jpg" alt="Structured cylindrical O-grid extracted from the Summer 2026 UTIAS contrail research report." loading="lazy">
+              <figcaption>Structured cylindrical O-grid topology used for the three-dimensional RANS-to-LES workflow.</figcaption>
+            </figure>
+            <figure class="research-figure">
+              <img src="../images/contrails-report-production-mesh.jpg" alt="Production three-dimensional LES mesh extracted from the Summer 2026 UTIAS contrail research report." loading="lazy">
+              <figcaption>Final 14,272,512-cell production mesh used for the same-mesh RANS-to-LES workflow.</figcaption>
+            </figure>
+          </div>
         </section>
 
         <section class="content-block reveal" id="les">
@@ -126,10 +136,6 @@
           <p>The LES workflow began from the developed same-mesh RANS plume and replaced the Reynolds-averaged closure with an SGS model so energetic three-dimensional turbulent motions could develop on the production mesh. The investigation included <strong>WALE, Smagorinsky, and dynamicKEqn</strong>; the current density-based route uses dynamicKEqn.</p>
           <p>Production simulations run on SciNet's <strong>Trillium</strong> cluster with Scotch decomposition, restartable run segments, and adaptive timestepping at a maximum Courant number of 0.3. The original workflow used 192 MPI ranks, but I later tested higher parallelism. A <strong>576-rank trial was slower</strong>, consistent with communication overhead outweighing the extra cores, so subsequent production runs use <strong>384 MPI ranks at 128 ranks per node</strong>.</p>
           <p>After the stable density-based flow formulation was established, water vapour was reintroduced conservatively as a one-way-coupled passive mass fraction initialized from the developed RANS H₂O field.</p>
-          <figure class="research-figure">
-            <img src="../images/contrails-report-les-fields.svg" alt="Instantaneous velocity, temperature, density, and passive water-vapour LES fields extracted from the Summer 2026 report." loading="lazy">
-            <figcaption>Report Figure 10 — an early instantaneous centre-plane checkpoint of velocity magnitude, temperature, density, and passive-H₂O from the density-based LES. The production simulation has since advanced substantially further; this image is not a time-averaged or statistically converged result.</figcaption>
-          </figure>
         </section>
 
         <section class="content-block reveal" id="solver">
@@ -150,7 +156,7 @@
           <p>By the latest completed checkpoint, the density-based case had advanced approximately <strong>49.1 ms beyond the RANS-to-LES switch</strong> without returning to the earlier runaway. I reconstructed saved fields and evaluated successive <strong>3 ms windows</strong> of centreline temperature mean and standard deviation at the experimental stations to determine whether the flow was actually approaching statistical stationarity.</p>
           <p>The late-time windows showed stable or near-stable means at several downstream stations, while some residual drift and fluctuation variation remained — particularly around the upstream 50 mm and 138.5 mm locations. Rather than call the case converged prematurely, I extended the same stable simulation again. The next step is to identify a defensible stationary sampling window and then compute resolved-fluctuation, spectral, SGS-energy, and joint temperature–water-vapour statistics for supersaturation analysis.</p>
           <div class="result-callout"><p><strong>Engineering scope demonstrated:</strong> experimental validation, compressible CFD, turbulence modelling, species transport, parametric analysis, structured mesh generation, high-performance computing, parallel-scaling assessment, and systematic numerical debugging — applied to an industry-sponsored aerospace propulsion problem.</p></div>
-          <p class="report-note">Technical figures shown here are extracted from my Summer 2026 research report. The LES figure retains its original interim status even though the production simulation has since advanced much further.</p>
+          <p class="report-note">All three technical images on this page are direct JPEG extracts from my Summer 2026 research report. I intentionally removed the older LES screenshot because it was only an interim visual checkpoint and no longer represented the current simulation state.</p>
         </section>
 
         <nav class="project-nav"><a href="../research.html">← Research</a><a href="../index.html#about">Contact ↗</a></nav>
