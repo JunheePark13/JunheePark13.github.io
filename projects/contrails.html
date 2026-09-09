@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="UTIAS undergraduate research by Junhee Park on contrail-relevant turbulent jet mixing: OpenFOAM RANS/URANS validation, 14.27-million-cell LES, high-performance computing, solver diagnostics, and supersaturation statistics.">
+  <meta name="description" content="UTIAS undergraduate research by Junhee Park on contrail-relevant turbulent jet mixing, OpenFOAM RANS/URANS validation, large-eddy simulation, HPC, solver diagnostics, and supersaturation statistics.">
   <title>Contrail-Relevant Turbulent Jet Mixing & LES | Junhee Park</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,100 +11,252 @@
   <link rel="stylesheet" href="../style.css">
   <script src="../script.js" defer></script>
   <style>
-    .contrails-page .project-copy{max-width:880px}.contrails-page .project-hero{padding-bottom:76px}
-    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}.hero-actions a{display:inline-flex;align-items:center;gap:20px;padding:11px 14px;border:1px solid var(--line);color:var(--text);text-decoration:none;font-size:12px;transition:.2s}.hero-actions a:hover{border-color:#566170;transform:translateY(-2px)}.hero-actions a.primary{background:var(--text);color:#080a0d;border-color:var(--text)}
-    .research-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:34px}.research-metrics>div{background:var(--surface);padding:22px 20px;min-height:118px}.research-metrics strong{display:block;font:600 clamp(25px,3vw,35px) Manrope,sans-serif;letter-spacing:-.04em}.research-metrics span{display:block;color:var(--muted);font-size:10px;line-height:1.45;margin-top:6px;text-transform:uppercase;letter-spacing:.09em}
-    .hero-figure,.figure{border:1px solid var(--line);background:var(--surface);overflow:hidden}.hero-figure{margin-top:22px}.hero-figure img,.figure img{display:block;width:100%;height:auto;image-rendering:auto}.hero-figure figcaption,.figure figcaption{font-size:11px;color:var(--muted);line-height:1.55;padding:11px 13px}.figure{margin:28px 0}.figure-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:28px 0}.figure-grid .figure{margin:0}.field-grid{display:grid;grid-template-columns:1fr;gap:18px;margin:28px 0}.field-grid .figure{margin:0}.field-grid .figure img{max-width:1470px;margin:0 auto}
-    .section-kicker{font-size:10px!important;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)!important;margin-bottom:8px!important}.lede{font-size:18px!important;line-height:1.6}
-    .impact-grid,.team-grid,.workflow-grid,.diag-grid,.takeaway-grid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin:26px 0}.impact-grid,.takeaway-grid{grid-template-columns:repeat(2,1fr)}.team-grid,.diag-grid{grid-template-columns:repeat(3,1fr)}.workflow-grid{grid-template-columns:repeat(4,1fr)}.impact-grid>div,.workflow-grid>div,.diag-grid>div,.takeaway-grid>div,.team-grid>a{background:var(--surface);padding:19px}.impact-grid strong,.workflow-grid strong,.diag-grid strong,.takeaway-grid strong,.team-grid strong{display:block;font-size:13px;line-height:1.5;color:var(--text)}.impact-grid span,.workflow-grid span,.diag-grid span,.takeaway-grid span,.team-grid em{display:block;color:var(--muted);font-size:11px;line-height:1.55;margin-top:7px;font-style:normal}.team-grid a{text-decoration:none;transition:.2s}.team-grid a:hover{background:var(--surface-2)}.team-grid small,.diag-grid small,.workflow-grid small{display:block;color:var(--blue-soft);font-size:9px;line-height:1.4;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
-    .skill-strip{display:flex;gap:7px;flex-wrap:wrap;margin:22px 0}.skill-strip span{font-size:10px;letter-spacing:.03em;color:#c7ced7;background:var(--surface);border:1px solid var(--line);padding:7px 9px}.result-callout{border-left:2px solid var(--blue);background:rgba(90,169,255,.065);padding:18px 20px;margin:24px 0}.result-callout p{margin:0!important}.result-callout strong{color:var(--text)}
-    .mini-table{width:100%;border-collapse:collapse;margin:25px 0;font-size:12px;color:#c5ccd5}.mini-table th,.mini-table td{padding:11px 10px;border-bottom:1px solid var(--line);text-align:right}.mini-table th:first-child,.mini-table td:first-child{text-align:left}.mini-table th{font-weight:600;color:var(--text);background:var(--surface)}.mini-table td{background:rgba(14,17,22,.45)}
-    .stats-band{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:26px 0}.stats-band>div{background:var(--surface);padding:20px}.stats-band strong{display:block;font:600 28px Manrope,sans-serif;letter-spacing:-.03em}.stats-band span{display:block;color:var(--muted);font-size:10px;line-height:1.5;margin-top:5px;text-transform:uppercase;letter-spacing:.08em}
-    .comparison{display:grid;grid-template-columns:1fr 1.25fr 1.25fr;gap:1px;background:var(--line);border:1px solid var(--line);margin:26px 0}.comparison>div{background:var(--surface);padding:13px 15px;font-size:11px;color:var(--muted)}.comparison .head{color:var(--text);font-weight:600}.comparison strong{color:var(--text);font-size:12px}.scope-note{border:1px solid var(--line);background:linear-gradient(135deg,rgba(90,169,255,.06),rgba(255,255,255,.015));padding:20px;margin:26px 0}.scope-note h3{font-size:16px;margin-bottom:8px}.scope-note p{font-size:12px!important;color:var(--muted)!important;margin:0!important}.tech-line{color:var(--muted);font-size:12px!important}.nowrap{white-space:nowrap}
-    @media(max-width:860px){.team-grid,.workflow-grid,.diag-grid{grid-template-columns:1fr 1fr}.research-metrics{grid-template-columns:1fr 1fr}}@media(max-width:650px){.impact-grid,.team-grid,.workflow-grid,.diag-grid,.takeaway-grid,.figure-grid,.field-grid,.stats-band{grid-template-columns:1fr}.comparison{grid-template-columns:1fr}.research-metrics{grid-template-columns:1fr 1fr}.research-metrics>div{min-height:100px;padding:17px}.mini-table{font-size:10px}.mini-table th,.mini-table td{padding:8px 5px}}
+    .contrails-page{--accent:#9ccfff}
+    .contrails-page .project-copy{max-width:900px}
+    .contrails-page .project-hero{padding-bottom:72px}
+    .hero-kicker{margin-top:48px}
+    .hero-figure,.research-figure{margin:26px 0;border:1px solid var(--line);background:var(--surface);overflow:hidden}
+    .hero-figure{margin-top:30px}
+    .hero-figure img,.research-figure img{display:block;width:100%;height:auto;max-width:1470px;margin:0 auto;image-rendering:auto}
+    .hero-figure figcaption,.research-figure figcaption{padding:12px 14px;color:var(--muted);font-size:11px;line-height:1.55;border-top:1px solid var(--line)}
+    .metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:32px 0 0}
+    .metric-grid>div{background:var(--surface);padding:20px;min-height:112px}
+    .metric-grid strong{display:block;font:600 clamp(25px,3vw,34px) Manrope,sans-serif;letter-spacing:-.04em;color:var(--text)}
+    .metric-grid span{display:block;margin-top:6px;color:var(--muted);font-size:10px;line-height:1.45;text-transform:uppercase;letter-spacing:.09em}
+    .section-kicker{font-size:10px!important;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)!important;margin-bottom:8px!important}
+    .lede{font-size:18px!important;line-height:1.6}
+    .card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:24px 0}
+    .card-grid.three{grid-template-columns:repeat(3,1fr)}
+    .card-grid.four{grid-template-columns:repeat(4,1fr)}
+    .card-grid>div,.card-grid>a{background:var(--surface);padding:18px;text-decoration:none}
+    .card-grid>a{transition:.2s}.card-grid>a:hover{background:var(--surface-2)}
+    .card-grid small{display:block;color:var(--blue-soft);font-size:9px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:7px}
+    .card-grid strong{display:block;color:var(--text);font-size:13px;line-height:1.45}
+    .card-grid span,.card-grid em{display:block;color:var(--muted);font-size:11px;line-height:1.55;margin-top:6px;font-style:normal}
+    .skill-strip{display:flex;flex-wrap:wrap;gap:7px;margin:22px 0}
+    .skill-strip span{border:1px solid var(--line);background:var(--surface);padding:7px 9px;font-size:10px;color:#c7ced7}
+    .callout{border-left:2px solid var(--blue);background:rgba(90,169,255,.06);padding:18px 20px;margin:24px 0}
+    .callout p{margin:0!important}.callout strong{color:var(--text)}
+    .data-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:12px;color:#c5ccd5}
+    .data-table th,.data-table td{padding:11px 10px;border-bottom:1px solid var(--line);text-align:right}
+    .data-table th:first-child,.data-table td:first-child{text-align:left}
+    .data-table th{background:var(--surface);color:var(--text);font-weight:600}
+    .data-table td{background:rgba(14,17,22,.42)}
+    .diagnostic{display:grid;grid-template-columns:1.3fr .75fr .9fr 1.55fr;gap:1px;background:var(--line);border:1px solid var(--line);margin:24px 0}
+    .diagnostic>div{background:var(--surface);padding:12px 13px;font-size:11px;line-height:1.5;color:var(--muted)}
+    .diagnostic .head{color:var(--text);font-weight:600}.diagnostic strong{color:var(--text)}
+    .result-band{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:24px 0}
+    .result-band>div{background:var(--surface);padding:20px}.result-band strong{display:block;font:600 27px Manrope,sans-serif;color:var(--text);letter-spacing:-.03em}.result-band span{display:block;margin-top:6px;color:var(--muted);font-size:10px;line-height:1.5;text-transform:uppercase;letter-spacing:.08em}
+    .scope-note{border:1px solid var(--line);background:linear-gradient(135deg,rgba(90,169,255,.06),rgba(255,255,255,.015));padding:20px;margin:26px 0}
+    .scope-note h3{font-size:16px;margin:0 0 8px}.scope-note p{margin:0!important;color:var(--muted)!important;font-size:12px!important}
+    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}.hero-actions a{display:inline-flex;align-items:center;gap:18px;padding:11px 14px;border:1px solid var(--line);color:var(--text);font-size:12px;text-decoration:none}.hero-actions a:first-child{background:var(--text);color:#080a0d;border-color:var(--text)}
+    @media(max-width:860px){.metric-grid,.card-grid.four{grid-template-columns:1fr 1fr}.card-grid.three{grid-template-columns:1fr}.diagnostic{grid-template-columns:1fr 1fr}}
+    @media(max-width:650px){.metric-grid,.card-grid,.card-grid.three,.card-grid.four,.result-band,.diagnostic{grid-template-columns:1fr}.metric-grid>div{min-height:96px}.data-table{font-size:10px}.data-table th,.data-table td{padding:8px 5px}}
   </style>
 </head>
 <body class="project-page contrails-page" id="top">
   <div class="scroll-progress" aria-hidden="true"></div>
-  <header class="site-header"><nav class="nav container" aria-label="Main navigation"><a class="brand" href="../index.html"><span class="brand-mark">JP</span><span>Junhee Park</span></a><button class="nav-toggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button><div class="nav-links"><a href="../research.html">Research</a><a href="../teams.html">Teams</a><a href="../engineering-projects.html">Projects</a><a href="../extracurriculars.html">Extracurriculars</a><a href="../index.html#about">About</a></div></nav></header>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="../index.html"><span class="brand-mark">JP</span><span>Junhee Park</span></a>
+      <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+      <div class="nav-links"><a href="../research.html">Research</a><a href="../teams.html">Teams</a><a href="../engineering-projects.html">Projects</a><a href="../extracurriculars.html">Extracurriculars</a><a href="../index.html#about">About</a></div>
+    </nav>
+  </header>
+
   <main>
     <section class="project-hero container reveal">
       <a class="project-breadcrumb" href="../research.html">← Back to research</a>
-      <p class="eyebrow" style="margin-top:50px"><span></span>UTIAS · Propulsion &amp; Energy Conversion Laboratory · Summer 2026</p>
+      <p class="eyebrow hero-kicker"><span></span>UTIAS · Propulsion &amp; Energy Conversion Laboratory · Summer 2026</p>
       <h1>Contrail-Relevant Turbulent Jet Mixing &amp; Large-Eddy Simulation</h1>
-      <p class="project-summary">Developed and validated a compressible OpenFOAM workflow for aircraft-exhaust mixing, then advanced it to a 14.27-million-cell large-eddy simulation and quantified time-resolved ice-supersaturation statistics.</p>
-      <div class="project-facts"><div><span>Role</span><strong>Undergraduate Researcher</strong></div><div><span>Supervisor</span><strong>Prof. Swetaprovo Chaudhuri</strong></div><div><span>Research mentor</span><strong>Dr. Rajat Sawanni</strong></div><div><span>Institution</span><strong>University of Toronto Institute for Aerospace Studies</strong></div></div>
-      <div class="research-metrics"><div><strong>1.42%</strong><span>Thermal-validation MAPE</span></div><div><strong>14.27M</strong><span>Cells in production LES mesh</span></div><div><strong>192</strong><span>MPI ranks across 3 Trillium nodes</span></div><div><strong>121</strong><span>Late-time LES snapshots analyzed</span></div></div>
-      <div class="hero-actions"><a class="primary" href="#results">Explore LES results <span>↓</span></a><a href="#engineering">Engineering workflow <span>↓</span></a></div>
-      <figure class="hero-figure"><img src="../images/contrails-les-temperature.webp" alt="Instantaneous centre-plane temperature field from the late-time rhoCentralFoam large-eddy simulation." fetchpriority="high"><figcaption>Instantaneous temperature field near <span class="nowrap">t ≈ 0.0905 s</span>, approximately 54.5 ms after the RANS-to-LES transition. The thermal plume shows resolved turbulent mixing across the hot-core/cold-ambient interface.</figcaption></figure>
+      <p class="project-summary">Built a validated compressible OpenFOAM workflow for aircraft-exhaust mixing, progressed it from axisymmetric RANS/URANS to a 14.27-million-cell three-dimensional LES, diagnosed a solver instability through controlled numerical experiments, and quantified late-time supersaturation statistics.</p>
+
+      <div class="project-facts">
+        <div><span>Role</span><strong>Undergraduate Researcher</strong></div>
+        <div><span>Supervisor</span><strong>Prof. Swetaprovo Chaudhuri</strong></div>
+        <div><span>Research mentor</span><strong>Dr. Rajat Sawanni</strong></div>
+        <div><span>Institution</span><strong>University of Toronto Institute for Aerospace Studies</strong></div>
+      </div>
+
+      <div class="metric-grid" aria-label="Project highlights">
+        <div><strong>1.42%</strong><span>Thermal-validation MAPE</span></div>
+        <div><strong>14.27M</strong><span>Cells in production LES mesh</span></div>
+        <div><strong>192</strong><span>MPI ranks across 3 Trillium nodes</span></div>
+        <div><strong>121</strong><span>Late-time LES snapshots analyzed</span></div>
+      </div>
+
+      <div class="hero-actions"><a href="#results">View LES results ↓</a><a href="#solver">Solver diagnostics ↓</a></div>
+
+      <figure class="hero-figure">
+        <img src="../images/contrails-les-temperature.webp" alt="Late-time temperature field from the rhoCentralFoam large-eddy simulation" fetchpriority="high">
+        <figcaption>Late-time instantaneous temperature field near t ≈ 0.0905 s, approximately 54.5 ms after the RANS-to-LES transition. The smooth RANS-initialized background plume is no longer readily identifiable as a separate feature.</figcaption>
+      </figure>
     </section>
+
     <div class="project-body container">
-      <aside class="project-sidebar"><p class="eyebrow"><span></span>Contents</p><a href="#context">01 · Context &amp; role</a><a href="#validation">02 · Validation</a><a href="#bypass">03 · Bypass study</a><a href="#engineering">04 · Mesh &amp; HPC</a><a href="#solver">05 · Solver diagnostics</a><a href="#results">06 · LES results</a><a href="#supersaturation">07 · Supersaturation</a><a href="#takeaways">08 · Takeaways</a></aside>
+      <aside class="project-sidebar">
+        <p class="eyebrow"><span></span>Contents</p>
+        <a href="#context">01 · Context &amp; role</a>
+        <a href="#validation">02 · Validation</a>
+        <a href="#bypass">03 · Bypass study</a>
+        <a href="#engineering">04 · Mesh &amp; HPC</a>
+        <a href="#solver">05 · Solver diagnostics</a>
+        <a href="#results">06 · LES results</a>
+        <a href="#statistics">07 · Statistics</a>
+        <a href="#takeaways">08 · Takeaways</a>
+      </aside>
+
       <article class="project-copy">
         <section class="content-block reveal" id="context">
-          <p class="section-kicker">01 · Research context &amp; ownership</p><h2>From validated mean-flow models to fluctuation-resolved CFD</h2>
-          <p class="lede">Contrail inception depends on the local combination of temperature and water vapour created by turbulent exhaust mixing. A Reynolds-averaged model can reproduce the mean plume, but it cannot directly provide the instantaneous fluctuation statistics that govern localized supersaturation. My work built the computational path from lower-cost validation to a three-dimensional LES capable of resolving those structures.</p>
-          <p>I worked under <strong>Professor Swetaprovo Chaudhuri</strong> in UTIAS's <strong>Propulsion &amp; Energy Conversion Laboratory</strong>. The broader contrail project is a joint UTIAS effort involving <strong>Professor Clinton P. T. Groth</strong>'s Computational Fluid Dynamics &amp; Propulsion Laboratory and <strong>Professor Ömer L. Gülder</strong>'s Combustion &amp; Propulsion Laboratory, connecting experimental propulsion research with high-fidelity computational modelling.</p>
-          <div class="team-grid"><a href="https://www.utias.utoronto.ca/pec/" target="_blank" rel="noopener"><small>Direct supervision</small><strong>Prof. Swetaprovo Chaudhuri</strong><em>Propulsion &amp; Energy Conversion Laboratory</em></a><a href="https://www.utias.utoronto.ca/research-and-centres/computational-fluid-dynamics-and-propulsion/" target="_blank" rel="noopener"><small>Joint project group</small><strong>Prof. Clinton P. T. Groth</strong><em>Computational Fluid Dynamics &amp; Propulsion Laboratory</em></a><a href="https://www.utias.utoronto.ca/research-and-centres/combustion-and-propulsion/" target="_blank" rel="noopener"><small>Joint project group</small><strong>Prof. Ömer L. Gülder</strong><em>Combustion &amp; Propulsion Laboratory</em></a></div>
-          <div class="impact-grid"><div><strong>Model development &amp; validation</strong><span>Progressed from planar and axisymmetric models to full 3D RANS/LES; benchmarked mean thermal decay against contrail-tunnel measurements.</span></div><div><strong>Parametric study</strong><span>Built and ran nine core–bypass cases to quantify how bypass ratio and thermal conditions change cooling, dilution, and supersaturation onset.</span></div><div><strong>Mesh &amp; HPC workflow</strong><span>Generated structured cylindrical O-grids with Python, used RANS fields to target refinement, and deployed parallel cases on Trillium.</span></div><div><strong>Numerical diagnosis &amp; post-processing</strong><span>Designed controlled A/B cases to isolate an LES instability, changed solver architecture, and converted 121 time snapshots into volume-weighted statistics.</span></div></div>
-          <div class="skill-strip"><span>OpenFOAM</span><span>Python</span><span>ParaView</span><span>Bash</span><span>Slurm</span><span>OpenMPI / MPI</span><span>HPC</span><span>RANS / URANS</span><span>LES</span><span>k–ω SST</span><span>dynamicKEqn</span><span>Compressible flow</span><span>Turbulent mixing</span><span>Species transport</span><span>Numerical methods</span><span>Scientific post-processing</span></div>
+          <p class="section-kicker">01 · Research context &amp; ownership</p>
+          <h2>From validated mean-flow modelling to fluctuation-resolved CFD</h2>
+          <p class="lede">Contrail-relevant supersaturation is governed by the coupled temperature and water-vapour field produced by turbulent exhaust mixing. The project therefore progressed in stages: validate a lower-cost mean-flow model, verify species transport, study bypass effects, construct a three-dimensional mesh, then transition to LES for time-resolved mixing statistics.</p>
+          <p>I worked under <strong>Professor Swetaprovo Chaudhuri</strong> in the UTIAS <strong>Propulsion &amp; Energy Conversion Laboratory</strong>, with day-to-day research mentorship from <strong>Dr. Rajat Sawanni</strong>. The broader UTIAS contrail program also involves <strong>Professor Clinton P. T. Groth</strong>'s Computational Fluid Dynamics &amp; Propulsion Laboratory and <strong>Professor Ömer L. Gülder</strong>'s Combustion &amp; Propulsion Laboratory.</p>
+
+          <div class="card-grid three" aria-label="UTIAS research groups">
+            <a href="https://www.utias.utoronto.ca/pec/" target="_blank" rel="noopener"><small>Direct supervision</small><strong>Prof. Swetaprovo Chaudhuri</strong><em>Propulsion &amp; Energy Conversion Laboratory</em></a>
+            <a href="https://www.utias.utoronto.ca/research-and-centres/computational-fluid-dynamics-and-propulsion/" target="_blank" rel="noopener"><small>Joint project group</small><strong>Prof. Clinton P. T. Groth</strong><em>Computational Fluid Dynamics &amp; Propulsion Laboratory</em></a>
+            <a href="https://www.utias.utoronto.ca/research-and-centres/combustion-and-propulsion/" target="_blank" rel="noopener"><small>Joint project group</small><strong>Prof. Ömer L. Gülder</strong><em>Combustion &amp; Propulsion Laboratory</em></a>
+          </div>
+
+          <div class="card-grid">
+            <div><small>Model development</small><strong>RANS / URANS → 3D LES</strong><span>Built the workflow in increasing levels of fidelity rather than starting with an expensive LES.</span></div>
+            <div><small>Numerical engineering</small><strong>Controlled failure diagnosis</strong><span>Used A/B cases to isolate the combination of gradients and solver formulation associated with the runaway.</span></div>
+            <div><small>Scientific computing</small><strong>Python + HPC automation</strong><span>Structured meshing, parallel decomposition, Slurm/OpenMPI execution, restartable runs, monitoring, and post-processing.</span></div>
+            <div><small>Physical interpretation</small><strong>Volume-weighted statistics</strong><span>Converted raw transient fields into plume masks, intermittency, RMS, percentile, and supersaturation-persistence metrics.</span></div>
+          </div>
+
+          <div class="skill-strip"><span>OpenFOAM</span><span>Python</span><span>ParaView</span><span>Bash</span><span>Slurm</span><span>OpenMPI</span><span>HPC</span><span>RANS / URANS</span><span>LES</span><span>k–ω SST</span><span>dynamicKEqn</span><span>Compressible flow</span><span>Species transport</span><span>Turbulent mixing</span><span>Scientific post-processing</span></div>
         </section>
+
         <section class="content-block reveal" id="validation">
-          <p class="section-kicker">02 · Experimental validation</p><h2>Resolving a 40% modelling error before increasing fidelity</h2>
-          <p>The first planar jet model systematically overpredicted downstream centreline temperature. I tested whether the discrepancy could be corrected through inlet turbulence specification, recalculating <em>k</em> and <em>ω</em> for different turbulence intensities and length scales. The error persisted at roughly <strong>36–43%</strong>, indicating that the dominant problem was the planar geometry and its entrainment physics rather than a tunable inlet parameter.</p>
-          <p>I replaced the planar case with a <strong>five-degree axisymmetric wedge</strong>, introduced a developed core velocity profile, and progressed from rhoPimpleFoam to <strong>reactingFoam</strong> with chemistry disabled for compressible air–water-vapour transport. The final thermally validated case achieved a <strong>1.42% mean absolute percentage error</strong> across six evaluated stations, with a <strong>2.64% maximum error</strong>.</p>
-          <div class="result-callout"><p><strong>Engineering decision:</strong> rather than tune turbulence parameters to compensate for a geometry error, I changed the physical representation first and used the validated axisymmetric model as the basis for higher-fidelity development.</p></div>
-          <p class="tech-line">Water-vapour transport was checked for bounded mass fractions, mixture consistency, and physically sensible plume spreading. It was treated as numerically verified—not experimentally validated—because matching H₂O concentration measurements were unavailable.</p>
+          <p class="section-kicker">02 · Experimental validation</p>
+          <h2>Fixing the physical model before increasing computational cost</h2>
+          <p>The first planar model overpredicted downstream centreline temperature by roughly <strong>36–43%</strong>. I tested whether inlet turbulence intensity and length-scale changes could remove the discrepancy; they did not. That pointed to dimensionality and entrainment physics rather than a parameter-tuning problem.</p>
+          <p>I replaced the planar case with a <strong>5° axisymmetric wedge</strong>, introduced the developed core velocity profile, and used <strong>reactingFoam</strong> with chemistry disabled as a compressible non-reacting multicomponent solver. The validated case achieved <strong>1.42% MAPE</strong> across six evaluated stations, with a <strong>2.64% maximum error</strong>.</p>
+
+          <div class="card-grid four">
+            <div><small>5.0 mm</small><strong>1.38%</strong><span>Temperature error</span></div>
+            <div><small>50.0 mm</small><strong>2.64%</strong><span>Maximum error</span></div>
+            <div><small>138.5 mm</small><strong>0.40%</strong><span>Temperature error</span></div>
+            <div><small>227.5 mm</small><strong>1.27%</strong><span>Temperature error</span></div>
+          </div>
+
+          <div class="callout"><p><strong>Engineering decision:</strong> I did not tune turbulence parameters to compensate for a geometry error. I changed the physical representation first, then used the validated axisymmetric solution as the basis for the higher-fidelity workflow.</p></div>
+          <p>Water-vapour transport was then checked for bounded mass fraction, mixture consistency, correct inlet origin, and sensible downstream spreading. I treated this as <strong>numerical verification rather than experimental validation</strong>, because matching concentration measurements were not available.</p>
         </section>
+
         <section class="content-block reveal" id="bypass">
-          <p class="section-kicker">03 · Turbofan-relevant bypass study</p><h2>Separating the competing effects of plume cooling and vapour dilution</h2>
-          <p>The validated axisymmetric model was extended to a multi-region inlet representing <strong>core → nozzle wall → annular bypass → nozzle wall → ambient</strong>. I ran a <strong>nine-case matrix</strong> spanning bypass ratios of approximately 2.50, 5.95, and 10.0, with bypass temperatures of 240, 270, and 300 K.</p>
-          <p>Lower bypass temperatures consistently cooled the plume faster and moved the first centreline location with <em>S</em><sub>i</sub> &gt; 1 upstream. Increasing bypass ratio produced the same qualitative shift while also increasing dilution of core-derived water vapour. At BPR ≈ 10, reducing bypass temperature from 300 K to 240 K moved the onset location from <strong>0.1600 m to 0.1123 m</strong>—about <strong>47.7 mm upstream</strong>.</p>
-          <figure class="figure"><img src="../images/contrails-bypass-onset.svg" alt="Chart showing earlier ice-supersaturation onset for colder and higher-bypass-ratio cases." loading="lazy"><figcaption>First centreline location where <em>S</em><sub>i</sub> exceeds one across the nine axisymmetric bypass cases.</figcaption></figure>
-          <table class="mini-table"><thead><tr><th>Bypass temperature</th><th>BPR ≈ 2.50</th><th>BPR ≈ 5.95</th><th>BPR ≈ 10.0</th></tr></thead><tbody><tr><td>240 K</td><td>0.1343 m</td><td>0.1265 m</td><td>0.1123 m</td></tr><tr><td>270 K</td><td>0.1530 m</td><td>0.1460 m</td><td>0.1353 m</td></tr><tr><td>300 K</td><td>0.1715 m</td><td>0.1683 m</td><td>0.1600 m</td></tr></tbody></table>
-          <p class="tech-line">This stage used a dry-ambient simplification and the lower-cost axisymmetric URANS model. The production 3D LES described below is the validated single-jet configuration, not the active-bypass geometry.</p>
+          <p class="section-kicker">03 · Turbofan-relevant bypass study</p>
+          <h2>Quantifying the competition between cooling and dilution</h2>
+          <p>The validated axisymmetric model was extended to a core–annular-bypass configuration. I ran a <strong>nine-case matrix</strong> across BPR ≈ 2.50, 5.95, and 10.0 and bypass temperatures of 240, 270, and 300 K.</p>
+          <p>Colder bypass flow consistently produced faster cooling and earlier ice-supersaturation onset. Higher bypass ratio also moved onset upstream, while more strongly diluting core-derived water vapour. At BPR ≈ 10, reducing bypass temperature from 300 K to 240 K shifted centreline onset from <strong>0.1600 m to 0.1123 m</strong>—nearly <strong>48 mm upstream</strong>.</p>
+
+          <table class="data-table" aria-label="First centreline location where ice saturation ratio exceeds one">
+            <thead><tr><th>Bypass temperature</th><th>BPR ≈ 2.50</th><th>BPR ≈ 5.95</th><th>BPR ≈ 10.0</th></tr></thead>
+            <tbody><tr><td>240 K</td><td>0.1343 m</td><td>0.1265 m</td><td>0.1123 m</td></tr><tr><td>270 K</td><td>0.1530 m</td><td>0.1460 m</td><td>0.1353 m</td></tr><tr><td>300 K</td><td>0.1715 m</td><td>0.1683 m</td><td>0.1600 m</td></tr></tbody>
+          </table>
+          <p class="tech-line">These cases used the lower-cost axisymmetric URANS model and a dry bypass/ambient simplification. They describe resolved mean-flow trends, not the instantaneous fluctuations later targeted with LES.</p>
         </section>
+
         <section class="content-block reveal" id="engineering">
-          <p class="section-kicker">04 · Three-dimensional mesh &amp; high-performance computing</p><h2>Designing a 14.27-million-cell LES around the physics that needed resolution</h2>
-          <p>A full three-dimensional domain was required to permit azimuthal instability and vortex breakdown. I wrote a <strong>Python-generated structured cylindrical O-grid</strong> and iterated the topology from lower-cost 3D RANS cases to the final <strong>14,272,512-cell</strong> production mesh.</p>
-          <p>Instead of refining the entire tunnel uniformly, I used the developed SST-RANS field as a resolution guide. Local turbulence length scales and cell size were used to identify where the expanding core–ambient shear layer required the most LES resolution, concentrating cells in the region carrying the energetic turbulent structures.</p>
-          <div class="workflow-grid"><div><small>01 · Baseline</small><strong>3D SST-RANS</strong><span>Developed a stable mean flow and provided turbulence fields for the LES redesign.</span></div><div><small>02 · Resolution</small><strong>RANS-informed refinement</strong><span>Targeted the core shear layer instead of uniformly refining the far ambient region.</span></div><div><small>03 · Production</small><strong>14.27M-cell O-grid</strong><span>Structured mesh with downstream plume-following refinement bands.</span></div><div><small>04 · Deployment</small><strong>Trillium HPC</strong><span>Domain decomposition, MPI execution, restartable chunks, and adaptive timestepping.</span></div></div>
-          <div class="stats-band"><div><strong>3 nodes</strong><span>Representative production allocation</span></div><div><strong>192 ranks</strong><span>MPI decomposition</span></div><div><strong>Co ≤ 0.3</strong><span>Adaptive transient control</span></div></div>
-          <p class="tech-line">Representative density-based LES settings: rhoCentralFoam, dynamicKEqn SGS closure, adaptive timestep, and Scotch decomposition on Trillium.</p>
+          <p class="section-kicker">04 · Three-dimensional mesh &amp; high-performance computing</p>
+          <h2>Designing the LES around the shear-layer physics</h2>
+          <p>I developed a <strong>Python-generated structured cylindrical O-grid</strong> for the three-dimensional calculation and iterated the topology using lower-cost RANS solutions. The final production mesh contained exactly <strong>14,272,512 cells</strong>.</p>
+          <p>Rather than refine the entire tunnel uniformly, I used the developed SST-RANS turbulence field to guide where the core–ambient shear layer required the most LES resolution. This concentrated computational cost in the region responsible for the energetic turbulent structures.</p>
+
+          <div class="card-grid four">
+            <div><small>Mesh</small><strong>14,272,512 cells</strong><span>Structured cylindrical O-grid</span></div>
+            <div><small>Parallelism</small><strong>192 MPI ranks</strong><span>Scotch decomposition</span></div>
+            <div><small>Compute</small><strong>3 Trillium nodes</strong><span>Digital Research Alliance of Canada</span></div>
+            <div><small>Transient control</small><strong>Co ≤ 0.3</strong><span>Adaptive timestep</span></div>
+          </div>
+
+          <div class="skill-strip"><span>Python mesh generation</span><span>OpenFOAM blockMesh workflow</span><span>Scotch decomposition</span><span>Slurm</span><span>MPI</span><span>Restartable simulations</span><span>Log monitoring</span><span>Field reconstruction</span></div>
         </section>
+
         <section class="content-block reveal" id="solver">
-          <p class="section-kicker">05 · LES solver engineering</p><h2>Turning a numerical failure into a controlled diagnostic study</h2>
-          <p>Pressure-based LES cases developed a travelling velocity–pressure runaway when strong velocity shear and thermal/density shear were present together. I tested mesh revisions, inlet regularization, convection schemes, and WALE, Smagorinsky, and dynamicKEqn subgrid models. Those changes altered the onset and growth rate, but none eliminated the failure in the tested pressure-based configurations.</p>
-          <div class="diag-grid"><div><small>Velocity shear only</small><strong>Stable for 1 ms</strong><span>Pure-air hydrodynamic LES retained velocity shear without the thermal/density contrast.</span></div><div><small>Thermal/density shear only</small><strong>Stable for 0.1 ms</strong><span>Full hot-core/cold-ambient state with essentially uniform velocity.</span></div><div><small>Both gradients · SST-RANS</small><strong>Stable for 35 ms</strong><span>Same mesh and combined gradients remained bounded in the Reynolds-averaged formulation.</span></div><div><small>Both gradients · pressure-based LES</small><strong>Runaway reproduced</strong><span>reactingFoam and pure-air rhoPimpleFoam both developed the travelling failure.</span></div><div><small>Both gradients · density-based LES</small><strong>Stable route found</strong><span>rhoCentralFoam with a Kurganov central-upwind flux remained bounded in the tested baseline.</span></div><div><small>Passive H₂O restored</small><strong>Extended to 54.5 ms</strong><span>Conservative passive-scalar transport preserved the stable primary flow over the A/B test and long continuation.</span></div></div>
-          <div class="result-callout"><p><strong>Diagnostic conclusion:</strong> the controls strongly implicated pressure-based compressible coupling as an important contributor to the observed runaway under the tested conditions. The density-based configuration also changed energy and mixture treatment, so solver architecture was not claimed as the sole causal difference.</p></div>
-          <p>The stable path used <strong>rhoCentralFoam</strong> with a <strong>Kurganov central-upwind flux</strong>, van-Leer reconstruction, a transported <strong>dynamicKEqn</strong> subgrid-energy closure, and conservative passive-H₂O transport. This configuration provided enough stable physical time to move from solver development into late-time turbulence statistics.</p>
+          <p class="section-kicker">05 · Solver diagnostics</p>
+          <h2>Treating a numerical instability as an engineering experiment</h2>
+          <p>Pressure-based LES runs developed a travelling velocity–pressure runaway when <strong>velocity shear and thermal/density shear were present together</strong>. Mesh revisions, inlet regularization, convection-scheme changes, and WALE, Smagorinsky, and dynamicKEqn closures changed the onset or growth rate but did not eliminate the failure in the tested pressure-based configurations.</p>
+          <p>I then separated variables using controlled cases on the same developed flow and mesh:</p>
+
+          <div class="diagnostic" aria-label="LES diagnostic control matrix">
+            <div class="head">Configuration</div><div class="head">Velocity shear</div><div class="head">Thermal / density shear</div><div class="head">Outcome</div>
+            <div>Hydrodynamic LES</div><div>Yes</div><div>No</div><div><strong>Stable for 1 ms</strong></div>
+            <div>Thermal-only LES</div><div>No</div><div>Yes</div><div><strong>Stable for 0.1 ms</strong></div>
+            <div>SST RANS</div><div>Yes</div><div>Yes</div><div><strong>Stable for 35 ms</strong></div>
+            <div>Pressure-based LES</div><div>Yes</div><div>Yes</div><div><strong>Travelling runaway</strong></div>
+            <div>rhoCentralFoam, pure air</div><div>Yes</div><div>Yes</div><div><strong>Stable for 3 ms</strong></div>
+            <div>rhoCentralFoam + passive H₂O</div><div>Yes</div><div>Yes</div><div><strong>Extended to ~54.5 ms</strong></div>
+          </div>
+
+          <div class="callout"><p><strong>Diagnostic conclusion:</strong> the controls strongly implicated pressure-based compressible coupling as an important contributor under the tested conditions. Because the density-based comparison also changed energy and mixture treatment, I did not claim solver architecture as the sole causal difference.</p></div>
+          <p>The stable path used <strong>rhoCentralFoam</strong>, a <strong>Kurganov central-upwind flux</strong>, van-Leer reconstruction, and <strong>dynamicKEqn</strong>. Water vapour was restored as a conservative one-way-coupled passive scalar after the stable primary-flow route was established.</p>
         </section>
+
         <section class="content-block reveal" id="results">
-          <p class="section-kicker">06 · Late-time LES fields</p><h2>Resolved turbulent structure across velocity, temperature, density, and water vapour</h2>
-          <p>The passive-water-vapour LES was continued to approximately <strong>54.5 ms after the RANS-to-LES transition</strong>. By the late state near <span class="nowrap">t ≈ 0.0905 s</span>, the original smooth RANS-initialized background plume was no longer readily identifiable as a separate feature; resolved turbulent structure had propagated through the plume.</p>
-          <div class="field-grid"><figure class="figure"><img src="../images/contrails-les-temperature.webp" alt="Instantaneous temperature field at the late LES state." loading="lazy"><figcaption>Temperature, T.</figcaption></figure><figure class="figure"><img src="../images/contrails-les-density.webp" alt="Instantaneous density field at the late LES state." loading="lazy"><figcaption>Density, ρ.</figcaption></figure><figure class="figure"><img src="../images/contrails-les-h2o.webp" alt="Instantaneous passive water-vapour mass-fraction field at the late LES state." loading="lazy"><figcaption>Passive water-vapour mass fraction, Y<sub>H₂O</sub>.</figcaption></figure><figure class="figure"><img src="../images/contrails-les-velocity.webp" alt="Instantaneous velocity magnitude field at the late LES state." loading="lazy"><figcaption>Velocity magnitude, |U|.</figcaption></figure></div>
-          <p class="tech-line">These are instantaneous longitudinal centre-plane fields, not time averages. They are displayed at full content width here rather than in a compressed two-column gallery so the turbulent structure and colour scales remain legible.</p>
+          <p class="section-kicker">06 · Late-time LES fields</p>
+          <h2>Resolved turbulent structure throughout the plume</h2>
+          <p>The passive-H₂O density-based LES was extended to approximately <strong>54.5 ms after the RANS-to-LES transition</strong>. By the late state near t ≈ 0.0905 s, resolved turbulent structure had propagated throughout the plume.</p>
+
+          <figure class="research-figure">
+            <img src="../images/contrails-les-density.webp" alt="Late-time instantaneous density field from the rhoCentralFoam LES" loading="lazy">
+            <figcaption>Instantaneous density field, ρ. The hot, low-density core evolves into a strongly distorted turbulent plume.</figcaption>
+          </figure>
+
+          <figure class="research-figure">
+            <img src="../images/contrails-les-h2o.webp" alt="Late-time passive water-vapour mass-fraction field from the rhoCentralFoam LES" loading="lazy">
+            <figcaption>Instantaneous passive water-vapour mass fraction, Y<sub>H₂O</sub>. The field tracks scalar mixing from the core into the cold ambient flow.</figcaption>
+          </figure>
         </section>
-        <section class="content-block reveal" id="supersaturation">
-          <p class="section-kicker">07 · Time-resolved supersaturation statistics</p><h2>Quantifying what deterministic RANS cannot provide</h2>
-          <p>I post-processed <strong>121 snapshots</strong> from the late 48–54 ms LES interval. Water-vapour mass fraction was converted to vapour partial pressure and then to the ice-saturation ratio <em>S</em><sub>i</sub> using the Murphy–Koop saturation-pressure relation. The primary plume definition used a time-mean H₂O threshold of <strong>5% of the core-inlet mass fraction</strong>; I repeated the analysis at 1% and 10% to test sensitivity. Spatial statistics used <strong>physical cell-volume weighting</strong>.</p>
-          <div class="stats-band"><div><strong>94.7%</strong><span>Of plume supersaturated for &gt;50% of sampled states</span></div><div><strong>74.9%</strong><span>Of plume supersaturated for &gt;90% of sampled states</span></div><div><strong>60.2%</strong><span>Of plume supersaturated in every sampled state</span></div></div>
-          <figure class="figure"><img src="../images/contrails-les-si-mean.webp" alt="Late-time mean ice-saturation-ratio field in the LES plume." loading="lazy"><figcaption>Conditional mean ice-saturation ratio, S<sub>i,mean</sub>, over the late 48–54 ms interval. RMS fluctuation and intermittency fields were evaluated from the same 121 snapshots; intermittency uses all sampled states in the H₂O-defined plume, with warm or otherwise invalid states contributing zero rather than representing a physical nonzero state.</figcaption></figure>
+
+        <section class="content-block reveal" id="statistics">
+          <p class="section-kicker">07 · Supersaturation statistics</p>
+          <h2>Using LES to quantify fluctuation information unavailable from deterministic RANS</h2>
+          <p>I post-processed <strong>121 snapshots</strong> from the late 48–54 ms interval. The analysis converted passive H₂O mass fraction to vapour partial pressure and then to ice-saturation ratio using the Murphy–Koop saturation-pressure relation. The primary plume mask used a time-mean water-vapour threshold of 5% of the core-inlet value, and spatial statistics used <strong>physical cell-volume weighting</strong>.</p>
+
+          <figure class="research-figure">
+            <img src="../images/contrails-les-si-mean.webp" alt="Late-time conditional mean ice-saturation-ratio field from the LES" loading="lazy">
+            <figcaption>Conditional late-time mean ice-saturation-ratio field. The statistical workflow also calculated RMS fluctuation and supersaturation intermittency from the same 121-snapshot window.</figcaption>
+          </figure>
+
+          <div class="result-band">
+            <div><strong>94.7%</strong><span>Of LES plume supersaturated in &gt;50% of sampled states</span></div>
+            <div><strong>74.9%</strong><span>Of LES plume supersaturated in &gt;90% of sampled states</span></div>
+            <div><strong>60.2%</strong><span>Of LES plume supersaturated in every sampled state</span></div>
+          </div>
+
           <h3 style="font-size:21px;margin:34px 0 12px">Same-mesh RANS vs LES</h3>
-          <p>The RANS and LES water-vapour plume volumes differed by only about 5%, so the strongest difference was not bulk plume extent. It was the <strong>shape of the supersaturation distribution</strong>: LES produced a much stronger high-<em>S</em><sub>i</sub> upper tail and added temporal intermittency that a deterministic RANS field cannot supply.</p>
-          <div class="comparison"><div class="head">Statistic</div><div class="head">Same-mesh RANS</div><div class="head">Late LES</div><div>Mean S<sub>i</sub></div><div><strong>31.69</strong></div><div><strong>60.20</strong></div><div>Median</div><div><strong>33.64</strong></div><div><strong>41.94</strong></div><div>90th percentile</div><div><strong>53.86</strong></div><div><strong>128.47</strong></div><div>95th percentile</div><div><strong>56.20</strong></div><div><strong>180.25</strong></div></div>
-          <div class="result-callout"><p><strong>Interpretation:</strong> the median increased modestly, while P90 rose to roughly 2.4× the RANS value and P95 to roughly 3.2×. The resolved LES therefore changed the upper tail much more strongly than the centre of the distribution.</p></div>
-          <div class="scope-note"><h3>Scope of the current model</h3><p>H₂O is transported as a one-way-coupled passive scalar and phase change is absent. The large absolute S<sub>i</sub> values therefore represent <strong>thermodynamic supersaturation potential</strong>, not a microphysically equilibrated contrail. The present 3D LES is the single-jet configuration; active bypass flow has so far been studied in the lower-cost axisymmetric model. Longer independent statistical windows and additional LES-resolution diagnostics remain appropriate next steps.</p></div>
+          <p>The RANS and LES water-vapour plume volumes differed by only about 5%, so the major difference was not bulk plume extent. LES substantially strengthened the high-S<sub>i</sub> upper tail and introduced temporal intermittency that a deterministic RANS field cannot provide.</p>
+
+          <table class="data-table" aria-label="Volume-weighted same-mesh RANS versus LES comparison">
+            <thead><tr><th>Statistic</th><th>Same-mesh RANS</th><th>Late LES</th><th>Change</th></tr></thead>
+            <tbody><tr><td>Mean S<sub>i</sub></td><td>31.69</td><td>60.20</td><td>+90.0%</td></tr><tr><td>Median / P50</td><td>33.64</td><td>41.94</td><td>+24.7%</td></tr><tr><td>P90</td><td>53.86</td><td>128.47</td><td>+138.5%</td></tr><tr><td>P95</td><td>56.20</td><td>180.25</td><td>+220.7%</td></tr></tbody>
+          </table>
+
+          <div class="scope-note"><h3>Model scope</h3><p>H₂O is transported as a one-way-coupled passive scalar and phase change is absent. The absolute S<sub>i</sub> values therefore represent <strong>thermodynamic supersaturation potential</strong>, not a microphysically equilibrated contrail. The present three-dimensional LES is the single-jet configuration; the active-bypass study remains axisymmetric URANS. Longer independent sampling windows and additional LES-resolution diagnostics are appropriate next steps.</p></div>
         </section>
+
         <section class="content-block reveal" id="takeaways">
-          <p class="section-kicker">08 · Engineering takeaways</p><h2>What this project required beyond running CFD</h2>
-          <div class="takeaway-grid"><div><strong>Validate the physics before scaling the computation.</strong><span>A lower-cost model exposed a geometry error that parameter tuning could not fix, preventing that error from being carried into 3D LES.</span></div><div><strong>Use cheaper solutions to design expensive ones.</strong><span>RANS turbulence fields informed targeted mesh refinement, concentrating resolution where the shear layer needed it most.</span></div><div><strong>Treat instability as an experiment.</strong><span>Controlled A/B cases separated velocity shear, thermal/density shear, species transport, turbulence closure, and solver formulation instead of changing everything at once.</span></div><div><strong>Build for long-running HPC work.</strong><span>Parallel decomposition, adaptive timesteps, restartable chunks, monitoring, reconstruction, and post-processing were part of the simulation workflow—not afterthoughts.</span></div><div><strong>Translate fields into physical statistics.</strong><span>Volume weighting, plume definitions, temporal intermittency, RMS fluctuations, and percentile comparisons turned raw snapshots into interpretable results.</span></div><div><strong>State model limits explicitly.</strong><span>Thermal validation, passive-scalar assumptions, dry ambient conditions, and missing microphysics are kept separate from what the LES actually demonstrates.</span></div></div>
+          <p class="section-kicker">08 · Engineering takeaways</p>
+          <h2>What this project required beyond running CFD</h2>
+          <div class="card-grid">
+            <div><strong>Validate before scaling.</strong><span>A lower-cost model exposed a geometry/entrainment error before it could be carried into the expensive 3D LES.</span></div>
+            <div><strong>Use cheaper models to design expensive ones.</strong><span>RANS turbulence fields helped place LES resolution where the shear-layer physics required it.</span></div>
+            <div><strong>Debug with controlled experiments.</strong><span>Separating velocity shear, thermal/density shear, species transport, SGS model, and solver formulation made the failure interpretable.</span></div>
+            <div><strong>Build an HPC workflow, not just a case.</strong><span>Decomposition, adaptive timesteps, restartable chunks, monitoring, reconstruction, and post-processing were integral to the research.</span></div>
+            <div><strong>Turn fields into quantitative results.</strong><span>Plume masks, physical-volume weighting, RMS, intermittency, persistence, and percentile statistics converted snapshots into engineering conclusions.</span></div>
+            <div><strong>Keep claims inside the model's limits.</strong><span>Thermal validation, passive-scalar assumptions, dry ambient conditions, and missing microphysics are stated separately from what the LES demonstrates.</span></div>
+          </div>
           <div class="skill-strip"><span>reactingFoam</span><span>rhoPimpleFoam</span><span>rhoCentralFoam</span><span>Kurganov flux</span><span>WALE</span><span>Smagorinsky</span><span>dynamicKEqn</span><span>Structured O-grid meshing</span><span>Parallel CFD</span><span>Volume-weighted statistics</span><span>Solver verification</span></div>
         </section>
       </article>
     </div>
+
     <nav class="project-nav container" aria-label="Project navigation"><a href="../research.html">← Research</a><a href="#top">Back to top ↑</a></nav>
   </main>
+
   <footer class="footer container"><span>© <span id="year"></span> Junhee Park</span><a href="../index.html">Home ↑</a></footer>
 </body>
 </html>
