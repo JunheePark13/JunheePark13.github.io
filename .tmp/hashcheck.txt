@@ -1,0 +1,3 @@
+Expected temperature git blob SHA: 9d08a28e427c139f43d93ab91a4663521b5c7037
+Expected temperature SHA-256: 3f90be42ef686f3a91a1370db00b78092638fd34997268f16296f36a15fbff45
+Expected size: 20074 bytes; dimensions: 1470x704.
