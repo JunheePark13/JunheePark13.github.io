@@ -1,0 +1,63 @@
+name: Repair contrails binary assets
+
+on:
+  push:
+    branches:
+      - repair-contrails-binary-assets
+    paths:
+      - '.github/workflows/repair-contrails-binaries.yml'
+      - '.tmp/contrails/**'
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Rebuild image binaries from repository payloads
+        shell: bash
+        run: |
+          set -euo pipefail
+          source_commit=2f92a03612fcefdcf2845dc8835ac5a0bf097afd
+          git show "$source_commit:images/contrails-v7-temperature.b64" | tr -d '[:space:]' | base64 --decode > images/contrails-les-temperature.webp
+          git show "$source_commit:images/contrails-v7-density.b64" | tr -d '[:space:]' | base64 --decode > images/contrails-les-density.webp
+          git show "$source_commit:images/contrails-v7-si-mean.b64" | tr -d '[:space:]' | base64 --decode > images/contrails-les-si-mean.webp
+
+          python3 - <<'PY'
+          from pathlib import Path
+          files = [
+              Path('images/contrails-les-temperature.webp'),
+              Path('images/contrails-les-density.webp'),
+              Path('images/contrails-les-si-mean.webp'),
+          ]
+          for path in files:
+              data = path.read_bytes()
+              if data[:4] != b'RIFF' or data[8:12] != b'WEBP':
+                  raise SystemExit(f'{path}: invalid WebP header')
+              declared = int.from_bytes(data[4:8], 'little') + 8
+              if declared != len(data):
+                  raise SystemExit(f'{path}: RIFF size mismatch: declared {declared}, actual {len(data)}')
+              print(f'{path}: valid RIFF/WebP container, {len(data)} bytes')
+          PY
+
+          if command -v identify >/dev/null 2>&1; then
+            identify images/contrails-les-temperature.webp images/contrails-les-density.webp images/contrails-les-si-mean.webp
+          fi
+
+      - name: Commit repaired binaries and remove staging files
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf .tmp/contrails
+          rm -f .github/workflows/repair-contrails-binaries.yml
+          git config user.name 'JunheePark13'
+          git config user.email '7773park@gmail.com'
+          git add -A images/contrails-les-temperature.webp images/contrails-les-density.webp images/contrails-les-si-mean.webp .tmp/contrails .github/workflows/repair-contrails-binaries.yml
+          git commit -m 'Repair corrupted contrails image binaries'
+          git push
