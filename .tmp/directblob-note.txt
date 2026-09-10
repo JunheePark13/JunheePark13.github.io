@@ -1,0 +1,1 @@
+Testing direct binary blob path after prior text-payload corruption diagnosis.
