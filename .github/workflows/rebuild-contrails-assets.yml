@@ -15,21 +15,33 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Decode verified contrails figures
+      - name: Validate and decode contrails payloads
         shell: bash
         run: |
-          set -euo pipefail
-          base64 --decode images/contrails-v7-temperature.b64 > images/contrails-les-temperature.webp
-          base64 --decode images/contrails-v7-density.b64 > images/contrails-les-density.webp
-          base64 --decode images/contrails-v7-si-mean.b64 > images/contrails-les-si-mean.webp
-
-          test "$(wc -c < images/contrails-les-temperature.webp)" -eq 13876
-          test "$(wc -c < images/contrails-les-density.webp)" -eq 14800
-          test "$(wc -c < images/contrails-les-si-mean.webp)" -eq 14320
-
-          file images/contrails-les-temperature.webp
-          file images/contrails-les-density.webp
-          file images/contrails-les-si-mean.webp
+          set -uo pipefail
+          failed=0
+          for spec in \
+            'temperature:images/contrails-v7-temperature.b64:13876' \
+            'density:images/contrails-v7-density.b64:14800' \
+            'si-mean:images/contrails-v7-si-mean.b64:14320'
+          do
+            IFS=':' read -r name source expected <<< "$spec"
+            target="images/contrails-les-${name}.webp"
+            echo "--- $name ---"
+            echo "payload characters: $(wc -c < "$source")"
+            invalid="$(LC_ALL=C tr -d 'A-Za-z0-9+/=\r\n' < "$source" | wc -c)"
+            echo "non-base64 characters: $invalid"
+            if base64 --decode "$source" > "$target"; then
+              actual="$(wc -c < "$target")"
+              echo "decoded bytes: $actual (expected $expected)"
+              file "$target"
+              if [ "$actual" -ne "$expected" ]; then failed=1; fi
+            else
+              echo "DECODE FAILED for $source"
+              failed=1
+            fi
+          done
+          exit "$failed"
 
       - name: Commit repaired image binaries
         shell: bash
