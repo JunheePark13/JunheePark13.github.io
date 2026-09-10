@@ -1,0 +1,46 @@
+name: Rebuild contrails image assets
+
+on:
+  push:
+    paths:
+      - '.github/workflows/rebuild-contrails-assets.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild-images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Decode verified contrails figures
+        shell: bash
+        run: |
+          set -euo pipefail
+          base64 --decode images/contrails-v7-temperature.b64 > images/contrails-les-temperature.webp
+          base64 --decode images/contrails-v7-density.b64 > images/contrails-les-density.webp
+          base64 --decode images/contrails-v7-si-mean.b64 > images/contrails-les-si-mean.webp
+
+          test "$(wc -c < images/contrails-les-temperature.webp)" -eq 13876
+          test "$(wc -c < images/contrails-les-density.webp)" -eq 14800
+          test "$(wc -c < images/contrails-les-si-mean.webp)" -eq 14320
+
+          file images/contrails-les-temperature.webp
+          file images/contrails-les-density.webp
+          file images/contrails-les-si-mean.webp
+
+      - name: Commit repaired image binaries
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add images/contrails-les-temperature.webp images/contrails-les-density.webp images/contrails-les-si-mean.webp
+          if git diff --cached --quiet; then
+            echo "Image binaries already match the verified payloads."
+          else
+            git commit -m "Repair contrails image binaries"
+            git push
+          fi
