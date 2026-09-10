@@ -6,7 +6,6 @@ on:
       - repair-contrails-binary-assets
     paths:
       - '.github/workflows/repair-contrails-binaries.yml'
-      - '.tmp/contrails/**'
 
 permissions:
   contents: write
@@ -20,14 +19,29 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Rebuild image binaries from repository payloads
+      - name: Rebuild and validate v9 image payloads
         shell: bash
         run: |
           set -euo pipefail
-          source_commit=2f92a03612fcefdcf2845dc8835ac5a0bf097afd
-          git show "$source_commit:images/contrails-v7-temperature.b64" | tr -d '[:space:]' | base64 --decode > images/contrails-les-temperature.webp
-          git show "$source_commit:images/contrails-v7-density.b64" | tr -d '[:space:]' | base64 --decode > images/contrails-les-density.webp
-          git show "$source_commit:images/contrails-v7-si-mean.b64" | tr -d '[:space:]' | base64 --decode > images/contrails-les-si-mean.webp
+          source_commit=811ed58d7c58916775a9228fb9a4745e3a039366
+
+          rebuild() {
+            src="$1"
+            dest="$2"
+            mapfile -t parts < <(git ls-tree -r --name-only "$source_commit" ".github/contrails-payloads/v9/$src" | sort)
+            if [ "${#parts[@]}" -eq 0 ]; then
+              echo "No parts found for $src" >&2
+              exit 1
+            fi
+            echo "$src: ${#parts[@]} payload parts"
+            for part in "${parts[@]}"; do
+              git show "$source_commit:$part"
+            done | tr -d '[:space:]' | base64 --decode > "$dest"
+          }
+
+          rebuild temperature images/contrails-les-temperature.webp
+          rebuild density images/contrails-les-density.webp
+          rebuild si-mean images/contrails-les-si-mean.webp
 
           python3 - <<'PY'
           from pathlib import Path
@@ -46,18 +60,17 @@ jobs:
               print(f'{path}: valid RIFF/WebP container, {len(data)} bytes')
           PY
 
-          if command -v identify >/dev/null 2>&1; then
-            identify images/contrails-les-temperature.webp images/contrails-les-density.webp images/contrails-les-si-mean.webp
-          fi
+          file images/contrails-les-temperature.webp images/contrails-les-density.webp images/contrails-les-si-mean.webp
+          identify images/contrails-les-temperature.webp images/contrails-les-density.webp images/contrails-les-si-mean.webp
 
-      - name: Commit repaired binaries and remove staging files
+      - name: Commit repaired binaries and remove temporary repair files
         shell: bash
         run: |
           set -euo pipefail
-          rm -rf .tmp/contrails
+          rm -rf .tmp/contrails .tmp/q80test
           rm -f .github/workflows/repair-contrails-binaries.yml
           git config user.name 'JunheePark13'
           git config user.email '7773park@gmail.com'
-          git add -A images/contrails-les-temperature.webp images/contrails-les-density.webp images/contrails-les-si-mean.webp .tmp/contrails .github/workflows/repair-contrails-binaries.yml
+          git add -A
           git commit -m 'Repair corrupted contrails image binaries'
           git push
