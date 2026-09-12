@@ -1,0 +1,23 @@
+# Operating-system and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Python cache and local environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Temporary/generated asset-transfer files
+*.b64
+*.b64part
+.asset-import/
+.resume-import/
+.resume-exact/
+.github/contrails-payloads/
+
+# Miscellaneous temporary files
+*.tmp
+*.bak
