@@ -1,0 +1,41 @@
+name: Import exact resume
+
+on:
+  push:
+    paths:
+      - '.resume-exact/ready.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  import-resume:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Reconstruct and verify exact PDF
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p documents
+          cat .resume-exact/part*.b64 | tr -d '\n\r' | base64 --decode > documents/Junhee_Park_Resume.pdf
+          echo '832390483b758b16ed0f122bc3b5408994498a4248b84d72b756a4e48de70298  documents/Junhee_Park_Resume.pdf' | sha256sum --check --strict
+
+      - name: Commit exact PDF and clean temporary import files
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf .resume-exact .resume-import
+          rm -f .github/workflows/import-exact-resume.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A documents/Junhee_Park_Resume.pdf .resume-exact .resume-import .github/workflows/import-exact-resume.yml
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m 'Replace resume with exact uploaded PDF'
+          git push
