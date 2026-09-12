@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="UTIAS undergraduate research by Junhee Park on contrail-relevant turbulent jet mixing, OpenFOAM RANS/URANS validation, large-eddy simulation, HPC, solver diagnostics, and supersaturation statistics.">
-  <title>Contrail-Relevant Turbulent Jet Mixing & LES | Junhee Park</title>
+  <title>Contrail-Relevant Turbulent Jet Mixing &amp; LES | Junhee Park</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
@@ -15,10 +15,11 @@
     .contrails-page .project-copy{max-width:900px}
     .contrails-page .project-hero{padding-bottom:72px}
     .hero-kicker{margin-top:48px}
-    .hero-figure,.research-figure{margin:26px 0;border:1px solid var(--line);background:#0b0e12;overflow:hidden}
+    .hero-figure,.research-figure{margin:28px 0;border:1px solid var(--line);background:var(--surface);overflow:hidden}
     .hero-figure{margin-top:30px}
-    .hero-figure img,.research-figure img{display:block;width:min(100%,1000px);height:auto;object-fit:contain;margin:0 auto;image-rendering:auto}
-    .hero-figure figcaption,.research-figure figcaption{padding:12px 14px;color:var(--muted);font-size:11px;line-height:1.55;border-top:1px solid var(--line);background:var(--surface)}
+    .hero-figure img,.research-figure img{display:block;width:100%;height:auto;object-fit:contain;margin:0 auto;background:#625e5c;image-rendering:auto}
+    .hero-figure figcaption,.research-figure figcaption{padding:13px 15px;color:var(--muted);font-size:11px;line-height:1.6;border-top:1px solid var(--line);background:var(--surface)}
+    .figure-note{margin:18px 0 8px!important;font-size:12px!important;color:var(--muted)!important}
     .metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:32px 0 0}
     .metric-grid>div{background:var(--surface);padding:20px;min-height:112px}
     .metric-grid strong{display:block;font:600 clamp(25px,3vw,34px) Manrope,sans-serif;letter-spacing:-.04em;color:var(--text)}
@@ -51,7 +52,7 @@
     .scope-note h3{font-size:16px;margin:0 0 8px}.scope-note p{margin:0!important;color:var(--muted)!important;font-size:12px!important}
     .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}.hero-actions a{display:inline-flex;align-items:center;gap:18px;padding:11px 14px;border:1px solid var(--line);color:var(--text);font-size:12px;text-decoration:none}.hero-actions a:first-child{background:var(--text);color:#080a0d;border-color:var(--text)}
     @media(max-width:860px){.metric-grid,.card-grid.four{grid-template-columns:1fr 1fr}.card-grid.three{grid-template-columns:1fr}.diagnostic{grid-template-columns:1fr 1fr}}
-    @media(max-width:650px){.metric-grid,.card-grid,.card-grid.three,.card-grid.four,.result-band,.diagnostic{grid-template-columns:1fr}.metric-grid>div{min-height:96px}.data-table{font-size:10px}.data-table th,.data-table td{padding:8px 5px}}
+    @media(max-width:650px){.metric-grid,.card-grid,.card-grid.three,.card-grid.four,.result-band,.diagnostic{grid-template-columns:1fr}.metric-grid>div{min-height:96px}.data-table{font-size:10px}.data-table th,.data-table td{padding:8px 5px}.hero-figure,.research-figure{margin-left:-2px;margin-right:-2px}.hero-figure figcaption,.research-figure figcaption{font-size:10px}}
   </style>
 </head>
 <body class="project-page contrails-page" id="top">
@@ -88,8 +89,8 @@
       <div class="hero-actions"><a href="#results">View LES results ↓</a><a href="#solver">Solver diagnostics ↓</a></div>
 
       <figure class="hero-figure">
-        <img src="../images/contrails-les-temperature.webp" width="1000" height="479" alt="Late-time temperature field from the rhoCentralFoam large-eddy simulation" fetchpriority="high" decoding="async">
-        <figcaption>Late-time instantaneous temperature field near t ≈ 0.0905 s, approximately 54.5 ms after the RANS-to-LES transition. The smooth RANS-initialized background plume is no longer readily identifiable as a separate feature.</figcaption>
+        <img src="../images/contrails-les-temperature.png" width="1406" height="564" alt="Late-time instantaneous temperature field from the rhoCentralFoam large-eddy simulation" fetchpriority="high" decoding="async">
+        <figcaption>Late-time instantaneous temperature field near t ≈ 0.0905 s, approximately 54.5 ms after the RANS-to-LES transition. The field shows resolved turbulent structure throughout the plume.</figcaption>
       </figure>
     </section>
 
@@ -198,15 +199,20 @@
         <section class="content-block reveal" id="results">
           <p class="section-kicker">06 · Late-time LES fields</p>
           <h2>Resolved turbulent structure throughout the plume</h2>
-          <p>The passive-H₂O density-based LES was extended to approximately <strong>54.5 ms after the RANS-to-LES transition</strong>. By the late state near t ≈ 0.0905 s, resolved turbulent structure had propagated throughout the plume.</p>
+          <p>The passive-H₂O density-based LES was extended to approximately <strong>54.5 ms after the RANS-to-LES transition</strong>. By the late state near t ≈ 0.0905 s, resolved turbulent structure had propagated throughout the plume. The fields below are shown from the same late-time LES state.</p>
 
           <figure class="research-figure">
-            <img src="../images/contrails-les-density.webp" width="1000" height="479" alt="Late-time instantaneous density field from the rhoCentralFoam LES" loading="lazy" decoding="async">
+            <img src="../images/contrails-les-density.png" width="1406" height="564" alt="Late-time instantaneous density field from the rhoCentralFoam LES" loading="lazy" decoding="async">
             <figcaption>Instantaneous density field, ρ. The hot, low-density core evolves into a strongly distorted turbulent plume.</figcaption>
           </figure>
 
           <figure class="research-figure">
-            <img src="../images/contrails-les-h2o.webp" width="1000" height="479" alt="Late-time passive water-vapour mass-fraction field from the rhoCentralFoam LES" loading="lazy" decoding="async">
+            <img src="../images/contrails-les-velocity.png" width="1406" height="564" alt="Late-time instantaneous velocity-magnitude field from the rhoCentralFoam LES" loading="lazy" decoding="async">
+            <figcaption>Instantaneous velocity magnitude, |U|. Resolved shear-layer structures and plume development remain visible across the downstream domain.</figcaption>
+          </figure>
+
+          <figure class="research-figure">
+            <img src="../images/contrails-les-h2o.png" width="1406" height="564" alt="Late-time passive water-vapour mass-fraction field from the rhoCentralFoam LES" loading="lazy" decoding="async">
             <figcaption>Instantaneous passive water-vapour mass fraction, Y<sub>H₂O</sub>. The field tracks scalar mixing from the core into the cold ambient flow.</figcaption>
           </figure>
         </section>
@@ -215,10 +221,21 @@
           <p class="section-kicker">07 · Supersaturation statistics</p>
           <h2>Using LES to quantify fluctuation information unavailable from deterministic RANS</h2>
           <p>I post-processed <strong>121 snapshots</strong> from the late 48–54 ms interval. The analysis converted passive H₂O mass fraction to vapour partial pressure and then to ice-saturation ratio using the Murphy–Koop saturation-pressure relation. The primary plume mask used a time-mean water-vapour threshold of 5% of the core-inlet value, and spatial statistics used <strong>physical cell-volume weighting</strong>.</p>
+          <p class="figure-note">For visualization, the mean and RMS colour scales are rescaled to 0–100 and 0–50 respectively so plume structure remains readable; saturated colours indicate values at or above the displayed limit rather than clipped statistical data.</p>
 
           <figure class="research-figure">
-            <img src="../images/contrails-les-si-mean.webp" width="1000" height="479" alt="Late-time conditional mean ice-saturation-ratio field from the LES" loading="lazy" decoding="async">
-            <figcaption>Conditional late-time mean ice-saturation-ratio field. The statistical workflow also calculated RMS fluctuation and supersaturation intermittency from the same 121-snapshot window.</figcaption>
+            <img src="../images/contrails-si-mean.png" width="1406" height="564" alt="Late-time conditional mean ice-saturation-ratio field from the LES, displayed on a zero-to-100 colour scale" loading="lazy" decoding="async">
+            <figcaption>Conditional late-time mean ice-saturation ratio, S<sub>i,mean</sub>. The rescaled display emphasizes the spatial structure of the supersaturated plume.</figcaption>
+          </figure>
+
+          <figure class="research-figure">
+            <img src="../images/contrails-si-rms.png" width="1406" height="564" alt="Late-time RMS ice-saturation-ratio fluctuation field from the LES, displayed on a zero-to-50 colour scale" loading="lazy" decoding="async">
+            <figcaption>RMS ice-saturation-ratio fluctuation, S<sub>i,rms</sub>. Elevated values identify regions with stronger temporal variability over the sampled late-time window.</figcaption>
+          </figure>
+
+          <figure class="research-figure">
+            <img src="../images/contrails-si-intermittency.png" width="1406" height="564" alt="Late-time supersaturation intermittency field from the LES, ranging from zero to one" loading="lazy" decoding="async">
+            <figcaption>Supersaturation intermittency: the fraction of sampled states in which S<sub>i</sub> exceeds 1 at each location. Values near 1 indicate persistent supersaturation over the sampled window.</figcaption>
           </figure>
 
           <div class="result-band">
