@@ -13,9 +13,10 @@
   <style>
     .wind-page{--accent:#b8dcff}
     .wind-page .project-copy{max-width:900px}
-    .hero-figure,.research-figure{margin:26px 0;border:1px solid var(--line);background:#0b0e12;overflow:hidden}
+    .hero-figure,.research-figure,.video-figure{margin:26px 0;border:1px solid var(--line);background:#0b0e12;overflow:hidden}
     .hero-figure img,.research-figure img{display:block;width:100%;height:auto;object-fit:contain;margin:0 auto}
-    .hero-figure figcaption,.research-figure figcaption{padding:12px 14px;color:var(--muted);font-size:11px;line-height:1.55;border-top:1px solid var(--line);background:var(--surface)}
+    .hero-figure figcaption,.research-figure figcaption,.video-figure figcaption{padding:12px 14px;color:var(--muted);font-size:11px;line-height:1.55;border-top:1px solid var(--line);background:var(--surface)}
+    .hero-figure img{max-height:720px;object-fit:cover;object-position:center 55%}
     .metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:32px 0 0}
     .metric-grid>div{background:var(--surface);padding:19px;min-height:108px}
     .metric-grid strong{display:block;font:600 clamp(22px,2.8vw,32px) Manrope,sans-serif;letter-spacing:-.04em;color:var(--text)}
@@ -37,14 +38,21 @@
     .iteration>div{background:var(--surface);padding:20px}
     .iteration .version{font:600 25px Manrope,sans-serif;color:var(--text);letter-spacing:-.03em}
     .iteration p{font-size:12px!important;margin:8px 0 0!important;color:var(--muted)!important}
+    .figure-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:26px 0}
+    .figure-grid figure{margin:0;border:1px solid var(--line);background:#0b0e12;overflow:hidden;display:flex;flex-direction:column}
+    .figure-grid img{display:block;width:100%;height:310px;object-fit:contain;background:#0b0e12}
+    .figure-grid .photo img{object-fit:cover}
+    .figure-grid figcaption{padding:11px 13px;color:var(--muted);font-size:11px;line-height:1.5;border-top:1px solid var(--line);background:var(--surface);flex:1}
     .result-band{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:24px 0}
     .result-band>div{background:var(--surface);padding:20px}
     .result-band strong{display:block;color:var(--text);font-size:15px;line-height:1.4}
     .result-band span{display:block;margin-top:6px;color:var(--muted);font-size:10px;line-height:1.5;text-transform:uppercase;letter-spacing:.07em}
     .skill-strip{display:flex;flex-wrap:wrap;gap:7px;margin:22px 0}
     .skill-strip span{border:1px solid var(--line);background:var(--surface);padding:7px 9px;font-size:10px;color:#c7ced7}
-    @media(max-width:760px){.metric-grid,.decision-grid,.iteration,.result-band{grid-template-columns:1fr 1fr}}
-    @media(max-width:560px){.metric-grid,.decision-grid,.iteration,.result-band{grid-template-columns:1fr}.metric-grid>div{min-height:auto}}
+    .video-figure video{display:block;width:100%;max-height:640px;background:#000}
+    .outcome-line{font-size:13px!important;color:#cbd3dc!important;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:15px 0;margin:26px 0!important}
+    @media(max-width:760px){.metric-grid,.decision-grid,.iteration,.result-band,.figure-grid{grid-template-columns:1fr 1fr}.figure-grid img{height:260px}}
+    @media(max-width:560px){.metric-grid,.decision-grid,.iteration,.result-band,.figure-grid{grid-template-columns:1fr}.metric-grid>div{min-height:auto}.figure-grid img{height:auto;max-height:420px}.hero-figure img{max-height:none;object-fit:contain}}
   </style>
 </head>
 <body class="project-page wind-page" id="top">
@@ -79,8 +87,8 @@
       </div>
 
       <figure class="hero-figure">
-        <img src="../images/Assembly A.png" alt="CAD assembly of the desktop wind tunnel" loading="eager" decoding="async">
-        <figcaption>CAD development of the compact tunnel architecture. The final physical build follows the same settling chamber → contraction → clear test section → diffuser → suction-fan layout.</figcaption>
+        <img src="../images/windtunnel-built.webp" width="1400" height="1050" alt="Completed desktop wind tunnel with settling chamber, contraction, transparent test section, diffuser, and downstream fan housing" fetchpriority="high" decoding="async">
+        <figcaption>Completed desktop wind tunnel. The physical assembly follows the designed settling chamber → contraction → transparent test section → diffuser → suction-fan layout.</figcaption>
       </figure>
     </section>
 
@@ -99,8 +107,8 @@
         <section class="content-block reveal" id="brief">
           <p class="section-kicker">01 · Design brief</p>
           <h2>A useful wind tunnel that still had to fit on a desk</h2>
-          <p class="lede">The goal was not to build a miniature research facility. It was to make a compact experimental platform with a clear test section, meaningful flow conditioning, and enough velocity for qualitative aerodynamic work using a single readily available fan.</p>
-          <p>That created an immediate constraint: every improvement in flow quality—larger settling volume, longer contractions, screens, denser flow straighteners—also increased size or pressure loss. The tunnel therefore had to be designed as a system rather than as a collection of individually “ideal” components.</p>
+          <p class="lede">The goal was to make a compact experimental platform with a clear test section, meaningful flow conditioning, and enough velocity for qualitative aerodynamic work using a single readily available fan.</p>
+          <p>That created an immediate constraint: every improvement in flow quality—larger settling volume, longer contractions, screens, denser flow straighteners—also increased size or pressure loss. The tunnel therefore had to be designed as a system rather than as a collection of individually ideal components.</p>
 
           <div class="decision-grid">
             <div><small>Footprint</small><strong>Compact before perfect</strong><span>A 200 × 200 mm settling chamber would have met the initial 4:1 area-ratio target, but 180 × 180 mm was selected to keep the tunnel practical on a desktop.</span></div>
@@ -113,14 +121,19 @@
         <section class="content-block reveal" id="architecture">
           <p class="section-kicker">02 · Flow architecture</p>
           <h2>Condition, accelerate, test, recover</h2>
-          <p>The tunnel follows the standard sequence <strong>settling chamber → contraction → test section → diffuser → fan → guard</strong>. The 180 × 180 mm settling chamber feeds a 160 mm contraction into the 100 × 100 mm test section. Downstream, a diffuser expands toward the 120 mm fan to recover pressure before the suction stage.</p>
+          <p>The tunnel follows the sequence <strong>settling chamber → contraction → test section → diffuser → fan → guard</strong>. The 180 × 180 mm settling chamber feeds a 160 mm contraction into the 100 × 100 mm test section. Downstream, the diffuser expands toward the 120 mm fan.</p>
+
+          <figure class="research-figure">
+            <img src="../images/windtunnel-assembly-cad.webp" width="712" height="552" alt="Fusion 360 CAD assembly of the desktop wind tunnel showing the inlet honeycomb, contraction, test section, diffuser, and fan housing" loading="lazy" decoding="async">
+            <figcaption>Fusion 360 system model used to package the flow conditioner, contraction, transparent test section, diffuser, and fan housing into a compact desktop assembly.</figcaption>
+          </figure>
 
           <table class="spec-table" aria-label="Desktop wind tunnel design dimensions">
             <tr><th>Settling chamber</th><td>180 × 180 mm cross-section; sized as a desktop compromise against the original ~4:1 contraction target.</td></tr>
             <tr><th>Honeycomb</th><td>≈10 mm cells, ≈75 mm flow length; used to suppress lateral velocity components and swirl.</td></tr>
             <tr><th>Contraction</th><td>160 mm long, reducing from 180 × 180 mm to 100 × 100 mm.</td></tr>
             <tr><th>Test section</th><td>100 × 100 mm cross-section, 120 mm long, with transparent walls for observation.</td></tr>
-            <tr><th>Fan</th><td>120 × 120 × 38 mm variable-speed fan positioned downstream in suction; the original design target was up to roughly 7 m/s, not yet presented here as a calibrated measurement.</td></tr>
+            <tr><th>Fan</th><td>120 × 120 × 38 mm variable-speed fan positioned downstream in suction. The design target was up to roughly 7 m/s; that value is a target rather than a calibrated measurement.</td></tr>
           </table>
 
           <div class="tradeoff"><p><strong>Design principle:</strong> flow quality and available pressure are coupled. Adding a conditioner only helps if the fan can still drive useful flow through the extra resistance.</p></div>
@@ -128,13 +141,24 @@
 
         <section class="content-block reveal" id="v1">
           <p class="section-kicker">03 · Honeycomb V1</p>
-          <h2>The aerodynamically attractive version failed the manufacturing test</h2>
-          <p>The first honeycomb pushed toward thin cell walls to preserve open area and minimize blockage. Aerodynamically, that is appealing: thinner walls obstruct less of the inlet and should impose less pressure loss.</p>
-          <p>In practice, V1 exposed the weakness of optimizing only one objective. The thin walls were unreliable during FDM printing, and the finished insert was too fragile to handle and integrate into the tunnel without damage. A component that offers low resistance but cannot survive fabrication and assembly is not a usable flow conditioner.</p>
+          <h2>The low-blockage design failed before aerodynamic testing</h2>
+          <p>V1 used thin honeycomb walls to preserve open area and minimize obstruction. That was attractive from a flow perspective: less solid material in the inlet should reduce blockage and the associated pressure penalty.</p>
+          <p>The design failed at the manufacturing and integration stages. The thin walls were unreliable during FDM printing, and the resulting mesh was too fragile to install into the tunnel confidently. The first iteration demonstrated that minimizing resistance alone did not produce a usable flow conditioner.</p>
+
+          <div class="figure-grid" aria-label="Honeycomb V1 design and manufacturing failure">
+            <figure>
+              <img src="../images/windtunnel-honeycomb-v1.webp" width="807" height="617" alt="Fusion 360 CAD of the first thin-wall honeycomb flow straightener" loading="lazy" decoding="async">
+              <figcaption><strong>V1 CAD.</strong> Thin hexagonal walls maximized open area and reduced expected flow obstruction.</figcaption>
+            </figure>
+            <figure class="photo">
+              <img src="../images/windtunnel-printing.webp" width="1400" height="1050" alt="Honeycomb flow-straightener being manufactured on an FDM 3D printer" loading="lazy" decoding="async">
+              <figcaption><strong>Manufacturing reality.</strong> The honeycomb geometry pushed wall thickness into a regime where print reliability and handling strength became limiting.</figcaption>
+            </figure>
+          </div>
 
           <div class="iteration" aria-label="Honeycomb V1 design assessment">
             <div><div class="version">V1 · Low blockage</div><p>Thin walls preserved open area and reduced the amount of solid material presented to the flow.</p></div>
-            <div><div class="version">Failure · Too fragile</div><p>Printing reliability and physical handling became the limiting constraints before aerodynamic performance could even be evaluated.</p></div>
+            <div><div class="version">Failure · Too fragile</div><p>Printing reliability and physical handling became limiting constraints before the insert could serve as a practical tunnel component.</p></div>
           </div>
 
           <div class="tradeoff"><p><strong>What changed:</strong> the design criterion moved from “minimize aerodynamic obstruction” to “minimize obstruction subject to being printable, installable, and durable enough to test.”</p></div>
@@ -142,46 +166,70 @@
 
         <section class="content-block reveal" id="v2">
           <p class="section-kicker">04 · Honeycomb V2</p>
-          <h2>Accepting more resistance to get a component that works</h2>
-          <p>V2 increased the honeycomb wall thickness and prioritized structural robustness. The redesign printed more reliably and produced an insert that could be handled and installed without the same fragility as V1.</p>
-          <p>The improvement was not free. Thicker walls reduce open area and increase blockage, which means more flow resistance and pressure loss across the conditioner. In a compact tunnel driven by a single fan, that directly competes with achievable test-section velocity.</p>
+          <h2>Accepting more resistance to make the conditioner usable</h2>
+          <p>V2 increased wall thickness and prioritized structural robustness. The redesign produced a honeycomb that could be fabricated, handled, and integrated into the settling chamber without the fragility of V1.</p>
+          <p>The improvement was not free. Thicker walls reduce open area and therefore increase blockage and resistance. In a compact tunnel driven by a single fan, that penalty competes directly with available test-section velocity.</p>
 
-          <div class="iteration" aria-label="Honeycomb V1 versus V2 tradeoff">
-            <div><div class="version">V1</div><p>Lower blockage, lower expected pressure loss, but insufficient manufacturing and integration robustness.</p></div>
-            <div><div class="version">V2</div><p>Higher blockage and resistance, but robust enough to fabricate, install, and use as part of the assembled tunnel.</p></div>
+          <div class="figure-grid" aria-label="Honeycomb V2 redesign and installed mesh">
+            <figure>
+              <img src="../images/windtunnel-honeycomb-v2.webp" width="422" height="417" alt="Fusion 360 CAD of the redesigned thicker-wall honeycomb flow straightener" loading="lazy" decoding="async">
+              <figcaption><strong>V2 CAD.</strong> Wall thickness was increased deliberately to improve printability and structural robustness.</figcaption>
+            </figure>
+            <figure class="photo">
+              <img src="../images/windtunnel-installed-mesh.webp" width="900" height="1200" alt="Finished V2 honeycomb installed at the inlet of the desktop wind tunnel" loading="lazy" decoding="async">
+              <figcaption><strong>Installed V2.</strong> The more robust insert survives handling and installation, closing the loop from CAD to functioning hardware.</figcaption>
+            </figure>
           </div>
 
-          <p>This was the key engineering decision of the build: <strong>V2 is not “better” in every metric.</strong> It is better at the system level because it converts an aerodynamically cleaner but unusable concept into a manufacturable component with a known aerodynamic penalty.</p>
+          <div class="iteration" aria-label="Honeycomb V1 versus V2 tradeoff">
+            <div><div class="version">V1</div><p>Lower blockage and lower expected resistance, but insufficient manufacturing and integration robustness.</p></div>
+            <div><div class="version">V2</div><p>Higher blockage and resistance, but robust enough to fabricate, install, and use in the assembled tunnel.</p></div>
+          </div>
+
+          <p class="outcome-line"><strong>System-level result:</strong> V2 is not better in every metric. It is the better engineering solution because it exchanges some aerodynamic efficiency for the manufacturability and durability required for the tunnel to function at all.</p>
         </section>
 
         <section class="content-block reveal" id="build">
           <p class="section-kicker">05 · Fabrication &amp; integration</p>
-          <h2>Turning the CAD stack into an actual flow path</h2>
-          <p>The final assembly combines the printed flow-straightening insert with the contraction, transparent test section, diffuser, and downstream suction fan. The clear test section keeps the experiment observable, while the compact external shell provides the sealed geometry needed to pull air through the full tunnel rather than around it.</p>
-          <p>The build also made the interaction between component-level decisions visible: honeycomb strength affected printability and installation; wall thickness affected blockage; blockage affected the fan’s available flow; and the fan choice constrained how much additional conditioning could be added upstream.</p>
+          <h2>Closing the loop from CAD to hardware</h2>
+          <p>The final assembly combines the V2 flow-straightening insert with the contraction, transparent test section, diffuser, and downstream suction fan. The build made the coupling between subsystem decisions tangible: honeycomb strength affected printability and installation; wall thickness affected blockage; blockage consumed fan pressure capability; and limited fan pressure constrained how much additional flow conditioning could be added.</p>
 
-          <figure class="research-figure">
-            <img src="../images/Smoke Visual.jpg" alt="Early operational testing in the transparent desktop wind-tunnel test section" loading="lazy" decoding="async">
-            <figcaption>Operational testing through the transparent test section. The current build provides a functioning platform for qualitative experiments while leaving room for quantitative flow characterization.</figcaption>
-          </figure>
+          <div class="figure-grid">
+            <figure class="photo">
+              <img src="../images/windtunnel-built.webp" width="1400" height="1050" alt="Completed desktop wind tunnel viewed from the side" loading="lazy" decoding="async">
+              <figcaption><strong>Completed assembly.</strong> A compact physical flow path with a transparent test section for qualitative aerodynamic experiments.</figcaption>
+            </figure>
+            <figure class="photo">
+              <img src="../images/windtunnel-installed-mesh.webp" width="900" height="1200" alt="Close view of the V2 honeycomb installed in the wind tunnel settling chamber" loading="lazy" decoding="async">
+              <figcaption><strong>Flow conditioner integration.</strong> V2 provided the handling strength that the first thin-wall design lacked.</figcaption>
+            </figure>
+          </div>
 
           <div class="skill-strip"><span>Fusion 360</span><span>FDM printing</span><span>Design for manufacture</span><span>Flow conditioning</span><span>Pressure-loss tradeoffs</span><span>Rapid prototyping</span><span>Experimental aerodynamics</span></div>
         </section>
 
         <section class="content-block reveal" id="testing">
           <p class="section-kicker">06 · Testing &amp; next steps</p>
-          <h2>The build works; the next step is to characterize how well</h2>
-          <p>The tunnel has been assembled and operated, which validates the mechanical integration and the V2 honeycomb’s practicality. I am deliberately separating that result from aerodynamic validation: the current evidence demonstrates a functioning experimental platform, not yet a calibrated low-turbulence facility.</p>
+          <h2>The hardware works; aerodynamic characterization comes next</h2>
+          <p>The tunnel has been assembled and operated, validating the mechanical integration and the V2 honeycomb’s practicality. I separate that result from aerodynamic validation: operation demonstrates a functioning experimental platform, but it does not by itself establish test-section uniformity, turbulence intensity, or calibrated airspeed.</p>
+
+          <figure class="video-figure">
+            <video controls preload="metadata" playsinline aria-label="Operational test of the completed desktop wind tunnel">
+              <source src="../images/windtunnel-test.mp4" type="video/mp4">
+              Your browser does not support embedded video.
+            </video>
+            <figcaption>Operational test of the assembled tunnel. The clip documents functioning hardware and airflow through the completed system; quantitative flow characterization remains a separate next step.</figcaption>
+          </figure>
 
           <div class="result-band">
             <div><strong>Mechanical integration</strong><span>Settling chamber, contraction, clear test section, diffuser and fan assembled into one flow path</span></div>
-            <div><strong>Honeycomb V2 survives use</strong><span>Redesign resolved the fabrication and handling failure that prevented V1 from being practical</span></div>
-            <div><strong>Quantification remains</strong><span>Velocity profile, pressure drop and turbulence quality should be measured before stronger aerodynamic claims</span></div>
+            <div><strong>V2 survives use</strong><span>Redesign resolves the fabrication and handling failure that prevented V1 from being practical</span></div>
+            <div><strong>Quantification remains</strong><span>Velocity profile, pressure drop and flow quality should be measured before stronger aerodynamic claims</span></div>
           </div>
 
-          <p>The next useful experiments are a test-section velocity traverse, pressure-loss comparison across the honeycomb, and flow-uniformity checks with and without additional screens. Those measurements would quantify the cost of the V2 wall-thickness decision and show whether the fan has enough pressure margin for another stage of conditioning.</p>
+          <p>The next useful experiments are a test-section velocity traverse, pressure-loss comparison across the honeycomb, and flow-uniformity checks with and without additional screens. Those measurements would quantify the aerodynamic cost of the V2 wall-thickness decision and show whether the fan has enough pressure margin for another conditioning stage.</p>
 
-          <div class="tradeoff"><p><strong>Takeaway:</strong> the most important iteration was not a prettier CAD model. It was learning that aerodynamic optimization, manufacturability, structural robustness, and fan pressure capability all have to close simultaneously for the experiment to exist.</p></div>
+          <div class="tradeoff"><p><strong>Takeaway:</strong> the decisive iteration was not simply a CAD refinement. It was recognizing that aerodynamic efficiency, manufacturability, structural robustness, and fan pressure capability all have to close simultaneously for the experiment to exist.</p></div>
         </section>
 
         <nav class="project-nav"><a href="../engineering-projects.html">← All projects</a><a href="#top">Back to top ↑</a></nav>
