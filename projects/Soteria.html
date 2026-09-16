@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Soteria, a Praxis II cycling-safety prototype combining rear-facing computer vision, GPS-gated detection, mobile alerts, and bike-mounted hardware to address right-hook collision risk." />
+  <meta name="description" content="Soteria, a University of Toronto Engineering Science Praxis II team project combining rear-facing computer vision, GPS-gated detection, mobile alerts, bike-mounted hardware, requirements engineering, testing, and design documentation to address right-hook collision risk." />
   <title>Soteria Cycling Safety System | Junhee Park</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,15 +67,15 @@
   <main>
     <section class="project-hero container reveal">
       <a class="project-breadcrumb" href="../engineering-projects.html">← Back to projects</a>
-      <p class="eyebrow" style="margin-top:50px"><span></span>Praxis II · Team design project</p>
+      <p class="eyebrow" style="margin-top:50px"><span></span>Praxis II · Engineering design process</p>
       <h1>Soteria Cycling Safety System</h1>
-      <p class="project-summary">A bike-mounted right-hook warning prototype that combines a rear-facing camera, OpenCV-based vehicle detection, GPS intersection gating, a mobile application, and physical phone/camera mounts to alert cyclists when a vehicle enters the blind-spot region near an intersection.</p>
+      <p class="project-summary">A Praxis II team project developing a bike-mounted right-hook warning prototype using a rear-facing camera, OpenCV-based vehicle detection, GPS intersection gating, a mobile application, and physical phone/camera mounts. The course emphasized the full engineering design process: research, requirements, documentation, verification, iteration, and communication—not only the final prototype.</p>
 
       <div class="project-facts">
         <div><span>Course</span><strong>Engineering Science · Praxis II</strong></div>
-        <div><span>Project</span><strong>Team-developed prototype</strong></div>
+        <div><span>Format</span><strong>Team design project</strong></div>
         <div><span>Stack</span><strong>OpenCV · GPS · mobile app · prototyping</strong></div>
-        <div><span>Focus</span><strong>Right-hook collision awareness</strong></div>
+        <div><span>Emphasis</span><strong>Process · documentation · verification</strong></div>
       </div>
 
       <div class="metric-grid" aria-label="Soteria prototype highlights">
@@ -92,10 +92,11 @@
         <a href="#problem">01 · Right-hook problem</a>
         <a href="#system">02 · System architecture</a>
         <a href="#integration">03 · Bike integration</a>
-        <a href="#requirements">04 · Requirements</a>
-        <a href="#testing">05 · Testing</a>
-        <a href="#onepager">06 · Final one-pager</a>
-        <a href="#reflection">07 · Limitations &amp; next steps</a>
+        <a href="#process">04 · Praxis II process</a>
+        <a href="#requirements">05 · Requirements</a>
+        <a href="#testing">06 · Testing</a>
+        <a href="#onepager">07 · Design communication</a>
+        <a href="#reflection">08 · Limitations &amp; next steps</a>
       </aside>
 
       <article class="project-copy">
@@ -103,11 +104,11 @@
           <p class="section-kicker">01 · Problem framing</p>
           <h2>Targeting the moment a cyclist cannot easily see</h2>
           <p class="lede">Soteria focused on right-hook collisions: a vehicle travels beside or slightly behind a cyclist, enters the cyclist’s blind spot, and then turns right across the cyclist’s path at an intersection.</p>
-          <p>The team chose a <strong>bike-mounted warning system</strong> rather than an infrastructure intervention or a system that required equipment on every car. That kept the concept retrofit-oriented: the cyclist carries the sensing and alert hardware, so the design can operate independently of intersection reconstruction or vehicle adoption.</p>
+          <p>Our team chose a <strong>bike-mounted warning system</strong> rather than an infrastructure intervention or a system that required equipment on every car. That kept the concept retrofit-oriented: the cyclist carries the sensing and alert hardware, so the design can operate independently of intersection reconstruction or vehicle adoption.</p>
 
           <div class="decision-grid">
             <div><small>Hazard location</small><strong>Rear / side blind spot</strong><span>A rear-facing camera watches the region from which an overtaking vehicle can become a right-hook threat.</span></div>
-            <div><small>Hazard timing</small><strong>Intersections only</strong><span>GPS is used to determine when the cyclist is at or near an intersection so continuous vision processing is not required for the entire ride.</span></div>
+            <div><small>Hazard timing</small><strong>Intersections only</strong><span>GPS determines when the cyclist is at or near an intersection so continuous vision processing is not required for the entire ride.</span></div>
             <div><small>User interface</small><strong>Alert the cyclist immediately</strong><span>The phone is mounted in front of the rider and provides the warning when the system detects a relevant vehicle.</span></div>
             <div><small>Implementation</small><strong>Retrofit the bicycle</strong><span>Camera, phone, wiring, and fixtures are attached to the bike rather than requiring changes to road infrastructure.</span></div>
           </div>
@@ -116,8 +117,8 @@
         <section class="content-block reveal" id="system">
           <p class="section-kicker">02 · System architecture</p>
           <h2>Use location to decide when vision is worth running</h2>
-          <p>The core design decision was to couple <strong>GPS context</strong> with <strong>computer vision</strong>. Vehicle detection matters most when a cyclist is approaching an intersection, so the system uses location as a gate: near an intersection, the rear camera and OpenCV pipeline monitor the blind-spot region; away from intersections, continuous tracking is unnecessary.</p>
-          <p>This reduced unnecessary processing and battery use while keeping the sensing focused on the scenario the team was actually trying to mitigate.</p>
+          <p>The core system decision was to couple <strong>GPS context</strong> with <strong>computer vision</strong>. Vehicle detection matters most when a cyclist is approaching an intersection, so location acts as a gate: near an intersection, the rear camera and OpenCV pipeline monitor the blind-spot region; away from intersections, continuous tracking is unnecessary.</p>
+          <p>This reduces unnecessary processing and battery use while keeping the sensing focused on the scenario the design is intended to mitigate.</p>
 
           <div class="system-flow" aria-label="Soteria sensing and alert pipeline">
             <div><span class="num">1</span><small>Context</small><strong>GPS intersection gate</strong><p>The app determines whether the cyclist is at or approaching an intersection before enabling the hazard-monitoring workflow.</p></div>
@@ -126,29 +127,45 @@
             <div><span class="num">4</span><small>Alert</small><strong>Phone notification</strong><p>The handlebar-mounted phone provides an immediate warning to the cyclist through the app when the risk condition is detected.</p></div>
           </div>
 
-          <div class="callout"><p><strong>System idea:</strong> sensing is not valuable simply because it can run continuously. GPS narrows the operating window to the location where a right-hook conflict becomes relevant, while computer vision provides the local vehicle awareness GPS cannot.</p></div>
+          <div class="callout"><p><strong>System idea:</strong> GPS supplies context about where the hazard matters; computer vision supplies local awareness of the vehicle itself. Combining the two avoids running the highest-cost sensing continuously.</p></div>
         </section>
 
         <section class="content-block reveal" id="integration">
           <p class="section-kicker">03 · Mechanical &amp; human integration</p>
           <h2>The software only works if the hardware lives on a bicycle</h2>
-          <p>Soteria was not just a vision script. The team also had to package the sensing and warning hardware around an actual rider: the camera needed a stable rear-facing position, the phone needed to remain visible and reachable at the handlebars, and the wiring had to follow the bicycle without interfering with moving parts.</p>
-          <p>The prototype therefore combined the camera module with a rear mounting solution and a front phone fixture. The phone acted as both the rider-facing interface and the connection point for the camera/app workflow.</p>
+          <p>Soteria was not only a vision script. The team also had to package sensing and warning hardware around an actual rider: the camera needed a stable rear-facing position, the phone needed to remain visible and reachable at the handlebars, and the wiring had to follow the bicycle without interfering with moving parts.</p>
+          <p>The prototype combined the camera module with a rear mounting solution and a front phone fixture. The phone acted as the rider-facing interface and the connection point for the camera/app workflow.</p>
 
           <div class="decision-grid">
             <div><small>Camera placement</small><strong>Rear-facing field of view</strong><span>Positioned to observe vehicles approaching from behind and beside the cyclist rather than looking forward.</span></div>
-            <div><small>Phone placement</small><strong>Front, visible, reachable</strong><span>The rider receives the warning without needing to turn around or remove a hand to check a separate device.</span></div>
-            <div><small>Wiring</small><strong>Route around moving interfaces</strong><span>The design work considered attachment and cable routing so the added electronics would not interfere with normal bicycle operation.</span></div>
+            <div><small>Phone placement</small><strong>Front, visible, reachable</strong><span>The rider receives the warning without needing to turn around or check a separate device.</span></div>
+            <div><small>Wiring</small><strong>Route around moving interfaces</strong><span>Attachment and cable routing were considered so the added electronics would not interfere with normal bicycle operation.</span></div>
             <div><small>Modularity</small><strong>Replaceable components</strong><span>The design was treated as an assembly of separable camera, holder, phone, and alert components rather than one monolithic product.</span></div>
           </div>
 
-          <div class="skill-strip"><span>OpenCV</span><span>Computer vision</span><span>GPS gating</span><span>Mobile application</span><span>Bike-mounted prototyping</span><span>Human factors</span><span>Requirements engineering</span><span>Verification testing</span></div>
+          <div class="skill-strip"><span>OpenCV</span><span>Computer vision</span><span>GPS gating</span><span>Mobile application</span><span>Bike-mounted prototyping</span><span>Human factors</span><span>Requirements engineering</span><span>Verification testing</span><span>Design documentation</span></div>
+        </section>
+
+        <section class="content-block reveal" id="process">
+          <p class="section-kicker">04 · Praxis II design process</p>
+          <h2>The deliverable was the reasoning as much as the hardware</h2>
+          <p class="lede">Praxis II placed strong emphasis on showing how an engineering decision was reached—not simply presenting a finished object.</p>
+          <p>For Soteria, that meant documenting the problem evidence, researching existing approaches and standards, translating broad goals such as safety and accessibility into requirements, comparing design directions, justifying component choices, defining verification methods, collecting test data, and communicating limitations. The prototype was one output of that process rather than the entire project.</p>
+
+          <div class="decision-grid">
+            <div><small>Research</small><strong>Build an evidence base</strong><span>Right-hook collision context, existing systems, standards, reaction-time literature, sensing feasibility, and human-alert research were documented before finalizing the design direction.</span></div>
+            <div><small>Requirements</small><strong>Turn goals into measurable criteria</strong><span>Safety, legality, accessibility, detection distance, response time, sound, light, and implementation constraints were converted into explicit evaluation criteria.</span></div>
+            <div><small>Verification</small><strong>Design the test before claiming success</strong><span>Reaction-time and detection-distance procedures were documented with materials, preparation, steps, repetition, and pass/fail logic.</span></div>
+            <div><small>Communication</small><strong>Make the design auditable</strong><span>The final one-pager condensed the system, rationale, integration, and next steps into a visual design artifact while the supporting documentation preserved the detailed reasoning.</span></div>
+          </div>
+
+          <div class="callout"><p><strong>Praxis II takeaway:</strong> a credible engineering design is not just a prototype that works once. It is a traceable chain from problem framing → evidence → requirements → concepts → decisions → verification → documented limitations.</p></div>
         </section>
 
         <section class="content-block reveal" id="requirements">
-          <p class="section-kicker">04 · Requirements engineering</p>
+          <p class="section-kicker">05 · Requirements engineering</p>
           <h2>Translate “make cyclists safer” into things the prototype can be tested against</h2>
-          <p>The team’s requirement framework emphasized reaction time, detection distance, minimizing unnecessary disruption, legality, and accessibility. Two requirements became especially useful because they could be tested quantitatively on the prototype.</p>
+          <p>The team’s framework covered safety, legality, accessibility, and practical implementation. Two requirements were particularly useful for prototype verification because they could be measured directly.</p>
 
           <table class="test-table" aria-label="Soteria key requirements and final prototype results">
             <thead><tr><th>Requirement</th><th>Target</th><th>Final result</th><th>Status</th></tr></thead>
@@ -156,49 +173,52 @@
               <tr><th>Alert-to-response time</th><td>Under 500 ms</td><td>420 ms average across the final reaction-time test</td><td class="pass">Passed</td></tr>
               <tr><th>Vehicle detection distance</th><td>At least 15 m</td><td>25 m minimum across 10 final detection trials</td><td class="pass">Passed</td></tr>
               <tr><th>Implementation</th><td>Bike-mountable and rider-accessible</td><td>Camera and phone integrated directly onto the bicycle prototype</td><td class="pass">Demonstrated</td></tr>
-              <tr><th>Energy use</th><td>Avoid unnecessary continuous processing</td><td>Computer-vision workflow restricted to intersection proximity using GPS context</td><td class="pass">Implemented</td></tr>
             </tbody>
           </table>
+
+          <p>The broader documentation also considered limits on alert sound and light, legal constraints, accessibility, wiring safety, bicycle attachment requirements, and component replaceability. Those considerations helped prevent the team from optimizing detection performance in isolation from the product that a cyclist would actually use.</p>
         </section>
 
         <section class="content-block reveal" id="testing">
-          <p class="section-kicker">05 · Prototype testing</p>
-          <h2>Test the alert pathway without creating the collision scenario</h2>
-          <p>For reaction time, the team used a proxy test rather than putting a cyclist into a real right-hook conflict. Participants watched a riding/driving simulation and responded to a randomly triggered alert by pressing a button. Ten participants completed three trials each; the final average response time was <strong>420 ms</strong>.</p>
-          <p>Detection distance was tested separately. Across ten trials, the prototype detected the target at distances ranging from <strong>25 to 35 m</strong>; the minimum observed distance was <strong>25 m</strong>, exceeding the 15 m requirement.</p>
+          <p class="section-kicker">06 · Prototype verification</p>
+          <h2>Test the requirements that were defined earlier</h2>
+          <p>The verification plan used controlled proxy tests rather than claiming real-world crash prevention. For reaction time, participants responded to the prototype alert while viewing a simulated driving/riding scenario. For detection distance, the camera/detection system was evaluated across repeated vehicle approaches with a predefined distance threshold.</p>
 
           <div class="result-band">
-            <div><strong>420 ms</strong><span>Final average alert-to-response time</span></div>
-            <div><strong>25–35 m</strong><span>Observed detection-distance range</span></div>
-            <div><strong>25 m</strong><span>Minimum detection distance used for pass/fail</span></div>
+            <div><strong>420 ms</strong><span>Average response across the documented reaction-time participants</span></div>
+            <div><strong>25 m</strong><span>Minimum vehicle detection distance across 10 final trials</span></div>
+            <div><strong>10 trials</strong><span>Detection-distance runs used for the final minimum result</span></div>
           </div>
 
-          <div class="scope-note"><h3>What these results demonstrate</h3><p>The tests verify the prototype against the team’s defined proxy requirements. They do not establish real-world collision reduction, false-positive performance across all road environments, or production-level computer-vision robustness. Those would require substantially broader field testing.</p></div>
+          <p>The detection trials ranged from 25 to 35 m. Reporting the <strong>minimum</strong> rather than the best observation kept the comparison conservative against the 15 m requirement. The 420 ms reaction-time average likewise remained below the project’s 500 ms criterion.</p>
+
+          <div class="scope-note"><h3>What these tests do—and do not—show</h3><p>They verify prototype-level response and detection requirements under the documented test conditions. They do not establish a reduction in real-world collision probability, robustness across every lighting/weather condition, production-level computer-vision accuracy, or long-term battery performance.</p></div>
         </section>
 
         <section class="content-block reveal" id="onepager">
-          <p class="section-kicker">06 · Final communication</p>
-          <h2>The complete system on one page</h2>
-          <p>The final project one-pager brings the mechanical layout, computer-vision concept, GPS gating, rider alert, design values, right-hook scenario, and proposed next steps into a single system view.</p>
+          <p class="section-kicker">07 · Design communication</p>
+          <h2>Condensing the process into one system view</h2>
+          <p>The final one-pager communicates the design purpose, bike integration, computer-vision module, GPS activation logic, phone alert, electric horn concept, design values, right-hook scenario, and future improvements. In Praxis II, this communication artifact mattered because the design had to be understandable and defensible beyond the team that built it.</p>
+
           <figure class="one-pager">
-            <img src="../images/soteria-one-pager.webp" width="2048" height="1035" alt="Soteria project one-pager showing the bicycle-mounted camera, GPS system, phone alert, right-hook collision scenario, design values, and next steps" loading="lazy" decoding="async">
-            <figcaption>Final Soteria one-pager from the Praxis II team project. It shows the rear computer-vision camera, GPS-triggered operation, handlebar alert interface, right-hook use case, and physical bicycle integration.</figcaption>
+            <img src="../images/soteria-one-pager.webp" width="2048" height="1035" alt="Soteria final design one-pager showing the bike-mounted computer vision, GPS, phone alert, horn, right-hook collision scenario, design values, and next steps" loading="lazy" decoding="async">
+            <figcaption>Final Soteria one-pager. The numbered callouts connect the physical bike assembly to the sensing, context, alert, and response subsystems while the surrounding panels summarize the design purpose, right-hook scenario, values, and next steps.</figcaption>
           </figure>
         </section>
 
         <section class="content-block reveal" id="reflection">
-          <p class="section-kicker">07 · Limitations &amp; next steps</p>
-          <h2>Move from a working prototype toward a road-ready system</h2>
-          <p>The prototype demonstrated that the sensing, location gating, rider alert, and physical mounting ideas could be integrated into one bike-mounted system. The largest remaining gap is robustness outside a controlled prototype environment.</p>
+          <p class="section-kicker">08 · Limitations &amp; next steps</p>
+          <h2>From course prototype to a more credible field system</h2>
+          <p>The prototype demonstrated the intended architecture and met the two highlighted verification criteria, but substantial work would remain before treating it as a road-ready safety product.</p>
 
           <div class="decision-grid">
-            <div><small>Hardware</small><strong>Wireless, weather-resistant camera</strong><span>Removing the wired phone-camera connection would reduce cable hazards and make the package easier to install on different bicycles.</span></div>
-            <div><small>Alerts</small><strong>Broader haptic / visual feedback</strong><span>A vibrating wearable or stronger external alert could complement the phone and improve accessibility without forcing the rider to watch a screen.</span></div>
-            <div><small>Vision</small><strong>False-positive / false-negative testing</strong><span>Road-ready computer vision would need evaluation across lighting, weather, vehicle types, occlusion, and different intersection geometries.</span></div>
-            <div><small>Location</small><strong>More robust intersection triggering</strong><span>GPS gating would benefit from tuned geofences and additional context so processing starts early enough without running unnecessarily for long periods.</span></div>
+            <div><small>Camera</small><strong>Move toward a wireless, weather-resistant module</strong><span>This would reduce cable routing around the bicycle and lower dependence on the phone for camera power/connectivity.</span></div>
+            <div><small>Alerts</small><strong>Add redundant feedback channels</strong><span>External lighting or a wearable/haptic alert could complement the phone and improve accessibility.</span></div>
+            <div><small>Computer vision</small><strong>Validate across real operating conditions</strong><span>Lighting, occlusion, weather, different vehicle classes, false positives, and false negatives would need structured field testing.</span></div>
+            <div><small>Energy</small><strong>Measure the benefit of GPS gating</strong><span>The design rationale is to reduce unnecessary processing near non-intersection road segments; battery testing would quantify that benefit.</span></div>
           </div>
 
-          <div class="callout"><p><strong>Takeaway:</strong> Soteria became a systems-design problem: sensing alone was not enough. The useful prototype came from connecting computer vision, location context, a mobile interface, physical mounting, requirements, and verification into one rider-facing workflow.</p></div>
+          <div class="callout"><p><strong>Engineering takeaway:</strong> Soteria was valuable because it connected software, sensing, mechanical integration, human factors, requirements, testing, and documentation in one design process. The final prototype mattered, but the stronger lesson was learning to make each decision traceable to evidence and a verification plan.</p></div>
         </section>
 
         <nav class="project-nav"><a href="../engineering-projects.html">← All projects</a><a href="#top">Back to top ↑</a></nav>
