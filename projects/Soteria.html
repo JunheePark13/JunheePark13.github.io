@@ -3,63 +3,208 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Soteria Cycling Safety System project by Junhee Park" />
+  <meta name="description" content="Soteria, a Praxis II cycling-safety prototype combining rear-facing computer vision, GPS-gated detection, mobile alerts, and bike-mounted hardware to address right-hook collision risk." />
   <title>Soteria Cycling Safety System | Junhee Park</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css" />
   <script src="../script.js" defer></script>
+  <style>
+    .soteria-page{--soteria:#b8dcff}
+    .soteria-page .project-copy{max-width:900px}
+    .metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:32px 0 0}
+    .metric-grid>div{background:var(--surface);padding:19px;min-height:108px}
+    .metric-grid strong{display:block;font:600 clamp(22px,2.8vw,32px) Manrope,sans-serif;letter-spacing:-.04em;color:var(--text)}
+    .metric-grid span{display:block;margin-top:6px;color:var(--muted);font-size:10px;line-height:1.45;text-transform:uppercase;letter-spacing:.08em}
+    .system-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:28px 0}
+    .system-flow>div{position:relative;background:var(--surface);padding:21px 18px;min-height:180px}
+    .system-flow small{display:block;color:var(--blue-soft);font-size:9px;text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}
+    .system-flow strong{display:block;font:600 17px Manrope,sans-serif;color:var(--text);line-height:1.35}
+    .system-flow p{font-size:11px!important;line-height:1.6!important;color:var(--muted)!important;margin:8px 0 0!important}
+    .system-flow .num{position:absolute;right:14px;top:14px;font:600 11px Manrope,sans-serif;color:#111;background:var(--blue-soft);width:25px;height:25px;border-radius:50%;display:grid;place-items:center}
+    .section-kicker{font-size:10px!important;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)!important;margin-bottom:8px!important}
+    .lede{font-size:18px!important;line-height:1.6}
+    .decision-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:24px 0}
+    .decision-grid>div{background:var(--surface);padding:20px}
+    .decision-grid small{display:block;color:var(--blue-soft);font-size:9px;text-transform:uppercase;letter-spacing:.1em;margin-bottom:7px}
+    .decision-grid strong{display:block;color:var(--text);font-size:14px;line-height:1.45}
+    .decision-grid span{display:block;color:var(--muted);font-size:11px;line-height:1.6;margin-top:7px}
+    .test-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:12px;color:#c5ccd5}
+    .test-table th,.test-table td{padding:12px 11px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+    .test-table thead th{background:var(--surface);color:var(--text);font-size:10px;text-transform:uppercase;letter-spacing:.08em}
+    .test-table tbody th{width:24%;background:rgba(14,17,22,.65);color:var(--text);font-weight:600}
+    .test-table td{background:rgba(14,17,22,.36)}
+    .pass{color:#c7f6d0;font-weight:600}
+    .result-band{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:24px 0}
+    .result-band>div{background:var(--surface);padding:20px}
+    .result-band strong{display:block;color:var(--text);font:600 25px Manrope,sans-serif;letter-spacing:-.03em}
+    .result-band span{display:block;margin-top:6px;color:var(--muted);font-size:10px;line-height:1.5;text-transform:uppercase;letter-spacing:.07em}
+    .callout{border-left:2px solid var(--blue);background:rgba(90,169,255,.06);padding:18px 20px;margin:24px 0}
+    .callout p{margin:0!important}
+    .one-pager{margin:28px 0;border:1px solid var(--line);background:#f9f7e9;overflow:hidden}
+    .one-pager img{display:block;width:100%;height:auto}
+    .one-pager figcaption{padding:12px 14px;color:var(--muted);font-size:11px;line-height:1.55;border-top:1px solid var(--line);background:var(--surface)}
+    .skill-strip{display:flex;flex-wrap:wrap;gap:7px;margin:22px 0}
+    .skill-strip span{border:1px solid var(--line);background:var(--surface);padding:7px 9px;font-size:10px;color:#c7ced7}
+    .scope-note{border:1px solid var(--line);background:rgba(14,17,22,.6);padding:20px;margin:24px 0}
+    .scope-note h3{font-size:14px;margin:0 0 8px;color:var(--text)}
+    .scope-note p{font-size:11px!important;margin:0!important;color:var(--muted)!important}
+    @media(max-width:800px){.metric-grid,.system-flow{grid-template-columns:1fr 1fr}}
+    @media(max-width:620px){.metric-grid,.system-flow,.decision-grid,.result-band{grid-template-columns:1fr}.metric-grid>div,.system-flow>div{min-height:auto}.test-table{font-size:10px}.test-table th,.test-table td{padding:9px 7px}}
+  </style>
 </head>
-<body class="project-page" id="top">
+<body class="project-page soteria-page" id="top">
   <div class="scroll-progress" aria-hidden="true"></div>
   <header class="site-header">
-    <nav class="nav container">
+    <nav class="nav container" aria-label="Main navigation">
       <a class="brand" href="../index.html"><span class="brand-mark">JP</span><span>Junhee Park</span></a>
       <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
-      <div class="nav-links"><a href="../engineering-projects.html">All projects</a><a href="../index.html#about">Contact</a></div>
+      <div class="nav-links"><a href="../research.html">Research</a><a href="../teams.html">Teams</a><a class="active" href="../engineering-projects.html">Projects</a><a href="../extracurriculars.html">Extracurriculars</a><a href="../index.html#about">About</a></div>
     </nav>
   </header>
+
   <main>
     <section class="project-hero container reveal">
       <a class="project-breadcrumb" href="../engineering-projects.html">← Back to projects</a>
-      <p class="eyebrow" style="margin-top:50px"><span></span>Coursework · Product design</p>
+      <p class="eyebrow" style="margin-top:50px"><span></span>Praxis II · Team design project</p>
       <h1>Soteria Cycling Safety System</h1>
-      <p class="project-summary">A team-developed prototype exploring cyclist awareness and collision-risk reduction through sensing, physical integration, and user-centred design.</p>
+      <p class="project-summary">A bike-mounted right-hook warning prototype that combines a rear-facing camera, OpenCV-based vehicle detection, GPS intersection gating, a mobile application, and physical phone/camera mounts to alert cyclists when a vehicle enters the blind-spot region near an intersection.</p>
+
       <div class="project-facts">
-        <div><span>Timeline</span><strong>2024</strong></div>
-        <div><span>Role</span><strong>Design team member</strong></div>
-        <div><span>Tools</span><strong>CAD · prototyping · computer vision</strong></div>
-        <div><span>Status</span><strong>Page in development</strong></div>
+        <div><span>Course</span><strong>Engineering Science · Praxis II</strong></div>
+        <div><span>Project</span><strong>Team-developed prototype</strong></div>
+        <div><span>Stack</span><strong>OpenCV · GPS · mobile app · prototyping</strong></div>
+        <div><span>Focus</span><strong>Right-hook collision awareness</strong></div>
+      </div>
+
+      <div class="metric-grid" aria-label="Soteria prototype highlights">
+        <div><strong>420 ms</strong><span>Average alert-to-response time</span></div>
+        <div><strong>25 m</strong><span>Minimum detection distance in final test</span></div>
+        <div><strong>15 m</strong><span>Original minimum-distance requirement</span></div>
+        <div><strong>GPS-gated</strong><span>Vision activated near intersections</span></div>
       </div>
     </section>
+
     <div class="project-body container">
       <aside class="project-sidebar">
         <p class="eyebrow"><span></span>Contents</p>
-        <a href="#overview">01 · Overview</a>
-        <a href="#challenge">02 · Engineering challenge</a>
-        <a href="#approach">03 · Approach</a>
-        <a href="#results">04 · Results</a>
-        <a href="#reflection">05 · Reflection</a>
+        <a href="#problem">01 · Right-hook problem</a>
+        <a href="#system">02 · System architecture</a>
+        <a href="#integration">03 · Bike integration</a>
+        <a href="#requirements">04 · Requirements</a>
+        <a href="#testing">05 · Testing</a>
+        <a href="#onepager">06 · Final one-pager</a>
+        <a href="#reflection">07 · Limitations &amp; next steps</a>
       </aside>
+
       <article class="project-copy">
-        <section class="content-block reveal" id="overview">
-          <h2>Overview</h2>
-          <p>This page is intentionally structured as a concise engineering case study. Replace this text with the project context, your specific responsibilities, and the outcome.</p>
-          <div class="placeholder-note">Content placeholder — update the technical claims, dates, collaborators, and quantitative results before publishing.</div>
-          <div class="project-gallery">
-            <figure><img src="../images/Jig.png" alt="Prototype or manufacturing fixture." loading="lazy"><figcaption>Prototype or manufacturing fixture.</figcaption></figure>
-            <figure><img src="../images/Front View.jpg" alt="Front view of a physical prototype or assembly." loading="lazy"><figcaption>Front view of a physical prototype or assembly.</figcaption></figure>
+        <section class="content-block reveal" id="problem">
+          <p class="section-kicker">01 · Problem framing</p>
+          <h2>Targeting the moment a cyclist cannot easily see</h2>
+          <p class="lede">Soteria focused on right-hook collisions: a vehicle travels beside or slightly behind a cyclist, enters the cyclist’s blind spot, and then turns right across the cyclist’s path at an intersection.</p>
+          <p>The team chose a <strong>bike-mounted warning system</strong> rather than an infrastructure intervention or a system that required equipment on every car. That kept the concept retrofit-oriented: the cyclist carries the sensing and alert hardware, so the design can operate independently of intersection reconstruction or vehicle adoption.</p>
+
+          <div class="decision-grid">
+            <div><small>Hazard location</small><strong>Rear / side blind spot</strong><span>A rear-facing camera watches the region from which an overtaking vehicle can become a right-hook threat.</span></div>
+            <div><small>Hazard timing</small><strong>Intersections only</strong><span>GPS is used to determine when the cyclist is at or near an intersection so continuous vision processing is not required for the entire ride.</span></div>
+            <div><small>User interface</small><strong>Alert the cyclist immediately</strong><span>The phone is mounted in front of the rider and provides the warning when the system detects a relevant vehicle.</span></div>
+            <div><small>Implementation</small><strong>Retrofit the bicycle</strong><span>Camera, phone, wiring, and fixtures are attached to the bike rather than requiring changes to road infrastructure.</span></div>
           </div>
         </section>
-        <section class="content-block reveal" id="challenge"><h2>Engineering challenge</h2><p>Describe the physical or design problem, the constraints that made it non-trivial, and the criteria used to judge success.</p></section>
-        <section class="content-block reveal" id="approach"><h2>Approach</h2><p>Explain the modelling, design, experimental, or computational workflow. Focus on engineering decisions and why each method was selected.</p></section>
-        <section class="content-block reveal" id="results"><h2>Results & validation</h2><p>Present the most important results with figures, quantitative comparisons, and limitations. Distinguish measured outcomes from interpretation.</p></section>
-        <section class="content-block reveal" id="reflection"><h2>Reflection & next steps</h2><p>Summarize what was learned, what you would change, and the next technical step. Avoid generic conclusions; connect the reflection to the project evidence.</p></section>
-        <nav class="project-nav"><a href="../engineering-projects.html">← All projects</a><a href="../index.html#about">Contact ↗</a></nav>
+
+        <section class="content-block reveal" id="system">
+          <p class="section-kicker">02 · System architecture</p>
+          <h2>Use location to decide when vision is worth running</h2>
+          <p>The core design decision was to couple <strong>GPS context</strong> with <strong>computer vision</strong>. Vehicle detection matters most when a cyclist is approaching an intersection, so the system uses location as a gate: near an intersection, the rear camera and OpenCV pipeline monitor the blind-spot region; away from intersections, continuous tracking is unnecessary.</p>
+          <p>This reduced unnecessary processing and battery use while keeping the sensing focused on the scenario the team was actually trying to mitigate.</p>
+
+          <div class="system-flow" aria-label="Soteria sensing and alert pipeline">
+            <div><span class="num">1</span><small>Context</small><strong>GPS intersection gate</strong><p>The app determines whether the cyclist is at or approaching an intersection before enabling the hazard-monitoring workflow.</p></div>
+            <div><span class="num">2</span><small>Sense</small><strong>Rear-facing camera</strong><p>A camera mounted behind the rider looks toward adjacent traffic in the cyclist’s blind-spot region.</p></div>
+            <div><span class="num">3</span><small>Interpret</small><strong>OpenCV vehicle detection</strong><p>The vision pipeline identifies vehicles in the camera view and communicates a detection to the mobile application.</p></div>
+            <div><span class="num">4</span><small>Alert</small><strong>Phone notification</strong><p>The handlebar-mounted phone provides an immediate warning to the cyclist through the app when the risk condition is detected.</p></div>
+          </div>
+
+          <div class="callout"><p><strong>System idea:</strong> sensing is not valuable simply because it can run continuously. GPS narrows the operating window to the location where a right-hook conflict becomes relevant, while computer vision provides the local vehicle awareness GPS cannot.</p></div>
+        </section>
+
+        <section class="content-block reveal" id="integration">
+          <p class="section-kicker">03 · Mechanical &amp; human integration</p>
+          <h2>The software only works if the hardware lives on a bicycle</h2>
+          <p>Soteria was not just a vision script. The team also had to package the sensing and warning hardware around an actual rider: the camera needed a stable rear-facing position, the phone needed to remain visible and reachable at the handlebars, and the wiring had to follow the bicycle without interfering with moving parts.</p>
+          <p>The prototype therefore combined the camera module with a rear mounting solution and a front phone fixture. The phone acted as both the rider-facing interface and the connection point for the camera/app workflow.</p>
+
+          <div class="decision-grid">
+            <div><small>Camera placement</small><strong>Rear-facing field of view</strong><span>Positioned to observe vehicles approaching from behind and beside the cyclist rather than looking forward.</span></div>
+            <div><small>Phone placement</small><strong>Front, visible, reachable</strong><span>The rider receives the warning without needing to turn around or remove a hand to check a separate device.</span></div>
+            <div><small>Wiring</small><strong>Route around moving interfaces</strong><span>The design work considered attachment and cable routing so the added electronics would not interfere with normal bicycle operation.</span></div>
+            <div><small>Modularity</small><strong>Replaceable components</strong><span>The design was treated as an assembly of separable camera, holder, phone, and alert components rather than one monolithic product.</span></div>
+          </div>
+
+          <div class="skill-strip"><span>OpenCV</span><span>Computer vision</span><span>GPS gating</span><span>Mobile application</span><span>Bike-mounted prototyping</span><span>Human factors</span><span>Requirements engineering</span><span>Verification testing</span></div>
+        </section>
+
+        <section class="content-block reveal" id="requirements">
+          <p class="section-kicker">04 · Requirements engineering</p>
+          <h2>Translate “make cyclists safer” into things the prototype can be tested against</h2>
+          <p>The team’s requirement framework emphasized reaction time, detection distance, minimizing unnecessary disruption, legality, and accessibility. Two requirements became especially useful because they could be tested quantitatively on the prototype.</p>
+
+          <table class="test-table" aria-label="Soteria key requirements and final prototype results">
+            <thead><tr><th>Requirement</th><th>Target</th><th>Final result</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><th>Alert-to-response time</th><td>Under 500 ms</td><td>420 ms average across the final reaction-time test</td><td class="pass">Passed</td></tr>
+              <tr><th>Vehicle detection distance</th><td>At least 15 m</td><td>25 m minimum across 10 final detection trials</td><td class="pass">Passed</td></tr>
+              <tr><th>Implementation</th><td>Bike-mountable and rider-accessible</td><td>Camera and phone integrated directly onto the bicycle prototype</td><td class="pass">Demonstrated</td></tr>
+              <tr><th>Energy use</th><td>Avoid unnecessary continuous processing</td><td>Computer-vision workflow restricted to intersection proximity using GPS context</td><td class="pass">Implemented</td></tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="content-block reveal" id="testing">
+          <p class="section-kicker">05 · Prototype testing</p>
+          <h2>Test the alert pathway without creating the collision scenario</h2>
+          <p>For reaction time, the team used a proxy test rather than putting a cyclist into a real right-hook conflict. Participants watched a riding/driving simulation and responded to a randomly triggered alert by pressing a button. Ten participants completed three trials each; the final average response time was <strong>420 ms</strong>.</p>
+          <p>Detection distance was tested separately. Across ten trials, the prototype detected the target at distances ranging from <strong>25 to 35 m</strong>; the minimum observed distance was <strong>25 m</strong>, exceeding the 15 m requirement.</p>
+
+          <div class="result-band">
+            <div><strong>420 ms</strong><span>Final average alert-to-response time</span></div>
+            <div><strong>25–35 m</strong><span>Observed detection-distance range</span></div>
+            <div><strong>25 m</strong><span>Minimum detection distance used for pass/fail</span></div>
+          </div>
+
+          <div class="scope-note"><h3>What these results demonstrate</h3><p>The tests verify the prototype against the team’s defined proxy requirements. They do not establish real-world collision reduction, false-positive performance across all road environments, or production-level computer-vision robustness. Those would require substantially broader field testing.</p></div>
+        </section>
+
+        <section class="content-block reveal" id="onepager">
+          <p class="section-kicker">06 · Final communication</p>
+          <h2>The complete system on one page</h2>
+          <p>The final project one-pager brings the mechanical layout, computer-vision concept, GPS gating, rider alert, design values, right-hook scenario, and proposed next steps into a single system view.</p>
+          <figure class="one-pager">
+            <img src="../images/soteria-one-pager.webp" width="2048" height="1035" alt="Soteria project one-pager showing the bicycle-mounted camera, GPS system, phone alert, right-hook collision scenario, design values, and next steps" loading="lazy" decoding="async">
+            <figcaption>Final Soteria one-pager from the Praxis II team project. It shows the rear computer-vision camera, GPS-triggered operation, handlebar alert interface, right-hook use case, and physical bicycle integration.</figcaption>
+          </figure>
+        </section>
+
+        <section class="content-block reveal" id="reflection">
+          <p class="section-kicker">07 · Limitations &amp; next steps</p>
+          <h2>Move from a working prototype toward a road-ready system</h2>
+          <p>The prototype demonstrated that the sensing, location gating, rider alert, and physical mounting ideas could be integrated into one bike-mounted system. The largest remaining gap is robustness outside a controlled prototype environment.</p>
+
+          <div class="decision-grid">
+            <div><small>Hardware</small><strong>Wireless, weather-resistant camera</strong><span>Removing the wired phone-camera connection would reduce cable hazards and make the package easier to install on different bicycles.</span></div>
+            <div><small>Alerts</small><strong>Broader haptic / visual feedback</strong><span>A vibrating wearable or stronger external alert could complement the phone and improve accessibility without forcing the rider to watch a screen.</span></div>
+            <div><small>Vision</small><strong>False-positive / false-negative testing</strong><span>Road-ready computer vision would need evaluation across lighting, weather, vehicle types, occlusion, and different intersection geometries.</span></div>
+            <div><small>Location</small><strong>More robust intersection triggering</strong><span>GPS gating would benefit from tuned geofences and additional context so processing starts early enough without running unnecessarily for long periods.</span></div>
+          </div>
+
+          <div class="callout"><p><strong>Takeaway:</strong> Soteria became a systems-design problem: sensing alone was not enough. The useful prototype came from connecting computer vision, location context, a mobile interface, physical mounting, requirements, and verification into one rider-facing workflow.</p></div>
+        </section>
+
+        <nav class="project-nav"><a href="../engineering-projects.html">← All projects</a><a href="#top">Back to top ↑</a></nav>
       </article>
     </div>
   </main>
-  <footer class="footer container"><span>© <span id="year"></span> Junhee Park</span><a href="#top">Back to top ↑</a></footer>
+  <footer class="footer container"><span>© <span id="year"></span> Junhee Park</span><a href="../index.html">Home ↑</a></footer>
 </body>
 </html>
